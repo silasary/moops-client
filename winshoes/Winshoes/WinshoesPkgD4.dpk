@@ -1,0 +1,88 @@
+//
+// Winshoes 7.038
+// Generated on 1/14/00 @ 10:46:45 PM by Winshoes Package Generator
+//
+
+package WinshoesPkgD4;
+
+{$R *.RES}
+{$R Winshoes.dcr}
+{$ALIGN ON}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS ON}
+{$RANGECHECKS ON}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $00400000}
+{$DESCRIPTION 'Winshoes for D4'}
+{$IMPLICITBUILD ON}
+
+requires
+  vcl40, vclx40;
+
+contains
+  Winshoes in 'Winshoes.pas',
+  HTTPWinshoe in 'HTTPWinshoe.pas',
+  NNTPWinshoe in 'NNTPWinshoe.pas',
+  POP3Winshoe in 'POP3Winshoe.pas',
+  SMTPWinshoe in 'SMTPWinshoe.pas',
+  WinshoeMessage in 'WinshoeMessage.pas',
+  TelnetWinshoe in 'TelnetWinshoe.pas',
+  WinshoePing in 'WinshoePing.pas',
+  UDPWinshoe in 'UDPWinshoe.pas',
+  WinshoeDNSResolver in 'WinshoeDNSResolver.pas',
+  SSLSupportWinshoes in 'SSLSupportWinshoes.pas',
+  MySSLWinshoe in 'MySSLWinshoe.pas',
+  ServerWinshoe in 'ServerWinshoe.pas',
+  ServerWinshoeTunnel in 'ServerWinshoeTunnel.pas',
+  ServerWinshoeDaytime in 'ServerWinshoeDaytime.pas',
+  ServerWinshoeDiscard in 'ServerWinshoeDiscard.pas',
+  ServerWinshoeEcho in 'ServerWinshoeEcho.pas',
+  ServerWinshoeChargen in 'ServerWinshoeChargen.pas',
+  ServerWinshoeTelnet in 'ServerWinshoeTelnet.pas',
+  ServerWinshoeHTTP in 'ServerWinshoeHTTP.pas',
+  ServerWinshoeNNTP in 'ServerWinshoeNNTP.pas',
+  ServerWinshoeSMTP in 'ServerWinshoeSMTP.pas',
+  ServerWinshoePOP3 in 'ServerWinshoePOP3.pas',
+  serverWinshoeFinger in 'serverWinshoeFinger.pas',
+  ServerWinshoeGopher in 'ServerWinshoeGopher.pas',
+  ServerWinshoeHostname in 'ServerWinshoeHostname.pas',
+  ServerWinshoeIMAP4 in 'ServerWinshoeIMAP4.pas',
+  ServerWinshoeIrc in 'ServerWinshoeIrc.pas',
+  ServerWinshoeQotd in 'ServerWinshoeQotd.pas',
+  ServerWinshoeTime in 'ServerWinshoeTime.pas',
+  ServerWinshoeWhois in 'ServerWinshoeWhois.pas',
+  ServerWinshoeDICT in 'ServerWinshoeDICT.pas',
+  ServerWinshoeLPD in 'ServerWinshoeLPD.pas',
+  WinshoeSMTPServerRelay in 'WinshoeSMTPServerRelay.pas',
+  WinshoeGUIIntegrator in 'WinshoeGUIIntegrator.pas',
+  WinsockIntf in 'WinsockIntf.pas',
+  EncodeWinshoe in 'EncodeWinshoe.pas',
+  IPWatchWinshoe in 'IPWatchWinshoe.pas',
+  MappedPortWinshoe in 'MappedPortWinshoe.pas',
+  WinShoeWatchFwdDir in 'WinShoeWatchFwdDir.pas',
+  MappedPortUDPWinshoe in 'MappedPortUDPWinshoe.pas',
+  SNTPWinshoe in 'SNTPWinshoe.pas',
+  WhoIsWinshoe in 'WhoIsWinshoe.pas',
+  FileIO in 'FileIO.pas',
+  GlobalWinshoe in 'GlobalWinshoe.pas',
+  StringsWinshoe in 'StringsWinshoe.pas',
+  SystemWinshoe in 'SystemWinshoe.pas',
+  ThreadWinshoe in 'ThreadWinshoe.pas';
+
+
+end.

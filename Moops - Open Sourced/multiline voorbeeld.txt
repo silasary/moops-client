@@ -1,0 +1,25 @@
+Dit stuurt de server bij openen:
+#$#dns-nu-beryllium-edit-open 1234 name: "me:zegblaat" type: verb contents*: "" _data-tag: abcd
+#$#* abcd contents: Dit is dan
+#$#* abcd contents: de inhoud van 't scrippie enzo
+#$#: abcd
+Of bij een error:
+#$#dns-nu-beryllium-edit-open 1234 name: "me:zegblaat" type: error reason: "Permission denied"
+
+Als je wilt saven:
+#$#dns-nu-beryllium-edit-save 1234 name: "me:zegblaat" type: verb contents*: "" _data-tag: abcd
+#$#* abcd contents: Dit is dan de
+#$#* abcd contents: NIEUWE inhoud van 't scrippie enzo
+#$#: abcd
+
+Waarna de server antwoord met:
+#$#dns-nu-beryllium-edit-save 1234 name: "me:zegblaat" type: ok
+of bij een fout:
+#$#dns-nu-beryllium-edit-save 1234 name: "me:zegblaat" type: error reason: "Error on line 1: parse error"
+
+Of misschien zelfs wel:
+#$#dns-nu-beryllium-edit-save 1234 name: "me:zegblaat" type: error reason*: "" _data-tag: abcd
+#$#* abcd reason: Error on line 1:
+#$#* abcd reason: Parse error: method not found
+#$#: abcd
+... om maar ff een voorbeeldje van een foutmelding te noemen.

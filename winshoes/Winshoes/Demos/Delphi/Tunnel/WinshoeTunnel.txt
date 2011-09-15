@@ -1,0 +1,114 @@
+         
+
+                Mini documentation for WinshoeTunnel Components
+
+
+Author
+=================
+Gregor Ibic, 
+Intelicom d.o.o.
+Garibaldijeva 9
+6000 Koper
+Slovenia
+
+Contact info
+=================
+gregor.ibic@intelicom-sp.si
+http://members.xoom.com/intelicom     
+	       
+Date and version
+=================
+5.8.1999
+ver: 1.0b
+
+
+
+WinshoeTunnel Components are composed from two components, one is SlaveTunnel and
+the other is MasterTunnel. They don't have Winshoe appended in front cause it get
+a very long name. I you think that I must append Winshoe then let me know.
+So, tunneling is the process where we pass many connections through a single one.
+It is primarly done in VPNs (Virtual private networks) for encryption of sensitive
+data. That was my reason also. I developed a secure encrypted Tunnel also with data
+compression. But thats another story...
+So, we have two pieces a Slave and a Master. Clients like browsers and ftp clients 
+connect to the Slave and then they are routed through a single connection to the
+Master. Master demultiplexes that stream of data, processes the requests and send
+data back to the Slave part. Slave part demultiplexes data and sends data to clients.
+And everyone is happy.
+
+
+Usage
+
+You can use WinshoeTunnel Components to create a bounded tunnel, that is bounded
+to a single service application on the Master side or you can use it like a Socks
+Deamon tunneling router. You can connect many Slaves to one Master, and you can
+connect many clients to a Slave. I tested with a hundereds, but it may become 
+unstable with over 100 clients because of the nature of Windows TCP stack. If you
+test it on a single machine connections double!
+
+
+Parameters
+
+MasterTunnel
+=======================
+Port: 9000     
+It must be 9000. This is the port on which tunnel runs. I can't 
+hide this property, but you should not modify it.
+
+LockDestination
+If you lock destination, then only allowed application host is determined
+by MappedHost and MappedPort properties.
+
+MappedHost      If you lock destination, clients get to this host.
+
+MappedPort      If you lock destination, clients get to this port.
+
+
+SlaveTunnel
+=======================
+MasterHost      The host where the MasterTunnel runs.
+
+Port            Port on which SlaveTunnel accepts connections.
+
+Socks4          If SlaveTunnel should run like a Socks4 Deamon turn this property
+                to True.
+
+
+Attention!!!
+
+You must first run MasterTunnel and then SlaveTunnel to get some results.
+
+
+  DESCLAIMER
+
+  Tunnel components module
+  Copyright (C) 1999 Gregor Ibic (gregor.ibic@intelicom-sp.si)
+  All rights reserved.
+
+  This package is an Tunnel implementation written
+  by Gregor Ibic (gregor.ibic@intelicom-sp.si).
+
+  This software is provided 'as-is', without any express or
+  implied warranty. In no event will the author be held liable
+  for any damages arising from the use of this software.
+
+  Permission is granted to anyone to use this software for any
+  purpose, including commercial applications, and to alter it
+  and redistribute it freely, subject to the following
+  restrictions:
+
+  1. The origin of this software must not be misrepresented,
+     you must not claim that you wrote the original software.
+     If you use this software in a product, an acknowledgment
+     in the product documentation would be appreciated but is
+     not required.
+
+  2. Altered source versions must be plainly marked as such, and
+     must not be misrepresented as being the original software.
+
+  3. This notice may not be removed or altered from any source
+     distribution.
+
+
+Good luck!
+Gregor

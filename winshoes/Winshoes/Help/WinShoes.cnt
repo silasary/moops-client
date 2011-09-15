@@ -1,0 +1,38 @@
+:Base WinShoes.hlp>Main
+:Title WinShoes
+1 Welcome!=IDH_Welcome
+1 Introduction
+2 Installation instructions=J_2
+2 How to use this manual=IDH_J_10
+2 Getting started=IDH_J_11
+1 Contact and Product Information
+2 About WinShoes=IDH_Anym_2B4H3_4F
+2 About Time2HELP=IDH_Anym_2B4H3_4G
+2 Technical Support=J_8
+2 Problem / Bug Reporting=J_9
+2 Known Issues=IDH_Anym_2B4H3_4H
+2 Related Resources=IDH_Anym_2B4H3_4I
+1 Components
+2 TWinShoeNNTP=IDH_Class_TWinShoeNNTP
+2 TWinShoePOP3=IDH_Class_TWinShoePOP3
+2 TWinShoeMessage=IDH_Class_TWinShoeMessage
+2 TWinShoeTelnet=IDH_Class_TWinShoeTelnet
+2 TWinShoeUDPClient=IDH_Class_TWinShoeUDPClient
+2 TWinShoeUDPListener=IDH_Class_TWinShoeUDPListener
+2 TWinShoeDayTimeListener=IDH_Class_TWinShoeDayTimeListener
+2 TWinShoeDiscardListener=IDH_Class_TWinShoeDiscardListener
+2 TWinShoeECHOListener=IDH_Class_TWinShoeECHOListener
+2 TWinShoeCHARGENListener=IDH_Class_TWinShoeCHARGENListener
+2 TWinShoeTelnetListener=IDH_Class_TWinShoeTelnetListener
+2 TWinShoeHTTPListener=IDH_Class_TWinShoeHTTPListener
+2 TWinShoeNNTPListener=IDH_Class_TWinShoeNNTPListener
+2 TWinShoeIPWatch=IDH_Class_TWinShoeIPWatch
+2 TWinShoeCoder=IDH_Class_TWinShoeCoder
+2 TWinShoeClient=IDH_Class_TWinShoeClient
+2 TWinShoeListener=IDH_Class_TWinShoeListener
+2 TWinShoeMappedPort=IDH_Class_TWinShoeMappedPort
+2 TSimpleFTP=IDH_Class_TSimpleFTP
+2 TSimpleHTTP=IDH_Class_TSimpleHTTP
+2 TWinInetControl=IDH_Class_TWinInetControl
+1 Legal information
+2 License, copyright and disclaimer=IDH_LegalInformation

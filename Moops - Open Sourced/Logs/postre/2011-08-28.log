@@ -1,0 +1,166 @@
+# % Connecting...
+# % Connected
+# % Login data sent
+>   ______             __              _______ _______ _______ 
+>  |   __ |-----.-----|  |_.----.-----|   |   |       |       |
+>  |    __|  _  |__ --|   _|   _|  -__|       |   -   |   -   |
+>  |___|  |_____|_____|____|__| |_____|__|_|__|_______|_______|
+> 
+>  Welcome to PostreMOO. Following commands are available:
+> 
+>   connect <username> <password> :: to login with your account.    
+>   create <username> <password>  :: to create a new account.      
+>   who                           :: to see who is currently online. 
+>   staff                         :: to see a list of our staff members. 
+>   uptime                        :: to see the server's uptime.     
+>   quit                          :: kills the current connection.   
+> 
+>             There are currently 5 users online.                           
+> 
+>  First time users please type: create <username> <password>  
+> 
+> *** Connected ***
+< #$#mcp authentication-key: T{R~q[ version: 2.1 to: 2.1
+< #$#mcp-negotiate-can T{R~q[ package: mcp-negotiate min-version: 1.0 max-version: 2.0
+< #$#mcp-negotiate-can T{R~q[ package: dns-com-awns-status min-version: 1.0 max-version: 1.0
+< #$#mcp-negotiate-can T{R~q[ package: dns-net-beryllium-status min-version: 1.0 max-version: 1.0
+< #$#mcp-negotiate-can T{R~q[ package: dns-com-vmoo-client min-version: 1.0 max-version: 1.0
+< #$#mcp-negotiate-can T{R~q[ package: dns-com-vmoo-userlist min-version: 1.0 max-version: 1.1
+< #$#mcp-negotiate-end T{R~q[
+> [15:38][%][Login] connected: camel, Total: 6
+> [15:38][M][Mail] There is new mail on the following lists:
+> [15:38][M][Mail]     *Daedalus (#810)                     1 new message
+> [15:38][M][Mail]     *Changelog (#145)                    2 new messages
+> [15:38][%][Login] Last connected Wed Aug 24 01:47:30 2011 UTC from 125.209.150.64
+> --- The Town Hall - Reception --------------------------------------------------------------------------------------------------- The Town Hall ---
+> Welcome to the reception. This room is the portal to the world of PostreMOO, it is also the starting point for guests and many players.
+> 
+> It is a big room with a reception desk, the walls are painted in a neutral white colour. In the corner of the room, a tour-operator sits quietly in his kiosk.
+> 
+> You see Christina [fortune teller] and a bean bag here.
+> beryllium, Kamahl, and R4000 are standing here.
+> Obvious exits:
+>    [WEST] to The Town Hall - Gardens
+< #$#dns-com-vmoo-client-info T{R~q[ name: "Moops!" text-version: "1.3.1.285" internal-version: "131285" reg-id: 0 flags: lm
+< #$#dns-com-vmoo-client-screensize T{R~q[ cols: 160 rows: 50
+< #$#dns-com-vmoo-client-screensize T{R~q[ cols: 147 rows: 50
+< #$#dns-net-beryllium-status-msg_get T{R~q[ type: update from: 0
+> beryllium smiles, "it would prolly look cool indeed :)"
+> [15:38][+][Social] Current Topic: Paradoxs in time and logic (set by ObsidianG[asleep]).
+> R4000 asks, "http://www.ledsee.com/index.php?page=shop.product_details&flypage=flypage-ask.tpl&product_id=78&category_id=40&keyword=UV&option=com_virtuemart&Itemid=1&b316028d91ce3afdbb3c0cc83c49b7e3=5e0ee0b6323622a394ad666a2b884888"
+> R4000 says, "i think they'll do"
+> R4000 says, "ill have to build a defuser lens"
+> beryllium smiles, "but you'll probably needs LOTS of them :)"
+> R4000 says, "yup"
+# % Connecting...
+# % Connected
+# % Login data sent
+>   ______             __              _______ _______ _______ 
+>  |   __ |-----.-----|  |_.----.-----|   |   |       |       |
+>  |    __|  _  |__ --|   _|   _|  -__|       |   -   |   -   |
+>  |___|  |_____|_____|____|__| |_____|__|_|__|_______|_______|
+> 
+>  Welcome to PostreMOO. Following commands are available:
+> 
+>   connect <username> <password> :: to login with your account.    
+>   create <username> <password>  :: to create a new account.      
+>   who                           :: to see who is currently online. 
+>   staff                         :: to see a list of our staff members. 
+>   uptime                        :: to see the server's uptime.     
+>   quit                          :: kills the current connection.   
+> 
+>             There are currently 6 users online.                           
+> 
+>  First time users please type: create <username> <password>  
+> 
+> *** Connected ***
+< #$#mcp authentication-key: 5P!1?V version: 2.1 to: 2.1
+< #$#mcp-negotiate-can 5P!1?V package: mcp-negotiate min-version: 1.0 max-version: 2.0
+< #$#mcp-negotiate-can 5P!1?V package: dns-com-awns-status min-version: 1.0 max-version: 1.0
+< #$#mcp-negotiate-can 5P!1?V package: dns-net-beryllium-status min-version: 1.0 max-version: 1.0
+< #$#mcp-negotiate-can 5P!1?V package: dns-com-vmoo-client min-version: 1.0 max-version: 1.0
+< #$#mcp-negotiate-can 5P!1?V package: dns-com-vmoo-userlist min-version: 1.0 max-version: 1.1
+< #$#mcp-negotiate-end 5P!1?V
+> [16:05][%][Login] connected: camel, Total: 7
+> [16:05][M][Mail] There is new mail on the following lists:
+> [16:05][M][Mail]     *Daedalus (#810)                     1 new message
+> [16:05][M][Mail]     *Changelog (#145)                    2 new messages
+> [16:05][%][Login] Last connected Sat Aug 27 15:38:01 2011 UTC from 125.209.151.33
+> --- The Town Hall - Reception --------------------------------------------------------------------------------------------------- The Town Hall ---
+> Welcome to the reception. This room is the portal to the world of PostreMOO, it is also the starting point for guests and many players.
+> 
+> It is a big room with a reception desk, the walls are painted in a neutral white colour. In the corner of the room, a tour-operator sits quietly in his kiosk.
+> 
+> You see Christina [fortune teller] and a bean bag here.
+> beryllium, Kamahl, R4000, and JudoLad are standing here.
+> Obvious exits:
+>    [WEST] to The Town Hall - Gardens
+< #$#dns-com-vmoo-client-info 5P!1?V name: "Moops!" text-version: "1.3.1.285" internal-version: "131285" reg-id: 0 flags: lm
+< #$#dns-com-vmoo-client-screensize 5P!1?V cols: 160 rows: 50
+< #$#dns-com-vmoo-client-screensize 5P!1?V cols: 147 rows: 50
+< #$#dns-net-beryllium-status-msg_get 5P!1?V type: update from: 0
+> [16:06][+][Social] Current Topic: JudoLad is being intimate! (set by R4000).
+> R4000 says, "www.saladandchips.com NSFW"
+> beryllium says, "yeah, i really liked that feature"
+> beryllium smiles, "hehe, dirty bastard :)"
+> R4000 laughs out loud.
+> R4000 says, "some cunt whacked that on facebook"
+> beryllium says, "hehehe"
+> Kamahl asks, "And you felt obliged to do the same?"
+> R4000 nods.
+> JudoLad says, "lmao"
+> R4000 says, "you must feel mine and JudoLad's pain"
+> JudoLad says, "indeed"
+> beryllium [to Kamahl]: can't see why moops wouldn't negotiate simple-edit stuff, but indeed it doesn't do that anywhere in the code
+> JudoLad says, "it is uber dirt lol"
+> JudoLad says, "ultra dirt"
+> JudoLad says, "mega dirt"
+# % Connecting...
+# % Connected
+# % Login data sent
+>   ______             __              _______ _______ _______ 
+>  |   __ |-----.-----|  |_.----.-----|   |   |       |       |
+>  |    __|  _  |__ --|   _|   _|  -__|       |   -   |   -   |
+>  |___|  |_____|_____|____|__| |_____|__|_|__|_______|_______|
+> 
+>  Welcome to PostreMOO. Following commands are available:
+> 
+>   connect <username> <password> :: to login with your account.    
+>   create <username> <password>  :: to create a new account.      
+>   who                           :: to see who is currently online. 
+>   staff                         :: to see a list of our staff members. 
+>   uptime                        :: to see the server's uptime.     
+>   quit                          :: kills the current connection.   
+> 
+>             There are currently 6 users online.                           
+> 
+>  First time users please type: create <username> <password>  
+> 
+> *** Connected ***
+< #$#mcp authentication-key: x>au}U version: 2.1 to: 2.1
+< #$#mcp-negotiate-can x>au}U package: mcp-negotiate min-version: 1.0 max-version: 2.0
+< #$#mcp-negotiate-can x>au}U package: dns-com-awns-status min-version: 1.0 max-version: 1.0
+< #$#mcp-negotiate-can x>au}U package: dns-net-beryllium-status min-version: 1.0 max-version: 1.0
+< #$#mcp-negotiate-can x>au}U package: dns-com-vmoo-client min-version: 1.0 max-version: 1.0
+< #$#mcp-negotiate-can x>au}U package: dns-com-vmoo-userlist min-version: 1.0 max-version: 1.1
+< #$#mcp-negotiate-end x>au}U
+> [16:08][%][Login] connected: camel, Total: 7
+> [16:08][M][Mail] There is new mail on the following lists:
+> [16:08][M][Mail]     *Daedalus (#810)                     1 new message
+> [16:08][M][Mail]     *Changelog (#145)                    2 new messages
+> [16:08][%][Login] Last connected Sat Aug 27 16:05:57 2011 UTC from 125.209.151.33
+> --- The Town Hall - Reception --------------------------------------------------------------------------------------------------- The Town Hall ---
+> Welcome to the reception. This room is the portal to the world of PostreMOO, it is also the starting point for guests and many players.
+> 
+> It is a big room with a reception desk, the walls are painted in a neutral white colour. In the corner of the room, a tour-operator sits quietly in his kiosk.
+> 
+> You see Christina [fortune teller] and a bean bag here.
+> beryllium, Kamahl, R4000, and JudoLad are standing here.
+> Obvious exits:
+>    [WEST] to The Town Hall - Gardens
+< #$#dns-com-vmoo-client-info x>au}U name: "Moops!" text-version: "1.3.1.285" internal-version: "131285" reg-id: 0 flags: lm
+< #$#dns-com-vmoo-client-screensize x>au}U cols: 160 rows: 50
+< #$#dns-com-vmoo-client-screensize x>au}U cols: 147 rows: 50
+< #$#dns-net-beryllium-status-msg_get x>au}U type: update from: 0
+> [16:08][+][Social] Current Topic: JudoLad is being intimate! (set by R4000).
+> Kamahl nods.

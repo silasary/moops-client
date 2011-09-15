@@ -1,0 +1,36 @@
+Algemeen 2-april 2002
+
+Ik heb het blauwe pijltje kleiner gemaakt dan in de andere versies, en gekozen voor een groen rondje voor modified, verder zijn de posities blauw pijltje rechts boven, groenrondje links-midden en onder, rood kruisje rechts-midden en onder
+Bij elke serie is het centrale ikoontje in zelfde positie, dus niet uit verschillende series een ikoontje halen
+
+probleem is alleen dat het blauwe pijltje niet altijd even duidelijk is, wordt het groter dan krijg je probkemen met blauwe hekje of met rode kruisje, alternatief is een stokje aan het pijltje
+
+Bij sommige series heb ik een gijze versie bijgevoegd, maar die heb je vast niet nodig.
+
+select_verb
+
+edit blaadje is met kleurtjes
+blauwe hekje een pixelrandje kleiner en stukje naar beneden geschoven
+de "var" ikonen hebben een schuin stokje aan het pijltje (dit is alleen in deze serie!)
+
+note_select
+
+Het blaadje is een stukje naar links verschoven t.ov. het oorspronkelike blaadje
+kruisje helemaal rechts mod niet helemaal links
+
+Watcher spreekt voor zich
+enne dat is alleen een opzetje
+
+note_select_2
+
+Het blaadje is een pixeltje smaller
+kruisje iets naar links, mod helemaal links
+
+
+kladblok_select
+
+Hier heb ik het door jouw gekozen ikoontje als uitgang gebruikt, alhoewel ik iets veranderd hebt
+
+klblok_select
+
+Dit kladblokje heeft een omgekruld blaadje en is iets korter, daarom komt het blauwe pijltje wat beter uit.

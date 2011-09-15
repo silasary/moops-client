@@ -1,0 +1,47 @@
+//
+// Winshoes 7.038
+// Generated on 1/14/00 @ 10:46:45 PM by Winshoes Package Generator
+//
+
+package WinshoesWinInetPkgD3;
+
+{$R *.RES}
+{$R WinshoesWinInet.dcr}
+{$ALIGN ON}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS ON}
+{$RANGECHECKS ON}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $00400000}
+{$DESCRIPTION 'Winshoes WinInet Components for D3'}
+{$IMPLICITBUILD ON}
+
+// No inet30 - Pro and CS keep them in diff places. CS will modify package as needed.
+
+requires
+  vcl30, vclx30;
+
+contains
+  RGFileUtil,
+  RGStrFuncs,
+  SimpFTP,
+  WininetControl,
+  SimpHTTP;
+
+
+end.

@@ -1,0 +1,420 @@
+( ) = te doen
+(?) = zou moeten werken nu
+(.) = gedeeltelijk gedaan
+(x) = gedaan
+(-) = doen we nie
+
+Changes (.227 > ?)
+------------------------------------
+ - editor-tabs
+ - Splashscreen
+ - userlist
+ - system tray
+ - ident server
+ - links (http, exits, html-entities, colors)
+ - implemented some mcp-packages: Statusbar, Client
+ - new cool icons
+ - auto-linelength updates
+ - proxyserver
+ - resizeable inputbar
+ - autostart sessions
+ - Multiline paste in inputbar
+ - Preview pane when browsing for pictures
+ - Toolbar-submenu (right-click in the moo to see it)
+ - multiline-copy (wrapped lines are now copied as one line, as it should be)
+ - fixed bug in logfile that could cause Moops to hang
+ - fixed 1024 char limit
+ - fixed a few other bugs
+
+HOGE PRIORITEIT
+---------------------------------------------------------------
+(x) moopsalt.jpg erin (splashscreen)
+(x) moopsiko\ ico's erin
+
+
+BUGS
+---------------------------------------------------------------
+( ) Watcher font-update nakijken, schijnt niet te resizen als font wordt veranderd
+( ) Watcher werkt niet als Moops geminimaliseerd is
+( ) Rechtermuisknop menu van wereld > "Close" veranderen in "Close World"
+( ) Url-highlight disablen in Watcher (ivm klikken...)
+( ) Resize van chatview: als laatste regel aan de onderkant, dan die laatste regel daar houden (voor Auto-Follow)
+(x) # in url pakt 'ie nie
+( ) Selecteren: niet tot in lege gebied laten scrollen
+( ) Strings met een \ worden niet goed gesaved vanuit de editor (volgens Mehistopheles)
+(.) Links in het statusscherm sjekken of ze nog up-to-date zijn (upx!)
+( ) Plaatjes van userlist zit nog een foutje in (Eligia)
+(x) Knipperende tekst werkt niet bij achtergrondimg
+(x) Editortabs refreshen niet goed bij wisselen naar andere wereld (ico's worden allemaal wereldbolletje)
+( ) Editortabs-toolbar verslepen neemt alleen eerste 3 tabs mee
+(x) Iets vaags met flikkerende editortabs, sjek Alice
+(x) Tabvolgorde sjekken in alle forms (met name Session-options > Inloggegevens)
+(?) & in de naam van de moo gaat fout
+(x) PW-scherm wacht niet bij autostart van meerdere werelden
+( ) wereldenbalk knippert erg bij veel werelden open
+( ) Geef foutmelding bij Save en geen verbinding
+(x) Password-form klopt niet bij andere lettertyp-grootte, knoppen zijn ranzig
+(x) Password-form redesignen, is erg lelijk
+(?) Switchen is traaaaaaaag (soms)
+( ) Alle achtergrond-kleuren van de fonts in de lists nakijken, blijven wit
+( ) Marges in userlist sjekken (geen id wat ik hier ooit mee bedoelde)
+( ) Bug van 'auto-paste' in verkeerde wereld sjekken (???)
+( ) Werkbalken schijnen te undocken na weergeven Global Options en Minimize via knop in taakbalk
+( ) Chatview update bij resizen userlist
+( ) Wereld blokkeert bij falende connectie en poging tot afbreken ervan (druk op F4 na een paar seconden bezig te zijn met verbinden)
+( ) Resize van worldbar disablen
+( ) error bij saven als .mth een alleenlezen bestand is > ff mooiere foutmelding maken
+( ) als plaatje in theme read-only is, wordt het plaatje niet geladen
+(?) Moops-scherm verschijnt pas na halve minuut (ligt wrsch aan UPX)
+( ) selecteren zonder bkgrndimg: kleuren kloppen (soms) niet
+(x) selecteren, muis boven venster uit: alles selecteren
+( ) Geknipper fixen als 'ie niet hoeft te scrollen (InvalidateLines)
+( ) Sneltoetsen fixen in de editor
+(x) StatusIco hints hoger
+( ) 2 schermpjes met foutmelding als plaatje niet gevonden wordt, ff fixen
+( ) zorgen dat de inputbar nog niet invalidate voordat 'ie op de goeie plaats staat
+(x) Selecteren voorbij laatste regel laat nieuwe tekst ook ineens geselecteerd zijn
+(x) %[reverse] werkt niet bij cvNormal-kleuren
+(-) http:// wordt als link gezien, ff fixen (alleen onderstrepen bij OnMouseOver, dus hoeft niet meer)
+(-) E-mail selectiever identificeren (alleen onderstrepen bij OnMouseOver, dus hoeft niet meer)
+(?) log testen op close bij disconnect/reconnect/etc (?)
+(?) /reconnect fixen (was al goed, waarschijnlijk)
+(?) OK en Cancel sjekken bij RegisterFrm
+(?) Theme update niet altijd goed
+(x) Als inputedit niet gefocused is wordt bijv Backspace toets daarna 'ingevoerd' als normale toets (19-3-02/19-3-02)
+(x) Access Violations bij afsluiten checken
+(x) Dollarteken in url toestaan
+(x) Register-fout sjekken, veel dubbele registraties
+(x) Ansi-colors in links gaan fout
+(x) Tab na (hyper)link wordt niet geparsed
+(x) multi-level undo in editor nasjekken
+(x) Disconnect wordt soms niet aangeroepen als server de verbinding sluit
+(x) Updatecheck geeft altijd foutmelding
+(x) Soms blijft crap van vorige sessie in netwerkbuffer
+(x) Icoontjes in optie vensters veranderen grootte
+(x) Grootte van sessionlist fixen
+(x) Sessionlist: Show on Startup ff fixen
+(x) ;#133.escape >> crash?
+(x) break, continue, finally in editor highlighten
+(x) Ctrl-C in editor fixen (kopieert nu alleen tekst van hoofdvenster)
+(x) Selecteren: gewrapte regels als 1 regel kopieren
+(x) Sessie afsluiten: ff meldinkje op de statuspage
+(x) bug fixen in selecteren, deletelines: selstart/end aanpassen
+(x) theme/session venster: showmodal, nummer van currentclnt page meegeven voor update bij save
+(x) foutmelding van netwerk uit exceptionmsg halen om weer te geven
+(x) setdefaults by netclientpage.loadsession (geen error cannot load theme \)
+(x) AV's fixen bij themes
+(x) LogToFile: Error opening E:\MOOPS\Logs\\2000-05-16.log
+
+
+IDEEEN / TODO
+---------------------------------------------------------------
+( ) Font van userlist configbaar maken
+(x) Editortabs inkorten / alleen icoontjes weergeven. Namen dan met hint+statusbar
+( ) Chatview inputfocus laten krijgen voor muiswiel
+( ) Externe editor mogelijk maken
+( ) 2 niveau's in versioncheck. Een op buildnummer, ander op hoger niveau
+( ) Korte uitleg bij eerste keer gebruik van editor vanuit moo
+( ) Instelbare moops-command prefix
+( ) Optioneel onbekende moops-commands doorsturen naar server (bijvoorbeeld /name)
+( ) Statusbalk uitschakelbaar / zoeken op teksten als [sport]
+( ) icoon maken voor undo
+( ) away-ico anders voor wizard, of algemener ico
+( ) multiple instances van moops optioneel blokkeren, of waarschuwing
+( ) lijst met code snippets maken
+( ) www. en ftp. ook link laten zijn zonder http:// ervoor
+( ) Popupmenu bij links
+( ) Uitschakelbare enkelklik voor links
+(x) Advanced paste disablen in editor
+(x) Save, Send to MOO, etc maken
+( ) /open geeft Open Dialog en opent file implementeren
+( ) autosave van verbs op harddisk
+( ) menuoptie verbs opslaan als .txt file
+( ) HtTp:// enzo voorkomen in statusbalk
+( ) Ook zwart weergeven in example in Theme Settings
+( ) Proxy settings in version check
+( ) search/replace in editor
+(?) Proxy settings in Sessions
+( ) Link naar Forum in tips van moops
+( ) Optie voor enkel/dubbelklik van statusbalk
+( ) Optie voor auto-copy in editvensters
+( ) Kleuren van syntaxhighlighter instelbaar maken
+(x) Meerdere regels in inputbar (i.e. enters ertussen)
+( ) Autosay: vanzelf ' of " voor de tekst zetten (met knopje voor aan/uit)
+( ) bij nieuw theme maken en opslaan voorstellen van dezelfde filenaam als de titel
+( ) bij import van een theme opslaan met de zelfde naam als de import theme
+( ) misschien een default mapje voor pictures maken
+( ) default themes opnemen in moops
+( ) Themes uit zips halen eventueel om ruimte te besparen
+( ) homepage wereld opnemen bij de login gegevens en deze weergeven in het wereldscherm
+( ) een wereldwerkbalkje voor verbs-scripts-etc per wereld
+( ) navigatie ondersteuning in de moo's n-z exits
+( ) mogelijkheid automatisch een kaart te maken
+( ) search functie in de tekst
+( ) pages/kanalen in een apart scherm mogelijk maken zodat je de diverse discussie apart kun blijven volgen
+( ) wrap in de werelden balk, er passen maximaal 10 werelden bij eligia
+( ) scripting bij uitloggen mogelijk maken
+( ) ook het maken van bijv away boodschappen die je vast in een menuutje heb staan (wereldmenu)
+( ) default dir voor het opslaan van scripts, en deze eventueel ook in een rol-down menuutje zodat je ze snel kunt oproepen
+( ) Lijst met standaard Moo's
+(.) Tips in statusbalk
+(x) Inputbar-history opslaan na beeindigen sessie 
+(x) Global Options afmaken
+(x) Scripts (OnLogin etc) mogelijk maken
+( ) Eigen underline maken
+( ) theme/session opslaan voor statuspage
+( ) Auto-upgrade
+(x) Sluitenknopje voor sessions (nu is het rechtermuisknop)
+(-) Help beter maken (zie de website...)
+(-) Helpknop in taakbalk
+( ) auto-reconnect maken
+( ) Theme knopje in toolbar
+( ) Andere defaults voor de kleuren
+( ) Align to bottom implementeren (van chatview)
+( ) Horizscrollbar auto hide/show
+( ) ImgManager verder afmaken (StretchAspect en Opacity)
+( ) Selecteren: scrollen uitschakelen bij hidden scrollbar en auto-scroll maken
+( ) Beep customizen
+( ) Show/Hide van Toolbars onder rightclick op toolbars
+( ) logarchiver
+( ) @paste vereenvoudigen voor mensen in mucks en per wereld maken
+( ) . en @abort escapen met een . in paste etc (ook optie ervoor maken)
+( ) Copy, Cut, Paste in toolbar
+(-) AV's loggen inclusief info over vensters etc
+( ) Minimize naar systray
+( ) Copy & Ansi-copy
+( ) moo:// > Moops (bij elke start updaten)
+( ) Beep notificatie als er in andere wereld gebeept wordt
+( ) Select All in Editor (in menu opnemen)
+( ) rechtermuis > nieuw venster bij urls
+( ) mcp netter maken (?)
+( ) volgorde wijzigen van inlogscripts mogelijk maken
+( ) presets voor grootte/positie
+( ) activiteitenindicator in taakbalk of zwevend
+( ) gifs als plaatje toelaten
+( ) online notificatie als iem online gaat (met name als je in andere wereld zit)
+( ) tabs vervangen door spaties in editor
+( ) verbs saveas
+( ) Open... in Filemenu
+( ) autocorrectie bij inputbar
+( ) tabcontrol always on top, rand weg
+( ) Info op session tab weergeven
+( ) ScrollLock, Ctrl en Shift-Up/Down
+( ) Theme wizard maken
+( ) Mudconnecter
+( ) Hints met datum/tijd bij regels in chatview
+( ) Find/Replace in editor (en chatview evt)
+( ) (---) in de taskbar (activity)
+( ) F1 op tekst in de editor (help via mcp)
+( ) Editor configbaar maken qua font/kleuren
+( ) Bescherming voor opnieuw openen van verb
+( ) Multi-moo-rommel
+( ) Rechtermuismenu: Current theme and session erin
+( ) Multiline eval-window
+( ) Multi-user moops (aparte settingsdirs)
+( ) Ping inbouwen
+( ) Navigatie toolbar (voor infra)
+( ) Blink en Beep in toolbar (on/off), optioneel 
+( ) Ansi-kleuren in de editor: tekst selecteren en kunnen kleuren
+( ) Breedte van playerlist opslaan
+(x) /info in Statusscherm geeft 'Info for: <nix>'
+(x) /info: bytes sent/received ook in kB of MB weergeven
+( ) Optioneel ook login / proxy-login data loggen
+(.) instelbaar maken wat er gelogd moet worden, snel aan/uit schakelbaar maken
+(.) ansi-loggen aan/uit
+(x) Mogelijkheid tot veranderen statusbar mbv MCP
+(x) multiline peest rechtstreeks in input-bar
+(x) SessionList met checkboxes voor autostart
+(x) inputhistory opslaan, ook optie inbakken (ook optie voor SelHist erbij)
+(x) default ident maken
+(x) optie in Global Options voor moving caption om geflikker in windowblinds te voorkomen
+(x) /info
+(x) ident protocol implementeren (<port on Moops>, <port on Moo>) (1063, 1111 : USERID : Moops : ET)
+(x) test updcheck op connect-errors etc
+(x) logfiles per dag
+(x) logsyntax opslaan in session
+(x) Version check afmaken
+(x) proxy in general settings
+(x) standaard naar accounttab bij newsession
+(x) linelength automatisch updaten (F9)
+(x) coolere statusbalk (ico's)
+(x) Auto-copy na selecteren
+(x) try, except, endtry in highlighter
+(x) chatviewupdate uit netwerkthread
+(x) Lege regel versturen mogelijk maken
+(x) netwerk events ook met message
+(x) positie van tabcontrol etc saven
+(x) Netwerk linebuffer tot 1024 chars (alleen bij chatview)
+(x) scrollthrough uitschakelbaar
+(x) Blink en Beep optioneel uitzetten
+(-) WriteLn in aparte thread
+(-) tabbladen sorteren (werelden+editors bij elkaar)
+(?) zorgen dat je altijd in / staat als je scripts en commands uitvoert
+(-) lengte van tabs begrenzen
+(x) userlist
+
+TIJD OVER
+---------------------------------------------------------------
+( ) bestanden versturen naar andere gebruikers
+( ) tekenen op 1 groot vel met meerdere mensen
+( ) brace-matchen
+( ) MCCP maken (http://homepages.ihug.co.nz/~icecube/compress/index.html)
+( ) Ctrl-J
+( ) Skins
+( ) Taalplugins
+( ) Mail sjekker
+( ) Beschikbare lettergroottes per lettertype opzoeken
+
+
+Ideen voor moops
+
+editor >> instellen lettergrote , fonts en kleuren.
+       >> waarschuwen voor openstaande vensters bij afsluiten.
+       >> mogelijkheid van save as xxxx.txt bextand
+       >> mogelijk heid xxx.txt bestanden makkelijker te openen, mbv dialoogbox
+       >> in mainmenu lijstje met openstaande editvensters , bij behorend in de wereld die openstaat
+       >> automatische terugloop lijkt me ook handig bij beschrijvingen
+       >> mainmenu >> editor uitbreiden met bijv. new en select al, save as, configure verbhiglighter
+       >> regels nummeren als extra optie
+
+worldbar >> Is soms te klein voor meerdere werelden
+         >> wrappen of andere navigatiemogelijkheid toevoegen
+Chatview >> scrollen met de pijltjes toetsen in de chatview enablen
+         >> plakken in de chatview ctr-v opnemen in popupmenu
+         >> Hyperlinks met rechtsklikmenu bevestigen
+editor 
+       >> waarschuwen voor openstaande vensters bij afsluiten.
+       >> mogelijkheid van save as xxxx.txt bextand
+       >> mogelijk heid xxx.txt bestanden makkelijker te openen, mbv dialoogbox
+       >> in mainmenu lijstje met openstaande editvensters , bij behorend in de wereld die openstaat
+       >> automatische terugloop lijkt me ook handig bij beschrijvingen
+       >> mainmenu >> editor uitbreiden met bijv. new en select al, save as, configure 
+       >> ctr-c toevoegen
+       >> save knopjes veranderen in send to moo knopje
+verbhiglighter
+       >> regels nummeren als extra optie
+       >> kleuren kunnen aanpassen
+loggen >> instellen loggen duidelijker maken, en vanuit chatview eventueel
+userlist >> aan en uit kunnen zetten
+         >> sorteer mogelijkheden
+         >> vriend
+         >> mogelijkheid om ikoontjes te wisselen als set of individueel
+sessionlist >> mogelijkheid om te sorteren
+statusbar >> is soms te klein voor de teksten.
+Themes >>mogelijkheid van themes openen en verwisselen buiten dropdownmenu om
+       >> of op een andere manier erdoor heen navigeren
+       >> ikoontjes erbij
+        
+bugs
+        selecteren
+        crashes op geen verbinding en rammen op connectknopjes
+        themes
+
+Ingrijpende ideeen
+>> zou via plug-ins kunnen en via atlantic
+mogelijkheid om files te sharen
+bijv je maakt een tekening en iemand anders kan deze inlezen, de file wordt op de server bewaard
+mogelijkheid om htm/php/etc pagina's te sharen
+bijv. je hebt een invulform andere kunnen die opvragen invullen en retourneren.eventueel in apart venster
+onderlinge chatmogelijkheden/prive chats
+ondersteuning van webcam
+
+>>>>>>>>>>> Mail Eligia <<<<<<<<<<<<<<<
+Hai Martin,
+
+Ik had je nog toegezegd om wat met de themes te klooien om te kijken wat er
+nu (mis) mee was. Omdat mijn excursie  niet doorging heb ik daar
+dus
+even tijd voor gehad.
+
+Het ging volgens mij om het importeren van themes. Als je dat doet gaat
+moops het opslaan in het mapje themes, alleen de naam wordt dan niet
+weergegeven, wat
+lastig is, want je kan het  beter onder de oorspronkelijke naam opslaan.
+
+Ik vind description voor de naam in het main menu ook verwarrend, misschien
+beter naam of zo iets daarvan maken. Ook voorstellen om het bestand op te
+slaan onder dezelfde naam als in description is handig.
+
+Bij het laden van een wereld ging er gelijk iets mis met het theme, daar was
+iets mis mee en het hele theme verdween. Ik kon niet meer achterhalen welk
+theme bestand het was.
+
+Bij het deleten van een theme kreeg ik een waarschuwing met een JA en NEE
+knop erop bij een engelse text (Doet mijn windows dit ?) vervolgens een
+error en het theme werd niet gedelete, de error zegt niets over wat er aan
+de hand is met het theme bestand. Het was een alleenlezen bestand, maar het
+had er ook niet kunnen zijn.
+
+Bij een nieuw plaatje in een theme laden, sloeg moops het direkt op, wat een
+error veroorzaakte omdat het een alleen lezen mth bestand was. Even later
+werd het plaatje niet direkt gesaved, diverse keren werd zo gauw ik het
+bestand savede het theme gelijk geladen in de wereld, zonder dat ik op ok
+had gedrukt, zit er soms een autosave in het themes deel.(example zeker)
+
+Het zou ook makkelijk zijn om de naam van het mth bestand  in het
+themes-options-venster te wijzigen.
+
+Als het plaatje niet te vinden is als je een theme laad, krijg je twee keer
+een error, dit komt denk ik omdat het plaatje ook in het voorbeeld(example)
+wordt
+geladen, dat is error 1, als het in de chatview wordt geladen krijg je error
+2.
+
+Bij een new theme maken komt de naam van het mth bestand in de lijst met mth
+erachter, mischien kan je een waarschuwing geven als description niet is
+ingevuld niet is ingevuld of de bestands naam zonder .mth als description
+gebruiken.
+
+het is wel hier en daar niet echt van belang maar ok
+
+Alice
+
+
+
+>>>>>>>>>>> Einde Mail Eligia <<<<<<<<<<<<<<<
+
+
+TIPS
+------------------------------------
+Did you ever take a look at the website? You'll probably find the answer of your question there!
+
+
+
+____________
+Users
+
+26-08-01:
+Snakecharmer (#1630), Sabbi (#3498), Mordred (#4126), Eligia (#2426), 
+Primus (#2415), ET (#1661), Thrill (#4769), Zubery (#781), 
+vanBos (#3015), Arachne (#1669), en Mitario (#5450)
+
+Ooit beta:
+
+eligia (beta)
+plato (beta)
+mavic'a (beta)
+mordred (beta)
+curmudgeon (beta)
+snakecharmer (beta)
+zubery (beta)
+buurman (beta)
+hertroys (beta)
+siegfried (beta)
+sabbi (beta)
+darkshadow (beta)
+okidoki (beta)
+primus (beta)
+arachne
+katmai
+michiel
+phillip0
+sunnydays
+xortes
+sje
+gandalf
+aznec
+joris (software review)
+thomas
+thrakan
+ladybird

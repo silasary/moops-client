@@ -1,0 +1,19 @@
+Contents of the Contribs directory:
+--------------------------------------------------------------------------------
+
+- CmntIns_D3.zip, CmntIns_unit.zip:
+        Delphi expert for commenting changes to the mwEdit sources in the
+        preferred way, sent by HANAI Tohru.
+        Should work in D3, D4, and D5, not tested for BCB.
+
+- raCheckBrackets.pas:
+        Sent by Alexander Reiter.
+        Should probably be integrated into mwCustomEdit with some new commands
+        with keybinding for it.
+
+- mwLocalStr.pas.Spanish:
+        Sent by Daniel Rodríguez Herrera.
+        Spanish version of the mwLocalStr.pas unit.
+
+--------------------------------------------------------------------------------
+mh 1999-11-20

@@ -1,0 +1,14 @@
+# Use for a local mirror - remove the ftp1 http lines for the bits
+# your mirror contains.
+# deb file:/your/mirror/here/debian stable main contrib non-free
+# See sources.list(5) for more information, especial
+# Remember that you can only use http, ftp or file URIs
+
+deb-src http://www.luon.net/debian		unstable	main
+deb-src http://www.debian.nl/debian		unstable	main contrib non-free
+deb-src http://www.debian.nl/debian-non-US	unstable/non-US main
+
+deb http://www.luon.net/debian			potato		main
+deb http://www.debian.nl/debian 		potato 		main contrib non-free
+deb http://www.debian.nl/debian-non-US 		potato/non-US	main contrib non-free
+deb http://security.debian.org/debian-security	potato/updates	main contrib non-free

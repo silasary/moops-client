@@ -1,0 +1,112 @@
+# % Connecting...
+# % Connected
+# % Login data sent
+>   ______             __              _______ _______ _______ 
+>  |   __ |-----.-----|  |_.----.-----|   |   |       |       |
+>  |    __|  _  |__ --|   _|   _|  -__|       |   -   |   -   |
+>  |___|  |_____|_____|____|__| |_____|__|_|__|_______|_______|
+> 
+>  Welcome to PostreMOO. Following commands are available:
+> 
+>   connect <username> <password> :: to login with your account.    
+>   create <username> <password>  :: to create a new account.      
+>   who                           :: to see who is currently online. 
+>   staff                         :: to see a list of our staff members. 
+>   uptime                        :: to see the server's uptime.     
+>   quit                          :: kills the current connection.   
+> 
+>             There are currently 2 users online.                           
+> 
+>  First time users please type: create <username> <password>  
+> 
+> *** Connected ***
+< #$#mcp authentication-key: Kod`j^ version: 2.1 to: 2.1
+< #$#mcp-negotiate-can Kod`j^ package: mcp-negotiate min-version: 1.0 max-version: 2.0
+< #$#mcp-negotiate-can Kod`j^ package: dns-com-awns-status min-version: 1.0 max-version: 1.0
+< #$#mcp-negotiate-can Kod`j^ package: dns-net-beryllium-status min-version: 1.0 max-version: 1.0
+< #$#mcp-negotiate-can Kod`j^ package: dns-com-vmoo-client min-version: 1.0 max-version: 1.0
+< #$#mcp-negotiate-can Kod`j^ package: dns-com-vmoo-userlist min-version: 1.0 max-version: 1.1
+< #$#dns-org-mud-moo-simpleedit Kod`j^ package: dns-com-vmoo-userlist min-version: 1.0 max-version: 1.0
+< #$#mcp-negotiate-end Kod`j^
+> [04:40][%][Login] connected: camel, Total: 3
+> [04:40][+][Social] Current Topic: rule 1: no clapping your hands together. (set by R4wizard[asleep]).
+> [04:40][%][Login] Last connected Wed Aug 17 03:48:28 2011 UTC from 125.209.140.203
+> --- The Town Hall - Reception -------------- The Town Hall ---
+> Welcome to the reception. This room is the portal to the world of PostreMOO, it is also the starting point for guests and many players.
+> 
+> It is a big room with a reception desk, the walls are painted in a neutral white colour. In the corner of the room, a tour-operator sits quietly in his kiosk.
+> 
+> There is a large river flowing into the drain.
+> 
+> You see a bean bag here.
+> Obvious exits:
+>    [WEST] to The Town Hall - Gardens
+< #$#dns-com-vmoo-client-info Kod`j^ name: "Moops!" text-version: "1.3.1.284" internal-version: "131284" reg-id: 0 flags: lp
+< #$#dns-com-vmoo-client-screensize Kod`j^ cols: 160 rows: 50
+< #$#dns-com-vmoo-client-screensize Kod`j^ cols: 147 rows: 50
+< #$#dns-net-beryllium-status-msg_get Kod`j^ type: update from: 0
+< l
+> --- The Town Hall - Reception --------------------------------------------------------------------------------------------------- @[moo:@map]The Town Hall@[/] ---
+> Welcome to the reception. This room is the portal to the world of PostreMOO, it is also the starting point for guests and many players.
+> 
+> It is a big room with a reception desk, the walls are painted in a neutral white colour. In the corner of the room, a tour-operator sits quietly in his kiosk.
+> 
+> There is a large river flowing into the drain.
+> 
+> You see a bean bag here.
+> Obvious exits:
+>    [@[exit:WEST]WEST@[/]] to The Town Hall - Gardens
+< "@[sit:bag]sit@[/]
+> You say, "@[sit:bag]sit@[/]"
+# % Network Socket Error #10053 (Software caused connection abort)
+# % Disconnected
+# % Connecting...
+# % Connected
+# % Login data sent
+>   ______             __              _______ _______ _______ 
+>  |   __ |-----.-----|  |_.----.-----|   |   |       |       |
+>  |    __|  _  |__ --|   _|   _|  -__|       |   -   |   -   |
+>  |___|  |_____|_____|____|__| |_____|__|_|__|_______|_______|
+> 
+>  Welcome to PostreMOO. Following commands are available:
+> 
+>   connect <username> <password> :: to login with your account.    
+>   create <username> <password>  :: to create a new account.      
+>   who                           :: to see who is currently online. 
+>   staff                         :: to see a list of our staff members. 
+>   uptime                        :: to see the server's uptime.     
+>   quit                          :: kills the current connection.   
+> 
+>             There are currently 2 users online.                           
+> 
+>  First time users please type: create <username> <password>  
+> 
+> *** Connected ***
+< #$#mcp authentication-key: xDGyc{ version: 2.1 to: 2.1
+< #$#mcp-negotiate-can xDGyc{ package: mcp-negotiate min-version: 1.0 max-version: 2.0
+< #$#mcp-negotiate-can xDGyc{ package: dns-com-awns-status min-version: 1.0 max-version: 1.0
+< #$#mcp-negotiate-can xDGyc{ package: dns-net-beryllium-status min-version: 1.0 max-version: 1.0
+< #$#mcp-negotiate-can xDGyc{ package: dns-com-vmoo-client min-version: 1.0 max-version: 1.0
+< #$#mcp-negotiate-can xDGyc{ package: dns-com-vmoo-userlist min-version: 1.0 max-version: 1.1
+< #$#dns-org-mud-moo-simpleedit xDGyc{ package: dns-com-vmoo-userlist min-version: 1.0 max-version: 1.0
+< #$#mcp-negotiate-end xDGyc{
+> [06:00][%][Login] connected: camel, Total: 3
+> [06:00][+][Social] Current Topic: rule 1: no clapping your hands together. (set by R4wizard[asleep]).
+> [06:00][%][Login] Last connected Wed Aug 17 04:40:39 2011 UTC from 125.209.140.203
+> --- The Town Hall - Reception --------------------------------------------------------------------------------------------------- The Town Hall ---
+> Welcome to the reception. This room is the portal to the world of PostreMOO, it is also the starting point for guests and many players.
+> 
+> It is a big room with a reception desk, the walls are painted in a neutral white colour. In the corner of the room, a tour-operator sits quietly in his kiosk.
+> 
+> There is a large river flowing into the drain.
+> 
+> You see a bean bag here.
+> Obvious exits:
+>    [WEST] to The Town Hall - Gardens
+< #$#dns-com-vmoo-client-info xDGyc{ name: "Moops!" text-version: "1.3.1.284" internal-version: "131284" reg-id: 0 flags: lp
+< #$#dns-com-vmoo-client-screensize xDGyc{ cols: 160 rows: 50
+< #$#dns-com-vmoo-client-screensize xDGyc{ cols: 147 rows: 50
+< #$#dns-net-beryllium-status-msg_get xDGyc{ type: update from: 0
+> *** Redirecting connection to new port ***
+# % Network Socket Error #10038 (Socket operation on non-socket)
+# % Disconnected

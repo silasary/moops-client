@@ -1,0 +1,125 @@
+Dit is het dns-net-beryllium-status pkg's, deze pkg's is voor de statusbalk van moops.
+
+Gemaakt door: m.l.poelstra,m.horsman en E.Bloembergen
+
+;;#4746.("page_icon") = "0"
+"#4746.("key") => E_PERM (Permission denied)
+;;#4746.("aliases") = {"dns-net-beryllium-status", "stat"}
+;;#4746.("description") = "MCP-Statusbar aansturing voor Moops."
+;;#4746.("object_size") = {6118, 964749843}
+
+@args #4746:"update_page" this none this
+@chown #4746:update_page #1661
+@program #4746:update_page
+"Usage: :update_page(obj user, int totalpages)";
+"       user = the player we're talking about";
+"       totalpages = total number of pages queued for a user";
+"";
+"Update the status-icon in the icon-tray of a client";
+if (!$group_utils:controls(caller_perms(), this))
+  return E_PERM;
+endif
+{user, totalpages} = args;
+session = $mcp:session_for(user);
+if ((!valid(session)) || (!({this, {1, 0}} in session.packages)))
+  return 0;
+endif
+if (totalpages == 0)
+  hint = "Er zijn geen nieuwe berichten.";
+  mode = "normal";
+elseif (totalpages == 1)
+  hint = "Er is 1 nieuw bericht.";
+  mode = "blink";
+else
+  hint = ("Er zijn " + tostr(totalpages)) + " berichten.";
+  mode = "blink";
+endif
+this:send_ico_upd(session, {"index", this.page_icon}, {"mode", mode}, {"hint", hint});
+.
+
+@args #4746:"initialize_connection" this none this
+@program #4746:initialize_connection
+"Usage:  :initialize_connection()";
+"";
+{version} = args;
+connection = caller;
+messages = $list_utils:slice(this.messages_in);
+connection:register_handlers(messages);
+this:initialize_tray();
+.
+
+@args #4746:"initialize_tray" this none this
+@program #4746:initialize_tray
+"Usage: :initialize_tray()";
+"Set up all icons in the icon-tray of a client";
+if (!$perm_utils:controls(caller_perms(), this))
+  return E_PERM;
+endif
+this:send_ico_clr($mcp:session_for(player));
+this:send_ico_add($mcp:session_for(player), {"mode", "normal"}, {"img0", "-5"}, {"hint", "Er zijn geen nieuwe berichten."}, {"cmd", "@elfje"});
+.
+
+@args #4746:"handle_ico_exec" this none this
+@chown #4746:handle_ico_exec #1661
+@program #4746:handle_ico_exec
+if (caller != this)
+  return E_PERM;
+endif
+{session, index, cmd, @args} = args;
+index = tostr(index);
+user = session.connection;
+if (index == this.page_icon)
+  if (cmd == "@elfje")
+    argstr = "";
+    user:("@elfje")();
+  endif
+endif
+.
+
+@args #4746:"send_msg_force" this none this
+@chown #4746:send_msg_force #331
+@program #4746:send_msg_force
+{session, text, cmd} = args;
+"#331:tell(toliteral(args))";
+if ((caller == this) || $perm_utils:controls(caller_perms(), session.connection))
+  return pass(session, text, cmd);
+endif
+.
+
+@args #4746:"send_add send_msg_add" this none this
+@chown #4746:send_add #331
+@program #4746:send_add
+{session, text, cmd, cache} = args;
+
+if ((caller == this) || $perm_utils:controls(caller_perms(), session.connection))
+  return pass(session, text, cmd, cache);
+else
+ endif
+.
+
+@args #4746:"send_clear" this none this
+@chown #4746:send_clear #331
+@program #4746:send_clear
+"Gekopieerd van dns-net-beryllium-status (#4729):send_clear (c) Tito (#331) Thu Jul 27 00:15:11 2000 CEST";
+{session} = args;
+if ((caller == this) || $perm_utils:controls(caller_perms(), session.connection))
+  return pass(session);
+endif
+.
+
+
+@args #4746:"status_all" this none this
+@chown #4746:status_all #331
+@program #4746:status_all
+if ((caller_perms() == #331) || caller_perms().wizard)
+  for p in (connected_players())
+    if ({this, {1, 0}} in $mcp:session_for(p).packages)
+      this:send_msg_force($mcp:session_for(p), args[1], args[2]);
+    endif
+  endfor
+else
+  raise(E_PERM);
+endif
+.
+
+"***finished***

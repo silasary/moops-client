@@ -1,0 +1,42 @@
+Ideas en bugs maart-juni 2001
+
+Themes
+
+error bij saven als .mth een alleenlezen bestand is -> error message opnemen
+idem bij PICTURE als alleenlezenbestand
+error bij openen van theme als er geen plaatje te vinden is en het theme wel een plaatje heeft, de error vind twee keer plaats
+
+bij nieuw theme maken en opslaan voorstellen van dezelfde filenaam als de titel
+bij import van eem theme opslaan met de zelfde naam als de import theme
+misschien een default mapje voor pictures maken
+default themes opnemen in moops
+Themes uit zips halen eventueel om ruimte te besparen
+
+login
+homepage wereld opnemen bij de login gegevens en deze weergeven in het wereldscherm
+
+MOO-MUD
+een wereldwerkbalkje voor verbs-scripts-etc per wereld
+autosay met aan en uitzetten knopje
+clickable moolinks
+navigatie ondersteuning in de moo's n-z exits
+mogelijkheid automatisch een kaart te maken
+search functie in de tekst
+back-up mogelijkheid van verbs door ze te saven in een tekst bestand
+pages/kanalen in een apart scherm mogelijk maken zodat je de diverse discussie apart kun blijven volgen
+wrap in de werelden balk, er passen maximaal 10 werelden bij mij
+
+
+Ingrijpende ideeen
+>> zou via plug-ins kunnen en via atlantic
+mogelijkheid om files te sharen
+bijv je maakt een tekening en iemand anders kan deze inlezen, de file wordt op de server bewaard
+mogelijkheid om htm/php/etc pagina's te sharen
+bijv. je hebt een invulform andere kunnen die opvragen invullen en retourneren.eventueel in apart venster
+onderlinge chatmogelijkheden/prive chats
+ondersteuning van webcam
+
+scripting
+scripting by uitloggen mogelijk maken
+ook het maken van bijv away boodschappen die je vast in een menuutje heb staan (wereldmenu)
+default dir voor het opslaan van scripts, en deze eventueel ook in een rol-down menuutje zodat je ze snel kunt oproepen

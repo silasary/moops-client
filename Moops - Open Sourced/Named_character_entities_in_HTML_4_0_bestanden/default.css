@@ -1,0 +1,33 @@
+BODY {
+	BACKGROUND: white; COLOR: black
+}
+DIV.example {
+	COLOR: black
+}
+TT.example {
+	COLOR: maroon; MARGIN-LEFT: 1em
+}
+PRE {
+	COLOR: maroon; MARGIN-LEFT: 1em
+}
+PRE.dtd {
+	COLOR: black; MARGIN-LEFT: 0px
+}
+DIV.illegal-example {
+	COLOR: red
+}
+DIV.illegal-example P {
+	COLOR: black
+}
+DIV.deprecated-example {
+	COLOR: red
+}
+DIV.deprecated-example P {
+	COLOR: black
+}
+DIV.note {
+	COLOR: green; MARGIN-LEFT: 1em
+}
+P.note {
+	COLOR: green; MARGIN-LEFT: 1em
+}

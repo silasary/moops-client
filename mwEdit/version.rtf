@@ -1,0 +1,375 @@
+{\rtf1\ansi\ansicpg1250\deff0\deftab720{\fonttbl{\f0\fnil MS Sans Serif;}{\f1\froman\fcharset2 Symbol;}{\f2\fswiss\fprq2 Arial;}{\f3\froman Times New Roman;}{\f4\froman\fprq2\fcharset2 Symbol;}}
+{\colortbl\red0\green0\blue0;}
+\deflang2057\horzdoc{\*\fchars }{\*\lchars }\pard\plain\f2\fs22\b Version history
+\par \plain\f2\fs16 
+\par \plain\f2\fs20\b 0.9: 1999-12-04
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}Contributors
+\par \pard\li720\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\lang1024\f2\fs16 {\pntext\f1\'b7\tab}Albert Research, Alexander Reiter, Andy Jeffries, ArentJan Banck, Brad Stowers, Carlos Wijders, Cyrille de Brebisson, David Muir, Dragan Grbic, Eric S. Berry, Greg Chapman, Heedong Lim, Hideo Koiso, Igor P. Zenkov, Igor Shitikov, James Jacobson, Jan Jacobs, Jeff Corbets, John T. Truchon, Kees van Spelde, Lucifer, Luiz C. Vaz de Brito, Martijn van der Kooij, Martin Waldenburg, Michael Hieke, Milan Nikolic, Nick Hoddinott, Nur Ismail, Odilon Nelson, Olivier Deckmyn, Peter Adam, Petr Vones, Primoz Gabrijelcic, Robert Persson, Sebastian J. Gross, Stefan Hoffmeister, Stefan van As, Ted Berg, Theodoros Bebekis, Thomas Kurz, Tohru Hanai, Tony de Buys, Vladimir Kuznetsov, Willo van der Merwe, Winfried Schoettler, Wolfgang Zak, Wynand Breytenbach, xueyu 
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}general\plain\f2\fs16 
+\par \pard\li720\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Michael Hieke became a code maintainer
+\par {\pntext\f1\'b7\tab}General code cleanup.
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Slightly different and more readable component icons.
+\par {\pntext\f1\'b7\tab}Grammar files for SQL and VBScript highlighters.
+\par \pard\li720\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Moved ZIP file contents (mwSynGen, demo projects) into subdirectories
+\par {\pntext\f1\'b7\tab}New file to list bugs, features under construction, features requested and so on (mwEdit State Of Development.rtf). Everybody is encouraged to send things that should go into this file.
+\par {\pntext\f1\'b7\tab}Changes to adapt to Delphi 5: new conditionals in the mwEdit.inc file, moved property editor for key mappings into the mwEditReg unit (to remove DsgnIntf from the uses clause).
+\par {\pntext\f1\'b7\tab}New subdirectory Packages for designtime packages, package files for D3, D4, D5, CB3, CB4.
+\par {\pntext\f1\'b7\tab}New subdirectory Contribs, for contents description see the text file in the directory. 
+\par \pard\li720\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Added new subdirectory Sample source files. This should contain small source files for all highlighters that demonstrate as much as possible of the constructs the highlighter recognizes. All you highlighter authors: would you please send files that you see as good examples for testing the highlighters?
+\par {\pntext\f1\'b7\tab}Added \{$B-\} (short boolean evaluation) and \{$H+\} (long strings) to the mwEdit.inc include file.
+\par \pard\li720\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Made sources compatible with \{$T+\} compiler setting.
+\par {\pntext\f1\'b7\tab}Changed procedures Register in all component source files to register the components in one of two palette pages (one for general components, the other for highlighters); the names of these pages are in the mwLocalStr file as constants MWS_ComponentsPage and MWS_HighlightersPage. Had to add the mwLocalStr to the implementation part of some units. To get the new palette names run Regedit, open key open key HKCU\\Software\\Borland\\Delphi\\x.0\\Palette, and delete entry \ldblquote mw\rdblquote .
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}Delphi demo\plain\f2\fs16  updated (version 0.46)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Added printing demo.
+\par {\pntext\f1\'b7\tab}Added gutter numbering demo.
+\par {\pntext\f1\'b7\tab}Added new highlighters.
+\par {\pntext\f1\'b7\tab}Added exporters.
+\par {\pntext\f1\'b7\tab}Exposed new properties.
+\par {\pntext\f1\'b7\tab}Added new page \rdblquote Search\rdblquote  to show find / replace capabilities; added find and replace standard dialog components
+\par {\pntext\f1\'b7\tab}Special handling for loading DFM files (convert to text first)
+\par \pard\li720\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Added sample OnSpecialLineColors event handler.
+\par {\pntext\f1\'b7\tab}Changed layout to fit smaller screen resolutions.
+\par {\pntext\f1\'b7\tab}Added OnDropFiles event handler to open dropped file.
+\par {\pntext\f1\'b7\tab}Added CompletionProposal/AutoComplete demo.
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}CodeExDemo\plain\f2\fs16  new (version 0.13) \plain\f2\fs16\b 
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Simple Code Explorer - demo for OnToken highlighter events.\plain\f2\fs16\b 
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}CodeExp\plain\lang1033\f2\fs16\b l\plain\f2\fs16\b orer for C++ Builder\plain\f2\fs16  new (version 0.1)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}A simple Pascal code explorer example for C++Builder.
+\par \pard\li360\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}all highlighters
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}All highlighter attribute names, default filter strings, and language names were moved into mwLocalStr. Replaced with string constants (Delphi 2) / resourcestrings (Delphi 3+).
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwHighlighter\plain\f2\fs16  updated (version 0.71)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}New capability: hcExportable (highlighter supports exporting).
+\par {\pntext\f1\'b7\tab}Added standard event handler DefHighlightChange to replace HighlightChange in the highlighter classes. Added SetAttributesOnChange method to assign the OnChange event for all attributes in the list (makes SetHighlightChange obsolete in most of the highlighters).
+\par {\pntext\f1\'b7\tab}Removed DoOnToken method. Calling this in the Next method slows painting down and is of limited use, since lines are not always scanned to the EOL and without any order. Added the ScanAllLineTokens method instead. Added virtual abstract method GetTokenKind.
+\par {\pntext\f1\'b7\tab}Added NextToEol method.
+\par {\pntext\f1\'b7\tab}Moved the IntegerStyle property from the published to the public section.
+\par {\pntext\f1\'b7\tab}Removed the TmwEditorList instance from the highlighter base class, added a TmwNotifyEventChain instance instead. See mwSupportClasses for this new class. New highlighter methods HookAttrChangeEvent and UnhookAttrChangeEvent are used now to register callback methods for attribute changes. 
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}dmMlSyn\plain\f2\fs16  new (version 0.30)
+\par \pard\li720\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Highlighter for Standard ML language, new sample file for this in samples subdirectory.
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}izIniSyn\plain\f2\fs16  new (version 0.4)\tab 
+\par \pard\li720\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Highlighter for INI files.\plain\f2\fs16\b 
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwDMLSyn\plain\f2\fs16  new (version 0.52)
+\par \pard\li720\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}New highlighter for GEMBASE, a 4GL programming language of Renaissance CS. For more information, see the comment header of the file. A Gembase file is included in the new source subdirectory for samples.
+\par \pard\li360\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}nhAsmSyn\plain\f2\fs16  new (version 0.56) 
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Highlighter for x86 assembler files.
+\par \pard\li360\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}dmBatSyn\plain\f2\fs16  new (version 0.23) 
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Highlighter for MS-DOS batch files.
+\par \pard\li360\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}dmDfmSyn\plain\f2\fs16  new (version 0.22)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Highlighter for text representation of binary Delphi and BCB form files.
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mkGalaxySyn\plain\f2\fs16  new (version 0.7)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Galaxy PBEM highlighter.
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}wmSQLSyn\plain\f2\fs16  new (version 0.54)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}SQL highlighter
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}siTCLTKSyn\plain\f2\fs16  new (version 0.82)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}TCL/TK highlighter
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}hkHTMLSyn\plain\f2\fs16  new (version 0.23)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}HTML highlighter
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}hkAWKSyn\plain\f2\fs16  new (version 0.12)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}AWK highlighter
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}lbVBSSyn\plain\f2\fs16  new (version 0.11)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}VBScript highlighter.\plain\f2\fs16\b 
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}odPySyn\plain\f2\fs16  new (version 1.0)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Python highlighter\plain\f2\fs16\b 
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}odPythonBehaviour\plain\f2\fs16  new (version 0.13)\plain\f2\fs16\b 
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}This component implements editing rules to apply to a python source file. Python has an unusual way to mark blocks (like begin/end in pascal): it uses indentation. So the rule is: after a ":" and a line break, we have to indent once.
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwGeneralSyn\plain\f2\fs16  updated (version 0.73)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Added new property StringDelim to switch between single-quoted and double-quoted strings.
+\par {\pntext\f1\'b7\tab}Added property IdentifierChars to ease changing of IdentChars.
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}cbHPSyn\plain\f2\fs16  updated (version 0.57)
+\par \plain\f2\fs16\b {\pntext\f1\'b7\tab}cwCACSyn\plain\f2\fs16  updated (version 0.25)
+\par \plain\f2\fs16\b {\pntext\f1\'b7\tab}DcjCppSyn\plain\f2\fs16  updated (version 0.78)
+\par \plain\f2\fs16\b {\pntext\f1\'b7\tab}DcjJavaSyn\plain\f2\fs16  updated (version 0.54)
+\par \plain\f2\fs16\b {\pntext\f1\'b7\tab}DcjPerlSyn\plain\f2\fs16  updated (version 0.58)
+\par \plain\f2\fs16\b {\pntext\f1\'b7\tab}mwPasSyn\plain\f2\fs16  updated (version 0.66)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Added property D4syntax and removed conditional compilation (\{$IFDEF VER120\}).
+\par {\pntext\f1\'b7\tab}Added .DPR to the list of supported file extensions.
+\par {\pntext\f1\'b7\tab}Added exporter support.
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwSynGen\plain\f2\fs16  new (version 0.75)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Grammar generator, now part of standard distribution. 
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwExporter\plain\f2\fs16  new (version 1.04)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Base class for exporters.
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwHTMLExport\plain\f2\fs16  new (version 1.05)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Component to export mwCustomEdit to HTML format with syntax highlighting.
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwRTFExport\plain\f2\fs16  new (version 1.03)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Component to export mwCustomEdit to RTF format with syntax highlighting.
+\par \pard\li360\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwCompletionProposal\plain\f2\fs16  new (version 0.51)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Two components
+\par \pard\li1080\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}mwCompletionProposal presents a list of possible completion texts (like Ctrl+Space in Delphi).
+\par {\pntext\f1\'b7\tab}mwAutoComplete expands text before cursor (like Ctrl+J in Delphi).
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}cbUtils\plain\f2\fs16  updated (version 0.53)
+\par \pard\li360\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwEditStrings\plain\f2\fs16  new (version 0.503)
+\par \pard\li720\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}String list container with additional functionality.
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwSupportClasses\plain\f2\fs16  new (version 0.90)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}New unit for helper classes to decrease the size of mwCustomEdit.pas.
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwSupportProcs\plain\f2\fs16  new (version 0.90)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Helper routines used in mwCustomEdit and highlighters.
+\par \pard\li360\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}uTextDrawer\plain\f2\fs16  new
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}New text painter classes, see source for details on version history and copyright / licensing issues. Used in painting methods of mwCustomEdit.
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwEditSearch\plain\f2\fs16  new (version 2.41)
+\par \pard\li720\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Very fast search engine (up to nearly twice as fast as Boyer-Moore), based on an article in the German computer magazine c't 8/1997.
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwKeyCmds\plain\f2\fs16  updated (version 0.89)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}IMM(Input Method Manager) control.\plain\f2\fs16\b 
+\par \pard\li720\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Exception message moved to mwLocalStr unit.\plain\f2\fs16\b 
+\par \pard\li720\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Changes to support keyboard commands with 2 keys.
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwKeyCmdEditor\plain\f2\fs16  updated (version 0.88)
+\par \pard\li720\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Changes to support keyboard commands with 2 keys.
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwKeyCmdsEditor\plain\f2\fs16  updated (version 0.88)
+\par \pard\li720\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Moved several messages to mwLocalStr unit.\plain\f2\fs16\b 
+\par \pard\li720\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Changes to support keyboard commands with 2 keys.
+\par \pard\li360\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwEditPropertyReg\plain\f2\fs16  new (version 0.88)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Moved property editors for Shortcut, Font, and Command properties into this unit for proper separation of design-time and run-time code.\plain\f2\fs16\b 
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwEditReg\plain\f2\fs16  updated (version 0.20)\plain\f2\fs16\b 
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Added registration for new components.\plain\f2\fs16\b 
+\par \plain\f2\fs16 {\pntext\f1\'b7\tab}Added new component bitmaps.\plain\f2\fs16\b 
+\par \plain\f2\fs16 {\pntext\f1\'b7\tab}Removed property editors for proper separation of design-time and run-time code.\plain\f2\fs16\b 
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwLocalStr\plain\f2\fs16  new (version 0.9)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}New unit to hold all strings that might be localized.
+\par \pard\li360\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}DBmwEdit\plain\f2\fs16  new (version 0.35)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}DB-aware version of the mwCustomEdit component.
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwCustomEdit.res\plain\f2\fs16  changed
+\par \pard\li720\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Removed the bitmaps MARK_0..MARK_9, added the bitmap MWEINTERNALIMAGES. This was done to reduce resource consumption and to reduce the probability of name clashes in program resources (linker errors).
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwCustomEdit\plain\f2\fs16  updated (version 0.9)\plain\lang1060\f2\fs16 
+\par \pard\li720\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Properties\plain\lang1060\f2\fs16 
+\par \pard\li1080\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Packed several boolean fields (state flags) into one field of the new type TmwStateFlags.\plain\f2\fs16\b 
+\par \pard\li1080\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Packed several boolean fields (property flags) into one new field of the new type TmwEditorOptions. A set property Options replaces several single properties now. Removed the SetProperty methods, and moved the functionality into the new method SetOptions.\plain\f2\fs16\b 
+\par \plain\f2\fs16 {\pntext\f1\'b7\tab}Added new option mweoDragDropEditing to disable drag and drop editing.\plain\f2\fs16\b 
+\par \plain\f2\fs16 {\pntext\f1\'b7\tab}Added new option mweoSmartTabs to add spaces for smart indentation (default option).
+\par {\pntext\f1\'b7\tab}Added new option mweoHalfPageScroll to control PageUp/PageDown scrolling.
+\par \pard\li1080\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Added new option mweoShowScrollHint to control display of scroll hint window.
+\par \plain\lang1031\f2\fs16 {\pntext\f1\'b7\tab}Added CanPaste property.\plain\f2\fs16 
+\par \pard\li1080\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Added new option to make the editor a drop target for files. New event gets a TStrings list of the names of the dropped files.
+\par {\pntext\f1\'b7\tab}New types TmwSearchOption and TmwSearchOptions
+\par \pard\li1080\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}New property ClipboardFormats to select the formats for export to clipboard.
+\par {\pntext\f1\'b7\tab}New class TmwGutter:
+\par \pard\li1440\fi-360\tx1428{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Replaces the mwEdit properties GutterWidth, GutterColor, LeadingZeros, LineNumbers and ZeroStart with own properties Width, Color, LeadingZeros, ShowLineNumbers and ZeroStart.
+\par {\pntext\f1\'b7\tab}Adds new subproperties DigitCount, LeftOffset, RightOffset.
+\par \pard\li732\fi-360\tx1068\tx2268\plain\f4\fs16 \tab \'b7\tab \plain\f2\fs16 Added public property LineHeight (read-only access to fTextHeight field).\plain\f2\fs16\b 
+\par \pard\li1080\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Added RightEdgeColor property and supporting code.\plain\f2\fs16\b 
+\par \plain\f2\fs16 {\pntext\f1\'b7\tab}Tab support properties: WantTabs, TabWidth.
+\par \pard\li1068\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Added SelectionMode property (Delphi IDE equivalent in parens)\plain\f2\fs18 :\plain\f2\fs16 
+\par \pard\li1416\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}smNormal: The "standard" Windows selection behavior (Ctrl+O+K, default)
+\par {\pntext\f1\'b7\tab}smColumn: Selection does not extend to begin/end of lines, but is truly rectangular (Ctrl+O+C). One difference between my implementation and Delphi's is that Delphi's column mode is inclusive of the cursor X position and mine isn't. It was easier to implement, and I like it better. :)
+\par {\pntext\f1\'b7\tab}smLine:  Selection always includes the full line (Ctrl+O+L)
+\par \pard\li1056\plain\f2\fs16 TmwKeyStrokes.ResetDefaults will generate default key commands for these; Ctrl+Shift+N = normal, Ctrl+Shift+C = column, , Ctrl+Shift+L = line. If you have existing editors with Keystrokes properties already assigned, they won't have these added. You'll have to add them manually, or regenerate the list from the property editor. 
+\par \pard\li720\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\lang1031\f2\fs16 {\pntext\f1\'b7\tab}Methods\plain\f2\fs16 
+\par \pard\li1080\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\lang1031\f2\fs16 {\pntext\f1\'b7\tab}Added SetSelWord method to select the word at the cursor. 
+\par \plain\f2\fs16 {\pntext\f1\'b7\tab}Added methods MoveCaretHorz, MoveCaretVert and MoveCaretAndSelection. 
+\par {\pntext\f1\'b7\tab}Renamed the LastWordPos method to PrevWordPos. Rewrote NextWordPos and PrevWordPos methods.
+\par {\pntext\f1\'b7\tab}New method SearchReplace adds search and replace functionality to mwCustomEdit
+\par \pard\li1080\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}New improved GetSelText method.\plain\f2\fs16\b 
+\par \plain\f2\fs16 {\pntext\f1\'b7\tab}New public methods SaveStreamToClipboardFormat, SaveToFile, ExportToFile, ExportToClipboard, CopyToClipboardEx.
+\par {\pntext\f1\'b7\tab}Made CaretXPix and CaretYPix functions public.\plain\lang1060\f2\fs16 
+\par \pard\li720\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Added procedure RefreshAllTokens.
+\par \pard\li720\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Events
+\par \pard\li1080\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Added the standard Sender parameter to several event types: TProcessCommandEvent, TPlaceMarkEvent, TReplaceTextEvent.
+\par {\pntext\f1\'b7\tab}Added new event OnStatusChange that is called when component properties have changed that are typically shown in statusbars: CaretXY, TopLine, LeftChar, InsertMode, ... Added new types TmwStatusChange, TmwStatusChanges and TStatusChangeEvent.
+\par \pard\li1080\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}New OnSpecialLineColors event to set special colors for single lines (like breakpoints or current position in the Delphi IDE).\plain\f2\fs16\b 
+\par \plain\f2\fs16 {\pntext\f1\'b7\tab}Added OnSelectionChange event.\plain\f2\fs16\b 
+\par \plain\f2\fs16 {\pntext\f1\'b7\tab}Added OnDropFiles event.\plain\f2\fs16\b 
+\par \pard\li1080\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Added OnCommandDone event - it's simple TNotifyEvent, and it's fired before program leaves CommandProcessor.\plain\lang1060\f2\fs16 
+\par \pard\li720\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\lang1031\f2\fs16 {\pntext\f1\'b7\tab}Functionality
+\par \pard\li1080\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\lang1031\f2\fs16 {\pntext\f1\'b7\tab}Heavily modified TmwCustomEdit.MouseDown() so that the right mouse button functions similar to other applications. Right-clicking will bring up any assigned context menu, but if there is selected text available, then cursor and selection is left alone, menu is brought up. If text is not selected, cursor is brought to where right mouse button was pressed and then the context menu is brought up. Dragging not allowed with right mouse button.\plain\f2\fs16 
+\par \plain\lang1031\f2\fs16\cf0 {\pntext\f1\'b7\tab}The maximum char width is now computed based on the width of bold chars only if at least one token attribute uses bold font. \plain\f2\fs16 
+\par {\pntext\f1\'b7\tab}Changed painting code to replace a token attribute foreground or background color of clNone with the default colors of the component (Color or Font.Color). This could be used to implement the \rdblquote Use default colors\rdblquote  checkboxes as seen in the Delphi IDE.
+\par {\pntext\f1\'b7\tab}Changes to support keyboard commands with 2 keys.
+\par \pard\li1080\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}New painting code without double-buffering and without using windows regions for painting the selected area, see comment in source file for an explanation of the changes.\plain\f2\fs16\b 
+\par \plain\f2\fs16 {\pntext\f1\'b7\tab}Added scroll hint window to WMVScroll to show the current TopLine.
+\par {\pntext\f1\'b7\tab}Added wheel mouse support.
+\par {\pntext\f1\'b7\tab}Fixed vertical scrolling routines to allow for correct scrolling of more than 32768 lines\plain\lang1033\f2\fs16 .\plain\f2\fs16 
+\par {\pntext\f1\'b7\tab}MBCS (Multi Byte Character Set) Support (controlled by MWE_MBCSSUPPORT define).
+\par {\pntext\f1\'b7\tab}Cursor control & IMM (Input Method Manager) control. Not available in Delphi 2 (and probably in C++ Builder 1 \endash  can't check).
+\par {\pntext\f1\'b7\tab}Limited tab support (tabs are converted to spaces). Properties: WantTabs, TabWidth.
+\par \pard\li1080\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Printing:
+\par \pard\li1440\fi-360\tx1080{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}TmwPrintOptions status:
+\par \pard\li1440\tx2552\tx4536\plain\f2\fs16 \tab Plain\tab Highlighted
+\par \tab ----------------\tab ----------------
+\par SelectedOnly:\tab Working\tab Working
+\par PrintRange:\tab Working\tab Working
+\par Copies:\tab Working\tab Working
+\par WrapLongLines:\tab Not implemented (1)\tab Not implemented (1)
+\par Margins:\tab Working\tab Working
+\par Title:\tab Working\tab Working
+\par Header:\tab Basic (2)\tab Basic (2)
+\par Footer:\tab Basic (2)\tab Basic (2)
+\par \pard\li1440\plain\f2\fs16 1) Wrapping is probably going to be a nightmare, but it probably really needs to be there, too...
+\par 2) First following macros are replaced then line is printed left aligned:
+\par \pard\li1800\tx3402\tx4536\plain\f2\fs16 $title$:\tab Title property of TmwPrintOptions
+\par $pagenum$:\tab current page number
+\par $time$:\tab printing start time
+\par $date$:\tab printing start date
+\par $timedate$:\tab time + date (default locale format)
+\par $datetime$:\tab date + time (default locale format)
+\par \pard\plain\lang1033\f2\fs16 
+\par \plain\f2\fs20\b 0.8: 1999-01-19
+\par \pard\li360\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}Contributors
+\par \pard\li720\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\lang1024\f2\fs16 {\pntext\f1\'b7\tab}Bernt Levinsson, Brad Stowers, Carlos Wijders, Cyrille de Brebisson, James Jacobson, Kees van Spelde, Martin Waldenburg, Michael Trier, Primoz Gabrijelcic, Ted Berg, Thomas Kurz, Willo van der Merwe
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}general
+\par \pard\li720\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Dcj*Syn grammars included in standard distribution\plain\f2\fs16\b 
+\par \plain\f2\fs16 {\pntext\f1\'b7\tab}mwGeneralSyn grammar included in standard distribution\plain\f2\fs16\b 
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}Delphi demo\plain\f2\fs16  updated (version 0.31)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Added interface to allow changing highlight attributes at runtime.
+\par {\pntext\f1\'b7\tab}Implemented a runtime keyword editor for mwGeneralSyn.
+\par {\pntext\f1\'b7\tab}Updated code to be more highlighter-independent. To add new highlighter to the demo, just drop it onto the main form. Everything else is done at runtime.
+\par {\pntext\f1\'b7\tab}Adapted code to use TmwCustomHighlighter.Capability.
+\par {\pntext\f1\'b7\tab}Added keyboard assignment editor.
+\par {\pntext\f1\'b7\tab}Added code to illustrate new mark manager (Bookmark page).\plain\f2\fs16\b 
+\par \plain\f2\fs16 {\pntext\f1\'b7\tab}DefaultFilter property is now used to create OpenDialog1.Filter.\plain\f2\fs16\b 
+\par \plain\f2\fs16 {\pntext\f1\'b7\tab}Published ExtraLineSpacing property (Display page).\plain\f2\fs16\b 
+\par \plain\f2\fs16 {\pntext\f1\'b7\tab}Added Redo interface.\plain\f2\fs16\b 
+\par \plain\f2\fs16 {\pntext\f1\'b7\tab}Added support for new mwGeneralSyn comment types (Asm, Bas).
+\par {\pntext\f1\'b7\tab}Updated to demonstrate new highlighter properties.
+\par \pard\li360\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}BCB1 demo\plain\f2\fs16  new
+\par \plain\f2\fs16\b {\pntext\f1\'b7\tab}BCB3 demo\plain\f2\fs16  new
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwHighlighter\plain\f2\fs16  updated (version 0.64)
+\par \pard\li720\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Added IdentChars implementation to let the editor know which characters are non "whitespace".
+\par {\pntext\f1\'b7\tab}Extended TmwCustomHighlighter with properties Name, AttrCount, and Attribute; added corresponding Get functions (all pure virtual).
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Renamed LoadFromRegistry to LoadFromBorlandRegistry.
+\par {\pntext\f1\'b7\tab}Added Capability property.
+\par {\pntext\f1\'b7\tab}Added code to save/load TmwCustomHighlighter to/from registry.
+\par {\pntext\f1\'b7\tab}Added code to save/load TmwHighLightAttributes to/from registry.
+\par {\pntext\f1\'b7\tab}Added property IntegerStyle.
+\par \pard\li360\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}all highlighters
+\par \pard\li720\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Added IdentChars implementation to let the editor know which characters are non "whitespace".
+\par {\pntext\f1\'b7\tab}Added attribute names.
+\par {\pntext\f1\'b7\tab}Implemented GetName, GetAttribCount, GetAttribute.
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwPasSyn\plain\f2\fs16  updated (version 0.65)
+\par \pard\li720\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Some changes that will update the Editor when any changes are made to the Highlighter. That is when any color or font style is changed and when the Highlighter is added or removed the Editor will be invalidated.
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Implemented GetCapability.
+\par {\pntext\f1\'b7\tab}20% speedup.
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}DcjCppSyn\plain\f2\fs16  updated (version 0.73)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Implemented GetCapability.\plain\f2\fs16\b 
+\par \plain\f2\fs16 {\pntext\f1\'b7\tab}Implemented Extended Token ID support.
+\par {\pntext\f1\'b7\tab}Added QuestionProc for conditional operator.
+\par {\pntext\f1\'b7\tab}Added InvalidAttri for unknown characters. Modified UseUserSettings to get the Illegal Char setting for InvalidAttri.
+\par {\pntext\f1\'b7\tab}Added default foreground color of clWindow to SpaceAttri and removed space conversion code in GetToken method.
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}DcjPerlSyn\plain\f2\fs16  new (version 0.57)
+\par \pard\li720\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Perl highlighter
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}DcjJavaSyn\plain\f2\fs16  new (version 0.53)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Java highlighter
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwGeneralSyn\plain\f2\fs16  new (version 0.67)
+\par \pard\li720\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}General highlighter
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}cbHPSyn\plain\f2\fs16  new (version 0.53)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}HP48 assembler highlighter
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}cwCACSyn\plain\f2\fs16  new (version 0.2)
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}CA-Clipper highlighter
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwEditReg\plain\f2\fs16  updated (version 0.16)
+\par \pard\li720\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Added registration for DcjPerlSyn and mwGeneralSyn
+\par {\pntext\f1\'b7\tab}Added keystroke editor
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Moved initialisation code to mwKeyCmds to prevent "Invalid property value" error.
+\par {\pntext\f1\'b7\tab}Added registration for cbHPSyn.
+\par {\pntext\f1\'b7\tab}Added keystroke editor.
+\par {\pntext\f1\'b7\tab}Added registration for DcjJavaSyn. Added Java bitmap to DCR file.\plain\f2\fs16\b 
+\par \plain\f2\fs16 {\pntext\f1\'b7\tab}Added registration for cwCACSyn. Added CA-Clipper bitmap to DCR file.\plain\f2\fs16\b 
+\par \pard\li360\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwKeyCmds\plain\f2\fs16  new (version 0.1)\plain\f2\fs16\b 
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Container for keyboard commands.\plain\f2\fs16\b 
+\par \pard\li360\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwKeyCmdEditor\plain\f2\fs16  new (version 0.1)\plain\f2\fs16\b 
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Design-time command editor.\plain\f2\fs16\b 
+\par \pard\li360\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwKeyCmdsEditor \plain\f2\fs16 new (version 0.1)\plain\f2\fs16\b 
+\par \pard\li720\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Design-time command editor.\plain\f2\fs16\b 
+\par \pard\li360\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwCustomEdit\plain\f2\fs16  updated (version 0.8)
+\par \pard\li720\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}New mark manager.\plain\f2\fs16\b 
+\par \pard\li1068\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Renamed ImageList property into BookmarkImages.\plain\f2\fs16\b 
+\par \plain\f2\fs16 {\pntext\f1\'b7\tab}mwEdit now understands two kinds of gutter images \endash  bookmarks and gutter marks. Bookmarks have built-in logic that prevents duplicate bookmarks (e.g. two bookmarks 0 are not allowed) and duplicate bookmarks on the same line (setting a new bookmark deletes old one) while gutter marks have no such internal logic.\plain\f2\fs16\b 
+\par {\pntext\f1\'b7\tab}Bookmark insertion
+\par \pard\li1428\fi-360\tx1428{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Either application calls SetBookmark or user presses ecSetMarker0..ecSetMarker9 (and again SetBookmark is called).
+\par {\pntext\f1\'b7\tab}TMark instance (named \plain\f2\fs16\i mark\plain\f2\fs16  in this example) is prepared with \plain\f2\fs16\i ImageIndex = bookmark number\plain\f2\fs16 , \plain\f2\fs16\i BookmarkNumber = bookmark number\plain\f2\fs16 , \plain\f2\fs16\i Visible = true\plain\f2\fs16 , \plain\f2\fs16\i IsBookmark = true\plain\f2\fs16 ; \plain\f2\fs16\i InternalImage = true\plain\f2\fs16  if \plain\f2\fs16\i BookmarkImages = nil\plain\f2\fs16 , false otherwise.
+\par {\pntext\f1\'b7\tab}If defined, OnPlaceBookmark(\plain\f2\fs16\b var\plain\f2\fs16  mark) is called, which can
+\par \pard\li1776\fi-360\tx1776{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Modify various fields of mark parameter to change the image index, image list, mark visibility etc;
+\par {\pntext\f1\'b7\tab}Dispose mark parameter and set it to nil; this will prevent bookmark from being set;
+\par {\pntext\f1\'b7\tab}Dispose mark parameter, create new TMark instance (or descendant!) and return it with all parameters set;
+\par {\pntext\f1\'b7\tab}Any combination of above; for example, if you want to use default bookmark images and custom gutter mark images, you can achieve it with a one-line event handler:  
+\par \plain\f2\fs16\b {\pntext\f1\'b7\tab}if\plain\f2\fs16  mark.IsBookmark \plain\f2\fs16\b then\plain\f2\fs16  mark.InternalImage := true;
+\par \pard\li1428\fi-360\tx1428{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}If \plain\f2\fs16\i mark\plain\f2\fs16  is not nil, bookmark is set.
+\par {\pntext\f1\'b7\tab}Note: if application wants to reuse (some of) ecSetMarker0..ecSetMarker9 commands for setting ordinary marks it should set IsBookmark property to false in OnPlaceBookmark handler (for commands that should set gutter mark and not bookmark).
+\par \pard\li1068\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}Gutter mark insertion
+\par \pard\li1428\fi-360\tx1428{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Application allocates \plain\f2\fs16\i mark: TMark\plain\f2\fs16  (descendant class can be used), sets all properties (IsBookmark should be set to false) and calls TMarkList.Place(mark).
+\par {\pntext\f1\'b7\tab}If defined, OnPlaceBookmark(mark) is called, it can do all the things listed above.
+\par {\pntext\f1\'b7\tab}If \plain\f2\fs16\i mark\plain\f2\fs16  is not nil, gutter mark is set.
+\par \pard\li1068\fi-360\tx1068{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}Drawing
+\par \pard\li1428\fi-360\tx1428{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}First, all bookmarks are painted, then ordinary marks are painted.
+\par {\pntext\f1\'b7\tab}First mark in a line is painted at a BookMarkOptions.LeftMargin offset.
+\par {\pntext\f1\'b7\tab}Possible subsequent marks are painted with a BookMarkOptions.XOffset offset.
+\par \pard\li1428\fi-360\tx720\tx1428{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}New methods: TMarkList.ClearLine (clear all marks on selected line), TMarkList.Place (place visual mark in gutter), TMarkList.GetMarksForLine (returns marks for selected line)
+\par {\pntext\f1\'b7\tab}Enhanced demo with the ability to put images into gutter. See Bookmarks page of demo app.
+\par \pard\li720\fi-360\tx12\tx709{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Added ExtraLineSpacing property.
+\par {\pntext\f1\'b7\tab}Added GetBookmark and IsBookmark functions.
+\par {\pntext\f1\'b7\tab}Added ClearUndo procedure.
+\par \pard\li720\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Published OnMouseDown, OnMouseUp, OnMouseMove.\plain\f2\fs16\b 
+\par \plain\f2\fs16 {\pntext\f1\'b7\tab}Implemented GetSelStart/SetSelStart and GetSelEnd/SetSelEnd.\plain\f2\fs16\b 
+\par \plain\f2\fs16 {\pntext\f1\'b7\tab}Added Redo capability.\plain\f2\fs16\b 
+\par \plain\f2\fs16 {\pntext\f1\'b7\tab}From-scratch property editor for Keystrokes property. 
+\par {\pntext\f1\'b7\tab}Painting optimized. It's over 220% faster than before, so it shouldn't be sluggish anymore -- even on those old Pentium 100s.
+\par {\pntext\f1\'b7\tab}TmwKeystroke class will now raise an exception (EmwKeyError) if you assign a value to the ShortCut property that already exists in another item in the collection. Duplicate editor commands are allowed since you might want to have more that one key mapping for the same command (i.e. Ctrl+C and Ctrl+Ins for ecCopy). Duplicate shortcuts would only lead to confusion, though, since the first one is the only one that would ever execute. If you need to bypass this for some reason, you can use the public Key and Shift properties instead of ShortCut.
+\par {\pntext\f1\'b7\tab}Added BeginUpdate/EndUpdate.\plain\f2\fs16\b 
+\par \plain\f2\fs16 {\pntext\f1\'b7\tab}Added Modified property.\plain\f2\fs16\b 
+\par \plain\f2\fs16 {\pntext\f1\'b7\tab}Added code to convert #10 into #10#13 on paste.\plain\f2\fs16\b 
+\par \plain\f2\fs16 {\pntext\f1\'b7\tab}Added mwKeyCmds unit. Moved all the editor command codes out of mwCustomEdit.pas and into this one. TmwEditorCommand type, too. This was mostly done to try to keep the mwCustomEdit.pas file from growing out of control, and making it a little bit easier to merge changes in new versions. This unit has the classes for the editor's Keystrokes property (see below).
+\par {\pntext\f1\'b7\tab}Added Keystrokes property to editor. It's a collection of linked shortcuts and editor commands. This allows the keystrokes to be defined for the different editor commands. If you really want to confuse someone, assign the <Left> key to ecRight, and <Right> to ecLeft. :)
+\par {\pntext\f1\'b7\tab}Changed ecSetMarker and ecGotoMarker to ecSetMarker0, ecSetMarker1, etc. because of the way the translation stuff ended up getting implemented. Also, I changed it such that the ecSetMarkerX commands always use the current caret pos for simplicity in the keystroke to editor command translations. I'll re-add the ability to set a marker with arbitrary positions in the next version via an ecSetMarkerAt command.
+\par {\pntext\f1\'b7\tab}Renamed TmwSelectedColor properties FG and BG into Foreground and Background.
+\par {\pntext\f1\'b7\tab}Added checks to ensure the cursor is visible on a cursor movement. I'm basing this on the way the Delphi IDE editor behaves. For example, if you position the cursor at the bottom of the screen and then use the scrollbars to move it such that the cursor is out of view, move the cursor after that will reset the editor such that the cursor is visible. This was being done in some of the handlers (VK_UP and VK_DOWN come to mind), but not all. I've changed it so that the processing is done in the write methods for CaretX and CaretY so that it will always happen without having to do the check in every cursor movement handler.
+\par {\pntext\f1\'b7\tab}Ctrl+PgUp/PgDn to move to top/bottom of window.
+\par {\pntext\f1\'b7\tab}Ctrl-Home/End looked bad. You could see the CaretY change and then the CaretX change. Fixed.
+\par {\pntext\f1\'b7\tab}Added public property CaretXY: TPoint. Changes both X and Y at once, and uses the paint locking so that you don't see the cursor jumping around like you would if you used CaretX := x and then CaretY := y.
+\par {\pntext\f1\'b7\tab}Added InsertCaret and OverwriteCaret to specify what the ins/ovr carets look like. TCaretType = ctVerticalLine, ctHorizontalLine, ctHalfBlock, ctBlock.
+\par {\pntext\f1\'b7\tab}Added ClearAll method.
+\par {\pntext\f1\'b7\tab}Some changes that will update the Editor when any changes are made to the Highlighter. That is when any color or font style is changed and when the Highlighter is added or removed, the Editor will be invalidated.
+\par \pard\plain\f2\fs16 
+\par \plain\f2\fs20\b 0.7: 1998-12-18
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}Contributors\plain\f2\fs16 
+\par \pard\li720\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}Andy Jeffries, Brad Stowers, Edward Kreis, James Jacobson, Martin Waldenburg, Michael Beck, Michael Trier, Primoz Gabrijelcic, Thomas Kurz
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwPasSyn\plain\f2\fs16  updated (version 0.6)
+\par \pard\li720\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}hacked mwPasSyn to compile with BCB 3
+\par {\pntext\f1\'b7\tab}renamed UseDelphiSettings to UseUserSettings
+\par {\pntext\f1\'b7\tab}new procedure EnumUserSettings
+\par {\pntext\f1\'b7\tab}properties TmwHighLightAttributes.BG and VG renamed to Background and Foreground
+\par {\pntext\f1\'b7\tab}moved TmwCustomHighlighter and registry access routines into separate unit mwHighlighter
+\par {\pntext\f1\'b7\tab}included MWEDIT.INC
+\par {\pntext\f1\'b7\tab}fixed UseDelphiSettings to better handle default colours
+\par {\pntext\f1\'b7\tab}changed default foreground from clBlack to clWindowText
+\par \pard\li360\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}DcjCppSyn\plain\f2\fs16  new (version 0.61)
+\par \pard\li720\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}C++ syntax highlighter
+\par \pard\li360\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwEditReg\plain\f2\fs16  new (version 0.11)
+\par \pard\li720\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}common registration unit
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}mwCustomEdit\plain\f2\fs16  updated (version 0.7)\plain\f2\fs16\b 
+\par \pard\li720\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}bookmarks (10 bookmarks, Ctrl+Shift+<number> sets/clears, Ctrl+<number> jumps, images hardcoded, exposed through property TmwBookMarkOpt)
+\par {\pntext\f1\'b7\tab}OnPaint event
+\par {\pntext\f1\'b7\tab}added ability to move or copy selected text by drag&drop
+\par {\pntext\f1\'b7\tab}changed drag&drop code to allow single click in the middle of selection to clear selection (fixed strayed MouseUp procession too)
+\par {\pntext\f1\'b7\tab}added overriden Notification to beter handle removal of associated highlighter
+\par {\pntext\f1\'b7\tab}added Set method for Highlighter property to beter handle removal of associated highlighter
+\par {\pntext\f1\'b7\tab}renamed values in TChangeReason
+\par {\pntext\f1\'b7\tab}added BCB 3 demo
+\par {\pntext\f1\'b7\tab}added BCB 1 demo
+\par {\pntext\f1\'b7\tab}MaxUndo property
+\par {\pntext\f1\'b7\tab}OnChange event
+\par {\pntext\f1\'b7\tab}added Undo capability (property CanUndu and procedure Undu), hardwired to the Alt+Backspace
+\par {\pntext\f1\'b7\tab}limited Font property dialog (IDE) to just fixed fonts
+\par {\pntext\f1\'b7\tab}added BorderStyle property
+\par {\pntext\f1\'b7\tab}published inherited properties ParentCtl3D, Anchors (D4), and Contstraints (D4)
+\par {\pntext\f1\'b7\tab}added HideSelection property
+\par {\pntext\f1\'b7\tab}added Ctrl-Up and Ctrl-Down keyboard commands: Scrolls editor up or down one line without moving caret position (unless the caret would not be visible) - same as Delpi IDE
+\par {\pntext\f1\'b7\tab}InsertMode published property for Inserting variable
+\par {\pntext\f1\'b7\tab}overwrite mode caret
+\par {\pntext\f1\'b7\tab}added property ScrollPastEOL to (dis)allow scrolling past EOL
+\par {\pntext\f1\'b7\tab}mirror on Dcj FTP Site and Dcj FTP Mirror Site (http://www.dcjournal.com/ftp/tidbits/mwedit.zip and ftp://ftp.safetystorage.com/pub/safetystor/journal/tidbits/mwedit.zip)
+\par {\pntext\f1\'b7\tab}mirror on Kwik-Rite Development (http://www.kwikrite.clara.net/mwEdit/mwedit.zip)
+\par {\pntext\f1\'b7\tab}created help file, generated with Time2Help (http://www.time2help.com)
+\par \pard\plain\f2\fs16 
+\par \plain\f2\fs20\b 0.6: 1998-12-09\plain\f2\fs18 
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}Primoz Gabrijelcic
+\par \pard\li720\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}became a source maintainer for mwCustomEdit and mwPasSyn
+\par {\pntext\f1\'b7\tab}renamed main .pas files to mwCustomEdit and mwPasSyn to enhance clarity
+\par {\pntext\f1\'b7\tab}created web page (http://www.eccentrica.org/gabr/mw/mwedit.htm, mirror on http://members.xoom.com/primozg/mw/mwedit.htm) and a mailing list (mwedit@listbot.com, subscription form available on mwCustomEdit web page) for mwEdit
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}Thomas Kurz
+\par \pard\li720\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}added ability to extend selection by pressing Shift before clicking
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16\b {\pntext\f1\'b7\tab}James Jacobson
+\par \pard\li720\fi-360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}smoothing the caret movement
+\par {\pntext\f1\'b7\tab}new property and class to allow changing the Selected text colour
+\par {\pntext\f1\'b7\tab}fix to prevent putting name in control when loading in IDE and Text is empty
+\par \pard\plain\f2\fs16 
+\par \plain\f2\fs18\b up to 0.53
+\par \pard\li360\fi-360\tx360{\*\pn\pnlvlblt\pnf1\pnindent360{\pntxtb\'b7}}\plain\f2\fs16 {\pntext\f1\'b7\tab}source maintained by the author, version history unknown
+\par \pard\plain\f2\fs16 
+\par }
+ 

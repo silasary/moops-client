@@ -1,0 +1,613 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0028)http://www.dds.nl/~vmoo/mcp/ -->
+<HTML><HEAD><TITLE>VMoo Protocol Specification</TITLE>
+<META content="MSHTML 5.00.2314.1000" name=GENERATOR>
+<META content="text/html; charset=iso-8859-1" http-equiv=Content-Type>
+<STYLE type=text/css>H3 {
+	FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-SIZE: 14pt; FONT-WEIGHT: bold; TEXT-ALIGN: center
+}
+BODY {
+	FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-SIZE: 12pt
+}
+A:link {
+	COLOR: #000066
+}
+A:hover {
+	COLOR: #3333ff
+}
+A:visited {
+	COLOR: #660066
+}
+PRE {
+	FONT-SIZE: 9pt
+}
+</STYLE>
+</HEAD>
+<BODY bgColor=#ffffff>
+<H2>VMoo Protocol Specification</H2>
+<CENTER>
+<TABLE bgColor=yellow border=2 cellPadding=10 cellSpacing=5 width=480>
+  <TBODY>
+  <TR>
+    <TH height=217>Temporary version! 
+      <P>This document isn't finished yet.<BR>
+      <P>it's available to make it already possible to experiment with VMoo 
+      support 
+      <P>Usage of this is (as is all usage of VMoo) at your own risk! 
+  </P></TH></TR></TBODY></TABLE></CENTER>
+<P>
+<UL>
+  <P align=center>The following document assumes you are using VMoo 1.2 (only 
+  available as Dutch version) or above. <BR>The former #_# protocol is no longer 
+  supported by VMoo 2.0 and above and isn't publicly documented.</P>
+  <P align=center>Please send your notes to <A 
+  href="mailto:bert@vmoo.com">mailto:bert@vmoo.com</A></P></UL>
+<P></P>
+<H3><A name=Contents></A>1. Contents</H3>
+<OL>
+  <LI><A href="http://www.dds.nl/~vmoo/mcp/#contents">Contents</A> 
+  <LI><A href="http://www.dds.nl/~vmoo/mcp/#introduction">Introduction</A> 
+  <LI><A href="http://www.dds.nl/~vmoo/mcp/#multiline">MCP Multiline usage in 
+  VMoo</A> 
+  <LI><A href="http://www.dds.nl/~vmoo/mcp/#pkg-supported">Packages supported by 
+  VMoo</A> 
+  <LI><A href="http://www.dds.nl/~vmoo/mcp/#std-pkgs">Standard 
+  Packages</A><BR>5.1. <A href="http://www.dds.nl/~vmoo/mcp/#pkgs-mcp">MCP basic 
+  packages</A><BR>5.2. <A 
+  href="http://www.dds.nl/~vmoo/mcp/#pkgs-moo">dns-org-mud-moo 
+  packages</A><BR>5.3. <A href="http://www.dds.nl/~vmoo/mcp/#pkgs-other">Other 
+  packages</A><BR>5.3.1 <A 
+  href="http://www.dds.nl/~vmoo/mcp/#dds-external">dns-nl-dds-external</A><BR>
+  <LI><A href="http://www.dds.nl/~vmoo/mcp/#pkgs-vgmoo">VMoo 
+  packages</A><BR>6.1. <A 
+  href="http://www.dds.nl/~vmoo/mcp/#vgm-userlist">Dns-nl-vgmoo-userlist</A><BR>6.2. 
+  <A 
+  href="http://www.dds.nl/~vmoo/mcp/#vgm-client">Dns-nl-vgmoo-client</A><BR>6.3. 
+  <A href="http://www.dds.nl/~vmoo/mcp/#vgm-pages">Dns-nl-vgmoo-pages</A> 
+  <LI><A href="http://www.dds.nl/~vmoo/mcp/#pkgs-vmoo">VMoo packages</A><BR>7.1 
+  <A 
+  href="http://www.dds.nl/~vmoo/mcp/#vm-userlist">Dns-com-vmoo-userlist</A><BR>7.2 
+  <A 
+  href="http://www.dds.nl/~vmoo/mcp/#vm-client">Dns-com-vmoo-client</A><BR>7.3 
+  <A href="http://www.dds.nl/~vmoo/mcp/#vm-pages">Dns-com-vmoo-pages</A><BR>7.4 
+  <A 
+  href="http://www.dds.nl/~vmoo/mcp/#vm-dialogs">Dns-com-vmoo-dialogs</A><BR>7.5 
+  <A 
+  href="http://www.dds.nl/~vmoo/mcp/#vm-mmedia">Dns-com-vmoo-mmedia</A><BR>7.6 
+  <A 
+  href="http://www.dds.nl/~vmoo/mcp/#vm-multiplex">Dns-com-vmoo-multiplex</A><BR>7.7 
+  <A 
+  href="http://www.dds.nl/~vmoo/mcp/#vm-presuffix">Dns-com-vmoo-presuffix</A><BR>
+  <LI><A href="http://www.dds.nl/~vmoo/mcp/#definitions">Definitions</A> 
+  <BR></LI></OL>
+<H3><A name=introduction></A>2. Introduction</H3>
+<UL>From version 1.2 VMoo uses the MCP/2.1 protocol as defined at <A 
+  href="http://www.moo.mud.org/mcp/">http://www.moo.mud.org/mcp/</A>. This 
+  protocol is already being used at other Moo's and Mud's. (The basic LambdaCore 
+  uses a protocol for the external editor which is now called MCP 0). 
+  <P>The MCP/2.1 protocol is based upon Out of Band commands. These Out of Band 
+  commands are in MCP lines starting with #$#. LambdaMoo uses a special way to 
+  handle lines starting with this specific string. All lines starting with #$# 
+  are handled bij #0:do_out_of_band_command (Even when executing a read()). To 
+  threat #$# as an ordinary string #$" can be put before the line. This has 
+  several advantages. (Pleas read the MCP/2.1 specification for more info).</P>
+  <P>The following sections assume you are familiar with all aspects of the 
+  MCP/2.1 protocol.</P>
+  <P>While writing this document I assume you are usoing VMoo, but almost every 
+  aspect applies to every other client which uses MCP/2.1 or these 
+  packages.<BR>(e.g. <A href="http://www.nowmoo.demon.nl/">gMOO</A> also uses 
+  most packages)</P>
+  <P>The term 'Moo' is used to specify a mud server which is able to communicate 
+  with a client using the MCP/2.1 protocol.</P></UL>
+<H3><A name=multiline></A>3. MCP Multiline usage in VMoo</H3>
+<BLOCKQUOTE>
+  <P>Many of the dns-nl-vgmoo and dns-com-vmoo packages use/abuse the power of 
+  the MCP Multine messages to send data with a minimal overhead at the moo. Most 
+  default Moo implementations of the MCP/2.1 specification assume that multiline 
+  messages should be threated as 1 long message, while VMoo has the abbility to 
+  threat every line of a multiline message as a separate light weight message. 
+  (Multiline data lines use far less data and processing than ordinary MCP 
+  lines.)</P>
+  <P>Most MCP implementation can use this feature with only minor changes.</P>
+  <P>E.g.<B> </B>the dns-nl-vgmoo-userlist package uses a single MCP multiline 
+  message to continuously update the activity status of all connected 
+  players.</P>
+  <H3><A name=pkg-supported></A>4. packages supported by VMoo</H3>
+  <P>VMoo supports the following packages:</P>
+  <TABLE border=1 width=700>
+    <TBODY>
+    <TR>
+      <TD width="33%"><B>mcp-negotiate</B></TD>
+      <TD width="10%">1.0 - 2.0</TD>
+      <TD width="57%">VMoo 1.2+</TD></TR>
+    <TR>
+      <TD width="33%"><B>dns-org-mud-moo-simpleedit</B></TD>
+      <TD width="10%">1.0</TD>
+      <TD width="57%">VMoo 1.5+ (1.2 has a dot bug in the 
+implementation)</TD></TR>
+    <TR>
+      <TD width="33%"><B>dns-com-awns-status</B></TD>
+      <TD width="10%">1.0</TD>
+      <TD width="57%">VMoo 1.2+</TD></TR>
+    <TR>
+      <TD width="33%"><B>dns-com-ben-tfstatus</B></TD>
+      <TD width="10%">1.0</TD>
+      <TD width="57%">VMoo 1.2+</TD></TR>
+    <TR>
+      <TD width="33%"><B>dns-nl-dds-external</B></TD>
+      <TD width="10%">1.0</TD>
+      <TD width="57%">VMoo 1.5+</TD></TR>
+    <TR>
+      <TD width="33%"><B>dns-nl-vgmoo-client</B></TD>
+      <TD width="10%">1.0</TD>
+      <TD width="57%">VMoo 1.2-1.3 (Alias for dns-com-vmoo-client from 
+    1.4)</TD></TR>
+    <TR>
+      <TD width="33%"><B>dns-nl-vgmoo-pages</B></TD>
+      <TD width="10%">1.0</TD>
+      <TD width="57%">VMoo 1.2-1.3 (Alias for dns-com-vmoo-pages from 
+    1.4)</TD></TR>
+    <TR>
+      <TD height=2 width="33%"><B>dns-nl-vgmoo-userlist</B></TD>
+      <TD height=2 width="10%">1.0</TD>
+      <TD height=2 width="57%">VMoo 1.2-1.3 (Alias for dns-com-vmoo-userlist 
+        from 1.4)</TD></TR>
+    <TR>
+      <TD height=2 width="33%"><B>dns-com-vmoo-client</B></TD>
+      <TD height=2 width="10%">1.0</TD>
+      <TD height=2 width="57%">VMoo 1.4+</TD></TR>
+    <TR>
+      <TD width="33%"><B>dns-com-vmoo-dialogs</B></TD>
+      <TD width="10%">1.0</TD>
+      <TD width="57%">VMoo 1.4+</TD></TR>
+    <TR>
+      <TD width="33%"><B>dns-com-vmoo-mmedia</B></TD>
+      <TD width="10%">1.0</TD>
+      <TD width="57%">VMoo 1.4+</TD></TR>
+    <TR>
+      <TD width="33%"><B>dns-com-vmoo-multiplex</B></TD>
+      <TD width="10%">1.0</TD>
+      <TD width="57%">VMoo 1.4+</TD></TR>
+    <TR>
+      <TD width="33%"><B>dns-com-vmoo-pages</B></TD>
+      <TD width="10%">1.0</TD>
+      <TD width="57%">VMoo 1.4+</TD></TR>
+    <TR>
+      <TD width="33%"><B>dns-com-vmoo-presuffix</B></TD>
+      <TD width="10%">1.0</TD>
+      <TD width="57%">VMoo 1.4+</TD></TR>
+    <TR>
+      <TD width="33%"><B>dns-com-vmoo-userlist</B></TD>
+      <TD width="10%">1.0</TD>
+      <TD width="57%">VMoo 1.4+</TD></TR></TBODY></TABLE></BLOCKQUOTE>
+<H3><A name=std-pkgs></A>5. Standard Packages</H3>
+<P><B><A name=pkgs-mcp></A>5.1. MCP packages</B></P>
+<UL><B>mcp-negotiate [1.0-2.0]</B> 
+  <UL>is an obliged package of the MCP/2.1 specifation.. 
+    <P>The following messages are defined: 
+    <UL><B>mcp-negotiate-can(package, min-version, 
+      max-version)<BR>mcp-negotiate-end()</B> [2.0+] 
+      <P></P></UL>
+    <P>More information available at: <A 
+    href="http://www.moo.mud.org/mcp/">http://www.moo.mud.org/mcp/</A> </P>
+    <P>(VMoo only replies a negotiate-end message when mcp-negotiate 2.0 is 
+    supported an announced by the Moo!)</P></UL>
+  <P><B>mcp-cord [1.0-1.0]</B> 
+  <UL>is a recomended package of the MCP specification. It will be available 
+    in VMoo whenever the Tcl implementation makes it possible to define your own 
+    MCP packages. 
+    <P>The following messages are defined: 
+    <UL><B>mcp-cord-open(_id, _type)<BR>mcp-cord-open(_id, _message, 
+      msgarg1....)<BR>mcp-cord-close(_id)</B> 
+      <P></P></UL>
+    <P>More information available at: <A 
+    href="http://www.moo.mud.org/mcp/">http://www.moo.mud.org/mcp/</A> </P></UL>
+  <P></P></UL><B><A name=pkgs-moo></A>5.2. Dns-org-mud-moo packages</B> 
+<UL><B>dns-org-mud-moo-simpleedit [1.0-1.0]</B> 
+  <UL>
+    <P>This package is meant as a simple replacement for the MCP/0 '#$# edit 
+    name: ... upload: ...' command.</P>
+    <P>It doesn't trust on specific moo verbs as the old version does.</P>
+    <P>The following messages are defined: 
+    <UL><B>dns-org-mud-moo-simpleedit-content(reference, name, content*, type) 
+      </B>(moo to client)<B> <BR>dns-org-mud-moo-simpleedit-set(reference, 
+      content*, type)</B> (client to moo) 
+      <P></P></UL>More information available at: <A 
+    href="http://www.moo.mud.org/mcp/">http://www.moo.mud.org/mcp/</A> </UL></UL>
+<P><A name=pkgs-other></A><B>5.3. Other packages</B> 
+<UL><B>dns-com-awns-status [1.0-1.0]</B> 
+  <UL>Simple package to send some status text. 
+    <P>The following messages are defined: 
+    <UL><B>dns-com-awns-status(text)</B> 
+      <P></P></UL>
+    <P>More information available at: <A 
+    href="http://www.awns.com/mcp/">http://www.awns.com/mcp/</A> 
+  </P></UL><B>dns-com-ben-tfstatus [1.0-1.0]</B> 
+  <UL>Simple package to send some status text. 
+    <P>The following messages are defined 
+    <UL><B>dns-com-ben-tfstatus-update(content)</B> 
+      <P></P></UL>
+    <P>More information available at: <B>-?-</B> </P></UL></UL>
+<P><B><A name=dds-external></A>5.3.1 dns-nl-dds-external</B> [1.0]</P>
+<BLOCKQUOTE>
+  <P>The following messages are defined:</P>
+  <BLOCKQUOTE>
+    <P><B>dns-nl-dds-external-query() </B>(Moo to 
+    Client)<BR><B>dns-nl-dds-external-accepts(externals) </B>(Client to 
+    Moo)<B><BR>dns-nl-dds-external-exec(external [,info]) </B>(Moo To 
+  Client)</P></BLOCKQUOTE>
+  <P><B>dns-nl-dds-external-query()</B></P>
+  <BLOCKQUOTE>
+    <P>Requests the client to send an accepts list.</P></BLOCKQUOTE>
+  <P><B>dns-nl-dds-external-accepts(externals) </B>(Client to Moo)</P>
+  <BLOCKQUOTE>
+    <P>A message to tell the moo which externals are accepted by the client. 
+    <I>Externals</I> is a <A 
+    href="http://www.dds.nl/~vmoo/mcp/#moo-list">moo-list</A>.</P></BLOCKQUOTE>
+  <P><B>dns-nl-dds-external-exec(external [,info]) </B>(Moo To Client) </P>
+  <BLOCKQUOTE>
+    <P>A moo request for the client to initiate an external.</P></BLOCKQUOTE>
+  <P>VMoo accepts the following externals:</P>
+  <BLOCKQUOTE>
+    <TABLE border=1 width="92%">
+      <TBODY>
+      <TR align=middle bgColor=#ffff00>
+        <TD width="15%"><B>External</B></TD>
+        <TD width="34%"><B>Description</B></TD>
+        <TD width="51%"><B>Meaning of info value</B></TD></TR>
+      <TR>
+        <TD width="15%">Browser</TD>
+        <TD width="34%">Starts the default browser</TD>
+        <TD width="51%">Url (Only http://, ftp:// and gopher:// are accepted 
+          for security reasons</TD></TR>
+      <TR>
+        <TD width="15%">Mail</TD>
+        <TD width="34%">Starts mail reader</TD>
+        <TD width="51%">To whom to write a message</TD></TR>
+      <TR>
+        <TD width="15%">News</TD>
+        <TD width="34%">Starts news reader</TD>
+        <TD width="51%">newsgroup including 
+  news:</TD></TR></TBODY></TABLE></BLOCKQUOTE></BLOCKQUOTE>
+<H3><A name=pkgs-VgMoo></A>6. VgMoo Packages</H3>
+<BLOCKQUOTE>
+  <P>From VMoo version 1.5 onward the dns-nl-vgmoo packages are replaced by 
+  dns-nl-vmoo- packages with the same suffix. (For more information about 
+  implementing both packages in the same moo/client see <A 
+  href="http://www.dds.nl/~vmoo/mcp/vm-userlist">dns-com-vmoo-userlist</A>.)</P></BLOCKQUOTE>
+<P><A name=vgm-userlist></A><B>6.1 dns-nl-vgmoo-userlist [1.0-1.1]</B> </P>
+<UL>[This package uses the ability to keep a multiline message open at all 
+  times. (<A href="http://www.dds.nl/~vmoo/mcp/#multiline">More Info</A>)] 
+  <P>The following messages are defined:</P>
+  <UL>
+    <P><B>dns-nl-vgmoo-userlist(fields*, icons*, 
+    d*)<BR>dns-nl-vgmoo-userlist-friends(friends [,added] 
+    [,removed])<BR>dns-nl-vgmoo-userlist-gaglist(gaglist [,added] 
+    [,removed])<BR>dns-nl-vgmoo-userlist-icon-url(url) 
+    </B>[1.1+]<B><BR></B><B>dns-nl-vgmoo-userlist-menu(menu)<BR>dns-nl-vgmoo-userlist-you(nr)<BR></B></P>
+    <P></P></UL>
+  <P><B>dns-nl-vgmoo-userlist-you(nr) </B>(Moo to Client)</P>
+  <BLOCKQUOTE>
+    <P>Moo to client message to specify which <A 
+    href="http://www.dds.nl/~vmoo/mcp/#object-number">object number </A>is 
+    assigned to the current connection.</P>
+    <P>This message should be sent before any other userlist message. To support 
+    future additions, clients should support the possibility that after the 
+    initialization this value could be updated. (Moo's shouldn't use this 
+    feature)) </P></BLOCKQUOTE></UL>
+<BLOCKQUOTE>
+  <P><B>dns-nl-vgmoo-userlist-friends(friends [,added] [,removed])</B> (Moo to 
+  Client and vise versa)<BR><B>dns-nl-vgmoo-userlist-gaglist(gaglist [,added] 
+  [,removed])</B> (Moo to Client and vise versa)</P>
+  <BLOCKQUOTE>
+    <P>These messages tell which users should be threated as friends and which 
+    should be ignored. The list of all users which fall in the categorie must be 
+    sent as the friends/gaglist parameter. To help speeding up the process of 
+    handling this message a client/moo can use also the added + removed 
+    parameters (Whenever one or more of these two parameters are used, the 
+    receiver is allowed to ignore the full list parameter!)</P>
+    <P>If a moo doesn't support friends and/or gaglists, it should reply to this 
+    message with a message which undo's the first message.</P>
+    <P>All parameters are <A 
+    href="http://www.dds.nl/~vmoo/mcp/#moo-list">moo-lists</A>.<BR>(The client 
+    always stores the full list even when players aren't 
+  connected)</P></BLOCKQUOTE>
+  <P><B>dns-nl-vgmoo-userlist-icon-url(url)</B> [Package version 1.1 and above] 
+  (Moo to client)</P>
+  <BLOCKQUOTE>
+    <P>With this message a moo is able to provide it's own icons to clients 
+    which support http connections. When a client supports this option (And it 
+    is enabled), it will use this image instead of the default name assigned 
+    icons.</P></BLOCKQUOTE><B>dns-nl-vgmoo-userlist( fields*, icons*, d*)</B> 
+  <P>
+  <BLOCKQUOTE>
+    <P>Normally, only one message of this type is used. (Actually only 2/3 of a 
+    message is sent).</P>
+    <P>After the initial line</P></BLOCKQUOTE><PRE><B>#$#dns-nl-vgmoo-userlist <I>1234</I> fields*: "" icons*: "" d*: "" _data_tag: <I>5678
+</I></B>(<I>1234</I> and <I>5678 are generated values as specified by the MCP/2.1 specification)</I></PRE>
+  <BLOCKQUOTE>
+    <P>the message is kept open to send updates as easy as possible.</P>
+    <P>First a fields line must be sent. (Only one line of this type is allowed 
+    per message!)</P></BLOCKQUOTE></BLOCKQUOTE>
+<UL>
+  <TABLE>
+    <TBODY>
+    <TR>
+      <TD vAlign=top><B>fields:</B></TD>
+      <TD>
+        <P>The fields parameter is a <A 
+        href="http://www.dds.nl/~vmoo/mcp/#moo-list">moo-list</A>, which 
+        contains information about which data is available about each user.</P>
+        <P>The first three fields are fixed: {"Object", "Name", "Icon"} (Object, 
+        String, Integer), using more is optional. <BR>A moo can add it's own 
+        information or use the predefined "Gender", "First Connect Time" or 
+        "Last Connect Time"<BR>(Moo specific values should be defined with the 
+        prefix "X-")</P>
+        <P><B>Gender</B> is an integer with 0 (male), 1 (female), 2 (undefined 
+        (It)) (Higher values are moo specific, negative values are reserved.) 
+        (player.ps[1] == "h")</P>
+        <P><B>First Connect Time</B> is the integer value of the unix time, when 
+        the user first connected to this moo. (player.first_connect_time) 
+        <P><B>Connect Time</B> is the integer value of the unix time, when the 
+        uses connected. (player.last_connect_time). 
+        <P>It is up to the client what the player information is used for 
+    </P></TD></TR>
+    <TR>
+      <TD vAlign=top><B>Example:</B></TD>
+      <TD><PRE>{"Object", "Name", "Icon", "Age"}</PRE></TD></TR></TBODY></TABLE>
+  <BLOCKQUOTE>
+    <P>Before the data, an icons line should be sent. </P></BLOCKQUOTE>
+  <TABLE>
+    <TBODY>
+    <TR>
+      <TD vAlign=top><B>icons:</B></TD>
+      <TD>
+        <P>The icons paramer is a <A 
+        href="http://www.dds.nl/~vmoo/mcp/#moo-list">moo-list</A>, which defines 
+        the mapping from icon numbers to icon names.</P>
+        <P>This information is used as long as no icon-url is received. (Every 
+        client is allowed to ignore the icon-url message!)</P>
+        <P>The following icons are defined by default: 
+        <P>"Idle", "Away", "Idle+Away", "Friend", "Newbie", "Inhabitant", 
+        "Inhabitant+", "Schooled", "Wizard", "Key", "Star" 
+        <P>A moo can define new icons by defining icons by using other names. 
+        <P>(Moo's are allowed to sent further icons line to update the mapping) 
+        </P></TD></TR>
+    <TR>
+      <TD height=29><B>Example:</B></TD>
+      <TD height=29>{"Newbie", "Programmer", "Inhabitant", 
+        "Inhabitant+","Wizard","<I>Nerd</I>"} </TD></TR></TBODY></TABLE>
+  <BLOCKQUOTE>
+    <P>When at least a fields a icons line is received the <B>d </B>lines can be 
+    used.</P>
+    <P>A <B>d</B> line consists of a special char followed by a <A 
+    href="http://www.dds.nl/~vmoo/mcp/#moo-list">moo-list</A>.</P>
+    <P>The most important chars are:</P>
+    <TABLE border=1 cellPadding=3 cellSpacing=0 width=421>
+      <TBODY>
+      <TR>
+        <TH>&lt;char&gt;</TH>
+        <TH>&lt;List&gt;</TH>
+        <TH>List type</TH></TR>
+      <TR>
+        <TD>=</TD>
+        <TD>Initializes the userlist</TD>
+        <TD>List of &lt;Userinfo&gt;</TD></TR>
+      <TR>
+        <TD>+</TD>
+        <TD>Adds a user </TD>
+        <TD>&lt;Userinfo&gt;</TD></TR>
+      <TR>
+        <TD>*</TD>
+        <TD>Update user info</TD>
+        <TD>&lt;Userinfo&gt;</TD></TR>
+      <TR></TR>
+      <TR></TR>
+      <TR>
+        <TD>-</TD>
+        <TD>Deletes a user</TD>
+        <TD>List of <A 
+          href="http://www.dds.nl/~vmoo/mcp/#object-number">objectnumber</A></TD></TR></TBODY></TABLE>
+    <P><B>=</B> Deletes the old userlist data and adds new players to the list. 
+    (Normally this is the first line after the icons line).(= also deletes all 
+    state data of the previous players)</P>
+    <P><B>+</B> Adds a new user to the userlist. (Is sent to all the users of 
+    this package after a new user is connected)</P>
+    <P><B>-</B> Removes a user from the userlist. (When this user disconnected). 
+    (Also removes all state data of this user) </P>
+    <P>* Updates the &lt;userinfo&gt; of a user (State information isn't 
+    altered). The user is matched by his object-number.</P>
+    <P><B>&lt;userinfo&gt;</B> is a list which contains the items defined in 
+    fields. The first item is the <A 
+    href="http://www.dds.nl/~vmoo/mcp/#object-number">object number</A> of the 
+    player and is the unique key by which a user is specified. (The Object fiels 
+    must be <B>Unique; </B>Name, icon, and any other fields are allowed to 
+    contain duplicate values)</P></BLOCKQUOTE></UL>
+<UL>
+  <BLOCKQUOTE>
+    <TABLE border=1 cellPadding=3 cellSpacing=0>
+      <TBODY>
+      <TR>
+        <TH>&lt;char&gt;</TH>
+        <TH>&lt;List&gt;</TH>
+        <TH>List type</TH></TR>
+      <TR>
+        <TD>&lt;</TD>
+        <TD>Set player idle</TD>
+        <TD>List of <A 
+          href="http://www.dds.nl/~vmoo/mcp/#object-number">objectnumber</A></TD></TR>
+      <TR>
+        <TD>&gt;</TD>
+        <TD>Set player not idle (default)</TD>
+        <TD>List of objectnumber</TD></TR>
+      <TR></TR>
+      <TR>
+        <TD>[</TD>
+        <TD>Set player away</TD>
+        <TD>List of objectnumber</TD></TR>
+      <TR>
+        <TD>]</TD>
+        <TD>Set player not away (default)</TD>
+        <TD>List of objectnumber</TD></TR>
+      <TR></TR>
+      <TR>
+        <TD>(</TD>
+        <TD>Set player invisible (cloak)</TD>
+        <TD>List of objectnumber</TD></TR>
+      <TR>
+        <TD>)</TD>
+        <TD>Set player not invisible (default)</TD>
+        <TD>List of objectnumber</TD></TR></TBODY></TABLE>
+    <P>A moo should (re)initialize the state information after a <B>=</B>.</P>
+    <P>To provide some assitance I'll provide a small example</P></BLOCKQUOTE></UL><PRE><B>#$#dns-nl-vgmoo-userlist &lt;~H=H, icons*: "" fields*: "" d*: "" _data-tag: h0+PE3
+#$#* h0+PE3 fields: {"Object", "Name", "Icon", "Connect Time", "First Connect Time"}
+#$#* h0+PE3 icons: {"Newbie", "Inhabitant", "Inhabitant+", "Schooled", "Key", "Star", "Wizard"}
+#$#* h0+PE3 d: ={{#200, "Capi", 7, 941903426, 923400345}}
+#$#* h0+PE3 d: &lt;{#200}
+#$#* h0+PE3 d: +{#444, "Mr.Ebou", 6, 921703426, 923400360}}</B></PRE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P>As usually, MCP lines with errors are ignored.</P></BLOCKQUOTE>
+  <P><B>dns-nl-vgmoo-userlist-menu(menu)</B> </P>
+  <BLOCKQUOTE>
+    <P>This message provides a context menu (A client is free to ignore some or 
+    all items).</P>
+    <P>The menu is provided as a moo list which can contain the following 
+    items:</P>
+    <P><B>0</B> (integer value). This value defines a menu separator</P>
+    <P><B>{</B>description<B>,</B> command<B>}</B> A menu option called 
+    description (The character &amp; is used to define the shortcut. &amp;&amp; 
+    is a literal &amp;) which executes command.</P>
+    <P>In command and description $(<B>x</B>) is converted to UserInfo[x] (When 
+    <B>x</B> is a positiveinteger) or a newline when <B>x</B> is 
+  'n'.</P></BLOCKQUOTE>
+  <P>E.g.:</P><PRE><B>{{"&amp;Look $(2)", "look $(1)"}, 0, {"&amp;Info $(2)", "info $(1)"}, 0, {"&amp;Wave $(2)", "wave $(1)"}, {"I&amp;nvite $(2)", "invite $(1)"}}</B> </PRE></BLOCKQUOTE>
+<P><B>6.2 dns-nl-vgmoo-client [1.0-1.0]</B></P>
+<UL>
+  <P>The following messages are defined:</P>
+  <UL>
+    <P><B>dns-nl-vgmoo-client-info(name, text-version, internal-version, reg-id, 
+    flags [,x-vmoo-flags]) </B>(Client to 
+    Moo)<B><BR>dns-nl-vgmoo-client-screensize(cols, rows) </B>(Client to 
+    Moo)<BR><B>dns-nl-vgmoo-client-disconnect([reason]) </B>(Moo to 
+    Client)<B><BR></B></P></UL>
+  <P><B>dns-nl-vgmoo-client-info(name, text-version, internal-version, reg-id, 
+  flags, ...)</B> </P>
+  <UL>
+    <P>is a message which uniquely specifies which version of a client is used. 
+    Whit this information it is possible to check for specific versions of 
+    clients to prevent bugs from occuring and to provide online assistance to 
+    users of specific clients.</P>
+    <P>The following 'flags' are defined: <B>p</B> (proxy), <B>l</B> (vmoo 
+    links).<BR>The following 'x-vmoo-flags' are defined: <B>m</B> (multimedia), 
+    <B>w</B> (popup windows)<BR>(Other clients are encouraged to support similar 
+    information)</P>
+    <P><I>Name</I> followed by <I>Text version</I> should form the complete 
+    client name</P>
+    <P><I>internal version</I> is an integer which defines the version of the 
+    client in an easy parsable way. (To enable client-bug wurkarounds in moo). 
+    (toint() is used to parse this string) (0 if not supported)</P>
+    <P><I>reg-id</I> is a numeric token which provides a unique user number to 
+    the moo. (In VMoo this number is some part of the registration number).
+    <P></P></UL></UL>
+<BLOCKQUOTE>
+  <P><B>dns-nl-vgmoo-client-screensize(cols, rows)</B> </P></BLOCKQUOTE>
+<UL>
+  <UL>
+    <P>Sent by the client whenever the screensize of the main text window 
+    changes. </P>
+    <P>(Please, only send this message after connecting en when the screensize 
+    changes and not when for example the screensize is increased by less than 1 
+    character.).</P></UL></UL>
+<BLOCKQUOTE>
+  <P><B>dns-nl-vgmoo-client-disconnect([reason])</B></P>
+  <BLOCKQUOTE>
+    <P>This message prepares the client for the disconnect event from the moo. 
+    It requests the client not to auto-reconnect when the connection is 
+    closed.</P>
+    <P>(VMoo ignores this message when it's send more than 5 seconds before 
+    disconnecting)</P></BLOCKQUOTE></BLOCKQUOTE>
+<P><B><A name=vgm-pages></A>6.2 dns-nl-vgmoo-pages [1.0-1.0]</B></P>
+<UL>
+  <P>The following messages are defined:</P>
+  <BLOCKQUOTE>
+    <P><B>dns-nl-vgmoo-pages-receive(from, msg) </B>(Moo to 
+    Client)<B><BR>dns-nl-vgmoo-pages-send(to, msg) </B>(Client to 
+  Moo)</P></BLOCKQUOTE></UL>
+<BLOCKQUOTE>
+  <P><B>dns-nl-vgmoo-pages-receive(from, msg)</B></P>
+  <BLOCKQUOTE>
+    <P>This message is sent when a page (moo user to user personal message) is 
+    received. The page origintates from <B>from</B> (<A 
+    href="http://www.dds.nl/~vmoo/mcp/#object-number">moo-object</A> defining a 
+    player as an object from dns-nl-vgmoo-userlist). msg is a <A 
+    href="http://www.dds.nl/~vmoo/mcp/#moo-list">moo-list</A> containing the 
+    lines of the message.</P></BLOCKQUOTE>
+  <P><B>dns-nl-vgmoo-pages-send(to, msg)</B></P>
+  <BLOCKQUOTE>
+    <P>This command send a page to <I>to</I> (A moo object or a name/alias). 
+    (<I>to</I> must accept user objects from dns-nl-vgmoo-userlist). Msg is just 
+    an ordinary string. (Not a moo string) </P></BLOCKQUOTE></BLOCKQUOTE>
+<H3><A name=pkgs-vmoo></A>7. VMoo Specifieke Packages</H3>
+<UL></UL>
+<P><B><A name=vm-userlist></A><A name=vm-client></A><A name=vm-pages></A>7.1 
+dns-com-vmoo-userlist</B> [1.0-1.1]<BR><B>7.2 dns-com-vmoo-client</B> 
+[1.0]<BR><B>7.3 dns-com-vmoo-pages</B> [1.0]</P>
+<BLOCKQUOTE>
+  <P>From VMoo 1.5, the dns-nl-vgmoo prefix is abandoned and replaced by the 
+  dns-com-vmoo prefix.</P>
+  <P>To provide some level of compatibility VMoo wil support the old prefix in 
+  the following versions (Until VMoo 3.0 or so)</P>
+  <P>When a moo / client implementation needs to provide both interfaces the 
+  following rule should be applied:</P>
+  <P>- When both dns-nl-vgmoo-<B>&lt;package&gt;</B> and 
+  dns-com-vmoo-<B>&lt;package&gt;</B> are available the support of 
+  dns-nl-vgmoo-<B>&lt;package&gt;</B> should be disabled (Send no messages, 
+  ignore received messages)</P>
+  <P>For more information about the packages:<BR>6.1. <A 
+  href="http://www.dds.nl/~vmoo/mcp/#vgm-userlist">Dns-nl-vgmoo-userlist</A><BR>6.2. 
+  <A 
+  href="http://www.dds.nl/~vmoo/mcp/#vgm-client">Dns-nl-vgmoo-client</A><BR>6.3. 
+  <A href="http://www.dds.nl/~vmoo/mcp/#vgm-pages">Dns-nl-vgmoo-pages</A></P>
+  <P>&nbsp;</P></BLOCKQUOTE>
+<P><B><A name=vm-dialogs></A>7.4 dns-com-vmoo-dialogs</B> [1.0]</P>
+<BLOCKQUOTE>
+  <P>This package will be documented here when the first VMoo is available which 
+  supports this package.</P></BLOCKQUOTE>
+<P><B><A name=vm-mmedia></A>7.5 dns-com-vmoo-mmedia</B> [1.0]</P>
+<BLOCKQUOTE>
+  <P>(This package supports audio+visual moo-&gt;Client data)</P>
+  <P>This package will be documented here when the first VMoo is available which 
+  supports this package.</P></BLOCKQUOTE>
+<P><B><A name=vm-multiplex></A>7.6 dns-com-vmoo-multiplex</B> [1.0]</P>
+<BLOCKQUOTE>
+  <P>(This package supports multiplexing several data screens connected to 1 
+  moo)</P>
+  <P>This package will be documented here when the first VMoo is available which 
+  supports this package.</P></BLOCKQUOTE>
+<P><B><A name=vm-presfuffix></A>7.7 dns-com-vmoo-presuffix </B>[1.0]</P>
+<BLOCKQUOTE>
+  <P>(Advanced out of band version of standard PREFIX and SUFFIX moo commands. 
+  Probably needs server hacks!)</P>
+  <P>This package will be documented here when the first VMoo is available which 
+  supports this package.</P></BLOCKQUOTE>
+<H3><B><A name=definitions></A>8. Definitions</B></H3>
+<UL>
+  <LI><A name=object-number></A><B>Object number:<BR></B>An object number is a 
+  string containing a literal #, followed by a 32 bit signed integer (e.g. #2). 
+  <LI><B><A name=moo-value></A>Moo value</B><BR>A moo value is a moo code value 
+  as produced with the moo builtin toliteral(val) or $string_utils:print(val). 
+  An value could be of the following types: Float, Integer, String, Object or 
+  List. 
+  <LI><B><A name=moo-string></A>Moo strings<BR></B>Moo strings are string values 
+  enclosed within <B>"</B>-s (You can escape <B>"</B>-s with <B>\"</B> and \ 
+  with <B>\\</B>). (The easiest way to produce these strings in Moo's is to use 
+  toliteral(string).) 
+  <LI><A name=moo-list></A><B>Moo list<BR></B>A moo list is a Moo list as 
+  produced with the moo builtin toliteral(val) or $string_utils:print(val). It 
+  is a string which starts whith <B>{</B> and ends with <B>}</B> and contains 
+  Moo values separated with comma's. 
+  <P>The easiest way to read this sort of values in a moo is: 
+  $no_one:eval(string) which returs {1, value} when string is a valid moo string 
+  or {0, error_info} when string isn't. (This works als for 
+  non-wizards).</P></LI></UL></BODY></HTML>

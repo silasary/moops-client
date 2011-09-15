@@ -1,0 +1,108 @@
+# % Connecting...
+# % Connected
+# % Login data sent
+>   ______             __              _______ _______ _______ 
+>  |   __ |-----.-----|  |_.----.-----|   |   |       |       |
+>  |    __|  _  |__ --|   _|   _|  -__|       |   -   |   -   |
+>  |___|  |_____|_____|____|__| |_____|__|_|__|_______|_______|
+> 
+>  Welcome to PostreMOO. Following commands are available:
+> 
+>   connect <username> <password> :: to login with your account.    
+>   create <username> <password>  :: to create a new account.      
+>   who                           :: to see who is currently online. 
+>   uptime                        :: to see the server's uptime.     
+>   quit                          :: kills the current connection.   
+> 
+>             There are currently 2 users online.                           
+> 
+>  First time users please type: create <username> <password>  
+> *** Connected ***
+< #$#mcp authentication-key: ,m<b(F version: 2.1 to: 2.1
+< #$#mcp-negotiate-can ,m<b(F package: mcp-negotiate min-version: 1.0 max-version: 2.0
+< #$#mcp-negotiate-can ,m<b(F package: dns-com-awns-status min-version: 1.0 max-version: 1.0
+< #$#mcp-negotiate-can ,m<b(F package: dns-net-beryllium-status min-version: 1.0 max-version: 1.0
+< #$#mcp-negotiate-can ,m<b(F package: dns-com-vmoo-client min-version: 1.0 max-version: 1.0
+< #$#mcp-negotiate-can ,m<b(F package: dns-com-vmoo-userlist min-version: 1.0 max-version: 1.1
+< #$#dns-org-mud-moo-simpleedit ,m<b(F package: dns-com-vmoo-userlist min-version: 1.0 max-version: 1.0
+< #$#mcp-negotiate-end ,m<b(F
+> [%][Login] connected: camel, Total: 3
+> There is new activity on the following list:
+>     *Changelog (#145)                    4 new messages
+> [%][Login] ANSI Version 2.2 is currently active.
+> [%][Login] Last connected Mon Aug  8 11:40:26 2011 UTC from 125.209.141.162
+> --- The Town Hall - Reception --------------------------------------------------------------------------------------------------- The Town Hall ---
+> Welcome to the reception. This room is the portal to the world of PostreMOO, it is also the starting point for guests and many players. On your first visit you should type 'read 2 on board' to get you started on communicating. Bold users can try 'read 1 on board' for a quick command list.
+> 
+> It is a big room with a reception desk, the walls are painted in a neutral white colour. On the desk is a guestbook which you can sign with 'write on book'. In the corner of the room, a tour-operator sits quietly in his kiosk. A sign on top of it reads in bold letters: "get guide".
+> 
+> There is a large river flowing into the drain.
+> 
+> You see Christina [fortune teller] and a bean bag here.
+> Quadagh and camel are standing here.
+> Obvious exits:
+>    [UP] to the First Floor - Hallway
+>    [WEST] to The Town Hall - Gardens
+< #$#dns-com-vmoo-client-info ,m<b(F name: "Moops!" text-version: "1.3.1.284" internal-version: "131284" reg-id: 0 flags: lp
+< #$#dns-com-vmoo-client-screensize ,m<b(F cols: 160 rows: 50
+< #$#dns-com-vmoo-client-screensize ,m<b(F cols: 147 rows: 50
+< #$#dns-net-beryllium-status-msg_get ,m<b(F type: update from: 0
+< @who
+> Player name      Connected    Idle time    Status    Location
+> -----------      ---------    ---------    ------    --------
+> camel (#256)     4 seconds    0 seconds    active    @[moo:@join camel]The Town Hall - Reception@[/]
+> Kamahl (#166)    an hour      5 minutes    idle      @[moo:@join Kamahl]Kamahl's office@[/]
+> Quadagh (#158)   7 hours      5 hours      idle      @[moo:@join Quadagh]The Town Hall - Reception@[/]
+> 
+> Total: 3 players, 1 of whom has been active recently.
+# % Connecting...
+# % Connected
+# % Login data sent
+>   ______             __              _______ _______ _______ 
+>  |   __ |-----.-----|  |_.----.-----|   |   |       |       |
+>  |    __|  _  |__ --|   _|   _|  -__|       |   -   |   -   |
+>  |___|  |_____|_____|____|__| |_____|__|_|__|_______|_______|
+> 
+>  Welcome to PostreMOO. Following commands are available:
+> 
+>   connect <username> <password> :: to login with your account.    
+>   create <username> <password>  :: to create a new account.      
+>   who                           :: to see who is currently online. 
+>   uptime                        :: to see the server's uptime.     
+>   quit                          :: kills the current connection.   
+> 
+>             There are currently 2 users online.                           
+> 
+>  First time users please type: create <username> <password>  
+> *** Connected ***
+< #$#mcp authentication-key: Ts$`t, version: 2.1 to: 2.1
+< #$#mcp-negotiate-can Ts$`t, package: mcp-negotiate min-version: 1.0 max-version: 2.0
+< #$#mcp-negotiate-can Ts$`t, package: dns-com-awns-status min-version: 1.0 max-version: 1.0
+< #$#mcp-negotiate-can Ts$`t, package: dns-net-beryllium-status min-version: 1.0 max-version: 1.0
+< #$#mcp-negotiate-can Ts$`t, package: dns-com-vmoo-client min-version: 1.0 max-version: 1.0
+< #$#mcp-negotiate-can Ts$`t, package: dns-com-vmoo-userlist min-version: 1.0 max-version: 1.1
+< #$#dns-org-mud-moo-simpleedit Ts$`t, package: dns-com-vmoo-userlist min-version: 1.0 max-version: 1.0
+< #$#mcp-negotiate-end Ts$`t,
+> [%][Login] connected: camel, Total: 3
+> There is new activity on the following list:
+>     *Changelog (#145)                    4 new messages
+> [%][Login] ANSI Version 2.2 is currently active.
+> [%][Login] Last connected Tue Aug  9 04:36:46 2011 UTC from 125.209.133.251
+> --- The Town Hall - Reception --------------------------------------------------------------------------------------------------- The Town Hall ---
+> Welcome to the reception. This room is the portal to the world of PostreMOO, it is also the starting point for guests and many players. On your first visit you should type 'read 2 on board' to get you started on communicating. Bold users can try 'read 1 on board' for a quick command list.
+> 
+> It is a big room with a reception desk, the walls are painted in a neutral white colour. On the desk is a guestbook which you can sign with 'write on book'. In the corner of the room, a tour-operator sits quietly in his kiosk. A sign on top of it reads in bold letters: "get guide".
+> 
+> There is a large river flowing into the drain.
+> 
+> You see Christina [fortune teller] and a bean bag here.
+> Quadagh and camel are standing here.
+> Obvious exits:
+>    [UP] to the First Floor - Hallway
+>    [WEST] to The Town Hall - Gardens
+< #$#dns-com-vmoo-client-info Ts$`t, name: "Moops!" text-version: "1.3.1.284" internal-version: "131284" reg-id: 0 flags: lp
+< #$#dns-com-vmoo-client-screensize Ts$`t, cols: 160 rows: 50
+< #$#dns-com-vmoo-client-screensize Ts$`t, cols: 147 rows: 50
+< #$#dns-net-beryllium-status-msg_get Ts$`t, type: update from: 0
+# % Network Socket Error #10053 (Software caused connection abort)
+# % Disconnected

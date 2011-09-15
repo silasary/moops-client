@@ -1,0 +1,45 @@
+//
+// Winshoes 7.038
+// Generated on 1/14/00 @ 10:46:45 PM by Winshoes Package Generator
+//
+
+package WinshoesWinInetPkgD5;
+
+{$R *.RES}
+{$R WinshoesWinInet.dcr}
+{$ALIGN ON}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS ON}
+{$RANGECHECKS ON}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $00400000}
+{$DESCRIPTION 'Winshoes WinInet Components for D5'}
+{$IMPLICITBUILD ON}
+
+requires
+  vcl50, vclx50;
+
+contains
+  RGFileUtil in 'RGFileUtil.pas',
+  RGStrFuncs in 'RGStrFuncs.pas',
+  SimpFTP in 'SimpFTP.pas',
+  WininetControl in 'WininetControl.pas',
+  SimpHTTP in 'SimpHTTP.pas';
+
+
+end.

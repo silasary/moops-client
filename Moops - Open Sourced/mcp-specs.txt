@@ -1,0 +1,89 @@
+$mcp-package (-f) -- generic package
+ - Name of the package (for:  #$#name-functionname)
+ .name
+ - version is a list of {INT major, INT minor}, set though negotiation
+ .version
+ - versions of the package supported by this object:
+ - {{min_major, min_minor}, {max_major, max_minor}}
+ .version_range
+ - Send the data, name, value  pairs
+ - function is the function of the
+ - if value is of type STRING, then is is send like that
+ - if value is of type LIST, al multiline is formed.
+ - Forwards to player.mcp-session:send
+ :send(STRING function, STRING key1, STRING||LIST value1, ...);
+
+
+$mcp-packge-buffered (parent=$mcp-packge)
+ .multiline {{data-tag, function, {{key, value}, ...}, {{key, {value, ...}}, ...}}, ...}
+ - Handles a function
+ :do_<function>(STRING name1, STRING||LIST value1, ...);
+ - Buffers a line
+ :handle_multiline_line(data-tag, key, value);
+ - Calls do_function and removes the buffer
+ :handle_multiline_end(data-tag);
+
+
+$mcp-packge-unbuffered (parent=$mcp-packge)
+ :do_<function>(STRING key1, STRING value1 || {}, ...);
+ :handle_multiline_line(key, var, line);
+ :handle_multiline_end(key);
+ - The next func returns that tag
+ :send_multiline_open(STRING function, STRING key1, STRING value1 || {}, ...);
+ :send_multiline_line(STRING tag, STRING line);
+ :send_multiline_end(STRING tag);
+
+$mcp-session  -- user specific session data (generic)
+ - Containes the key for this user (string)
+ .key
+ - List of suported packages (objects, childs of $mcp-package)
+ .packages
+ - Multilines vanuit de client..
+ - Bestaat uit: {{STRING key, OBJ package}, ...}
+ .multiline_in
+ .multiline_out
+ - Handles an oob command that cam from the user, is called by
+ - $mcp:hanlde_oob; must check if key matches, and forward to the
+ - appropriate package ...
+ :handle_oob(STRING key, STRING package, STRING function, name1, value2, ...);
+ - forwards to the package
+ :handle_multiline_line(key, var, line);
+ - forwards to the package
+ :handle_multiline_end(key);
+ - Next three functions check for a valid pkg (caller in this.packages) and
+ - call $mcp:notify_oob();
+ :send(STRING key1, STRING value1, ...);
+ :send_multiline(STRING key, STRING value);
+ :send_multiline_end(STRING key);
+
+$mcp  -- standard non user specific MCP commandos
+ - Generaties a auth key (with optional length)
+ :generate_key([INT length]);
+ - Handles generick #$# command, forwards to player.session:handle_oob if
+ - player.session exists, else it checks for negotiate and creates an
+ - player.session object
+ :handle_oob(STRING line);
+ :notify_oob(STRING line);
+
+
+
+multiline:
+{             # Beginning of 1st multliline
+ {data_tag    # multiline tag
+  function,   # function this apllies to
+  {{key,      # 1st none ML key
+    value     # 1st none ML value
+   },
+   ...        # other non ML key/value pairs
+  },
+  {
+   {key,      # 1st ML key
+    {value,   # 1st ML vaue, 1st line
+     ...      #              2nd to last line
+    }
+   },
+   ...        # other ML values
+  }
+ },
+ ...          # other buffered mulitlines
+}

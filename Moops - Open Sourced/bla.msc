@@ -1,0 +1,5 @@
+/new 'blabla'
+/logrotate 'bla'
+/logtofile 'bla'
+/connect 'jhg' 1111
+/cryptlogin 'jdg' '250155149153152100'

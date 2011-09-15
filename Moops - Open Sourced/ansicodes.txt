@@ -1,0 +1,17 @@
+	/* Styles */
+	{"off", "0"}, {"bold", "1"}, {"underscore", "4"}, {"blink", "5"},
+	{"reverse", "7"}, {"concealed","8"}, {"normal", "0"}, 
+	/* Foreground colors */
+	{"fg_black", "30"}, {"fg_red", "31"}, {"fg_green", "32"}, {"fg_yellow","33"},
+	{"fg_blue","34"}, {"fg_magenta", "35"},	{"fg_cyan", "36"}, {"fg_white", "37"},
+	/* Background colors */
+	{"bg_black", "40"}, {"bg_red", "41"}, {"bg_green", "42"}, {"bg_yellow","43"},
+	{"bg_blue","44"}, {"bg_magenta", "45"},	{"bg_cyan", "46"}, {"bg_white", "47"},
+	/* specials */
+	{"detail", "34"}, {"exit", "31"}, {"verb", "1;33"}
+};
+
+.-----------------------------------------------------.
+| static const keyasciipair ansi_default_asciis[] = { |
+| 	{"BELL", 7}, {"BEEP", 7}, {"LF", 10}, {"CR", 13}   |
+`-----------------------------------------------------'

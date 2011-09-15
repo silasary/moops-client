@@ -1,0 +1,507 @@
+unit LinkParser;
+
+interface
+
+procedure FindQuotedString(const S: string; Start: Integer; var Stop: Integer);
+function UnEscape(const S: string): string;
+function EnQuote(const S: string): string;
+
+type
+  TIeeuwLinkType =
+    (ilNone, ilQuote, ilEnd, ilStop, ilIgnore, ilHttp, ilHyperShort, ilMail,
+     ilLook, ilExit, ilGo, ilHelp, ilJoin, ilMoo, ilClnt, ilAnsi, ilChar);
+  TIeeuwLink = record
+    Start, Stop: Integer;
+    Kind: TIeeuwLinkType;
+    Data: string;
+    Number: Integer;
+  end;
+
+  TEntityItem = record
+    N: string;
+    D: Integer;
+  end;
+
+const
+  LinkTypeArr: array[0..16] of Byte = (0,0,0,0,0,1,1,1,3,3,3,3,3,4,2,0,0);
+
+  EmailSet = ['a'..'z', 'A'..'Z', '0'..'9', '.', '_', '-', '~'];
+  UrlSet = EmailSet + ['@', ':', '/', '%', '&', '?', '!', '[', ']','=','\','$'];
+
+  KnownUrls: array[0..12] of string =
+    ('http','ftp','telnet','gopher','moo','https','ftps','ssh','file','ra','ram','news','unreal');
+
+  EntityList: array[0..99] of TEntityItem = (
+    (N: 'nbsp'; D: 160), // no-break space
+    (N: 'iexcl'; D: 161), // inverted exclamation mark
+    (N: 'cent'; D: 162), // cent sign
+    (N: 'pound'; D: 163), // pound sterling sign
+    (N: 'curren'; D: 164), // general currency sign
+    (N: 'yen'; D: 165), // yen sign
+    (N: 'brvbar'; D: 166), // broken (vertical) bar
+    (N: 'sect'; D: 167), // section sign
+    (N: 'uml'; D: 168), // umlaut (dieresis)
+    (N: 'copy'; D: 169), // copyright sign
+    (N: 'ordf'; D: 170), // ordinal indicator, feminine
+    (N: 'laquo'; D: 171), // angle quotation mark, left
+    (N: 'not'; D: 172), // not sign
+    (N: 'shy'; D: 173), // soft hyphen
+    (N: 'reg'; D: 174), // registered sign
+    (N: 'macr'; D: 175), // macron
+    (N: 'deg'; D: 176), // degree sign
+    (N: 'plusmn'; D: 177), // plus-or-minus sign
+    (N: 'sup2'; D: 178), // superscript two
+    (N: 'sup3'; D: 179), // superscript three
+    (N: 'acute'; D: 180), // acute accent
+    (N: 'micro'; D: 181), // micro sign
+    (N: 'para'; D: 182), // pilcrow (paragraph sign)
+    (N: 'middot'; D: 183), // middle dot
+    (N: 'cedil'; D: 184), // cedilla
+    (N: 'sup1'; D: 185), // superscript one
+    (N: 'ordm'; D: 186), // ordinal indicator, masculine
+    (N: 'raquo'; D: 187), // angle quotation mark, right
+    (N: 'frac14'; D: 188), // fraction one-quarter
+    (N: 'frac12'; D: 189), // fraction one-half
+    (N: 'frac34'; D: 190), // fraction three-quarters
+    (N: 'iquest'; D: 191), // inverted question mark
+    (N: 'Agrave'; D: 192), // capital A, grave accent
+    (N: 'Aacute'; D: 193), // capital A, acute accent
+    (N: 'Acirc'; D: 194), // capital A, circumflex accent
+    (N: 'Atilde'; D: 195), // capital A, tilde
+    (N: 'Auml'; D: 196), // capital A, dieresis or umlaut mark
+    (N: 'Aring'; D: 197), // capital A, ring
+    (N: 'AElig'; D: 198), // capital AE diphthong (ligature)
+    (N: 'Ccedil'; D: 199), // capital C, cedilla
+    (N: 'Egrave'; D: 200), // capital E, grave accent
+    (N: 'Eacute'; D: 201), // capital E, acute accent
+    (N: 'Ecirc'; D: 202), // capital E, circumflex accent
+    (N: 'Euml'; D: 203), // capital E, dieresis or umlaut mark
+    (N: 'Igrave'; D: 204), // capital I, grave accent
+    (N: 'Iacute'; D: 205), // capital I, acute accent
+    (N: 'Icirc'; D: 206), // capital I, circumflex accent
+    (N: 'Iuml'; D: 207), // capital I, dieresis or umlaut mark
+    (N: 'ETH'; D: 208), // capital Eth, Icelandic
+    (N: 'Ntilde'; D: 209), // capital N, tilde
+    (N: 'Ograve'; D: 210), // capital O, grave accent
+    (N: 'Oacute'; D: 211), // capital O, acute accent
+    (N: 'Ocirc'; D: 212), // capital O, circumflex accent
+    (N: 'Otilde'; D: 213), // capital O, tilde
+    (N: 'Ouml'; D: 214), // capital O, dieresis or umlaut mark
+    (N: 'times'; D: 215), // multiply sign
+    (N: 'Oslash'; D: 216), // capital O, slash
+    (N: 'Ugrave'; D: 217), // capital U, grave accent
+    (N: 'Uacute'; D: 218), // capital U, acute accent
+    (N: 'Ucirc'; D: 219), // capital U, circumflex accent
+    (N: 'Uuml'; D: 220), // capital U, dieresis or umlaut mark
+    (N: 'Yacute'; D: 221), // capital Y, acute accent
+    (N: 'THORN'; D: 222), // capital THORN, Icelandic
+    (N: 'szlig'; D: 223), // small sharp s, German (sz ligature)
+    (N: 'agrave'; D: 224), // small a, grave accent
+    (N: 'aacute'; D: 225), // small a, acute accent
+    (N: 'acirc'; D: 226), // small a, circumflex accent
+    (N: 'atilde'; D: 227), // small a, tilde
+    (N: 'auml'; D: 228), // small a, dieresis or umlaut mark
+    (N: 'aring'; D: 229), // small a, ring
+    (N: 'aelig'; D: 230), // small ae diphthong (ligature)
+    (N: 'ccedil'; D: 231), // small c, cedilla
+    (N: 'egrave'; D: 232), // small e, grave accent
+    (N: 'eacute'; D: 233), // small e, acute accent
+    (N: 'ecirc'; D: 234), // small e, circumflex accent
+    (N: 'euml'; D: 235), // small e, dieresis or umlaut mark
+    (N: 'igrave'; D: 236), // small i, grave accent
+    (N: 'iacute'; D: 237), // small i, acute accent
+    (N: 'icirc'; D: 238), // small i, circumflex accent
+    (N: 'iuml'; D: 239), // small i, dieresis or umlaut mark
+    (N: 'eth'; D: 240), // small eth, Icelandic
+    (N: 'ntilde'; D: 241), // small n, tilde
+    (N: 'ograve'; D: 242), // small o, grave accent
+    (N: 'oacute'; D: 243), // small o, acute accent
+    (N: 'ocirc'; D: 244), // small o, circumflex accent
+    (N: 'otilde'; D: 245), // small o, tilde
+    (N: 'ouml'; D: 246), // small o, dieresis or umlaut mark
+    (N: 'divide'; D: 247), // divide sign
+    (N: 'oslash'; D: 248), // small o, slash
+    (N: 'ugrave'; D: 249), // small u, grave accent
+    (N: 'uacute'; D: 250), // small u, acute accent
+    (N: 'ucirc'; D: 251), // small u, circumflex accent
+    (N: 'uuml'; D: 252), // small u, dieresis or umlaut mark
+    (N: 'yacute'; D: 253), // small y, acute accent
+    (N: 'thorn'; D: 254), // small thorn, Icelandic
+    (N: 'yuml'; D: 255), // small y, dieresis or umlaut mark
+    (N: 'quot'; D: 34), // quotation mark, =apl quote, u+0022 ISOnum
+    (N: 'amp'; D: 38), // ampersand, u+0026 ISOnum
+    (N: 'lt'; D: 60), // less-than sign, u+003C ISOnum
+    (N: 'gt'; D: 62) // greater-than sign, u+003E ISOnum
+  );
+
+function GetIeeuwLink(const S: string; P: Integer): TIeeuwLink;
+function ReplaceLink(var S: string; const IL: TIeeuwLink): Integer;
+function ReplaceMail(var S: string; const IL: TIeeuwLink): Integer;
+function ReplaceUrl(var S: string; const IL: TIeeuwLink): Integer;
+function IsMail(var IL: TIeeuwLink; const S: string; P: Integer): Boolean;
+function IsUrl(var IL: TIeeuwLink; const S: string; P: Integer): Boolean;
+function IsWwwUrl(var IL: TIeeuwLink; const S: string; P: Integer): Boolean;
+function IsFtpUrl(var IL: TIeeuwLink; const S: string; P: Integer): Boolean;
+function IsValidUrl(Mode: Integer; const S: string; var Msg: string): Boolean;
+function SplitLink(const S: string; var LinkType: Integer; var Cmd: string): Boolean;
+
+implementation
+
+uses
+  SysUtils, Common;
+
+function IsValidUrl(Mode: Integer; const S: string; var Msg: string): Boolean;
+const
+  CommandList: array[1..9] of string = ('help','e','edit','ne','notedit','he','me','de','dump-ml');
+  UrlTypeList: array[1..13] of string = ('http','ftp','telnet','gopher','moo','https','ftps','ssh','ra','ram','news','unreal','mailto');
+var
+  LS, Temp: string;
+  I:  Integer;
+  Allowed: Boolean;
+begin
+  Result:=False;
+  if Mode=0 then begin Msg:='Unknown linktype.'; Exit; end;
+
+  LS:=LowerCase(S);
+
+  // Client commands
+  if Mode=2 then
+  begin
+    if (LS<>'') and (LS[1]<>'/') then begin Msg:='Client commands must start with ''/'''; Exit; end;
+    Allowed:=False;
+    I:=Pos(' ',LS);
+    if I=0 then I:=Length(LS)+1;
+    Temp:=Copy(LS,2,I-2);
+    for I:=Low(CommandList) to High(CommandList) do
+      if Temp=CommandList[I] then Allowed:=True;
+
+    if not Allowed then begin Msg:='Command not allowed: '+Temp; Exit; end;
+  end;
+
+  // URLS
+  if Mode=1 then
+  begin
+    Allowed:=False;
+    I:=Pos(':',LS);
+    if I=0 then begin Msg:='URL-type must be specified, like ''http://'''; Exit; end;
+    Temp:=Copy(LS,1,I-1);
+    for I:=Low(UrlTypeList) to High(UrlTypeList) do
+      if Temp=UrlTypeList[I] then Allowed:=True;
+
+    if not Allowed then begin Msg:='URL-type not allowed: '+Temp; Exit; end;
+  end;
+
+  // Moo commands
+  //if Mode=4 then begin Msg:='Moo-commands not allowed'; Exit; end;
+
+  // general
+  if Pos('file://',LS)>0 then begin Msg:='Link contains ''file://'''; Exit; end;
+  if Pos('c:\con\con',LS)>0 then begin Msg:='Link contains ''c:\con\con'''; Exit; end;
+
+  Result:=True;
+end;
+
+function SplitLink(const S: string; var LinkType: Integer; var Cmd: string): Boolean;
+var
+  I: Integer;
+  Tmp: string;
+begin
+  Result:=False; LinkType:=0; Cmd:='';
+  I:=Pos(':',S);
+  if I=0 then Exit;
+  Tmp:=Lowercase(Copy(S,1,I-1));
+  Cmd:=S; Delete(Cmd,1,I);
+  if Tmp='url' then LinkType:=1
+  else if Tmp='clnt' then LinkType:=2
+  else if Tmp='mcp' then LinkType:=5
+  else if Tmp='moo' then LinkType:=4;
+  // Misschien hier nog look:, exit: etc bij maken
+  Result:=True;
+end;
+
+procedure FindQuotedString(const S: string; Start: Integer; var Stop: Integer);
+var
+  I: Integer;
+begin
+  Stop:=0;
+  for I:=Start to Length(S) do
+    if (S[I]='"') and (Copy(S,I-1,1)<>'\') then begin Stop:=I; Exit; end;
+end;
+
+function UnEscape(const S: string): string;
+var
+  I: Integer;
+begin
+  Result:=S;
+  I:=1;
+  while I<Length(Result) do
+  begin
+    if (Result[I]='\') and (Result[I+1]='"') then Delete(Result,I,1);
+    Inc(I);
+  end;
+end;
+
+function EnQuote(const S: string): string;
+var
+  I: Integer;
+begin
+  Result:=S;
+  I:=1;
+  while I<=Length(Result) do
+  begin
+    if Result[I]='"' then begin Insert('\',Result,I); Inc(I); end;
+    Inc(I);
+  end;
+end;
+
+function ParseAnsi(S: string): string;
+var
+  P: Integer;
+  Tmp: string;
+begin
+  Result:='';
+  S:=LowerCase(S);
+  while Length(S)>0 do
+  begin
+    P:=Pos(';',S);
+    if P=0 then P:=Length(S)+1;
+    Tmp:=Copy(S,1,P-1); Delete(S,1,P);
+    if Copy(Tmp,1,3)='fg_' then Delete(Tmp,1,3);
+
+    if Tmp='red' then Result:=Result+'31;'
+    else if Tmp='blue' then Result:=Result+'34;'
+    else if Tmp='green' then Result:=Result+'32;'
+    else if Tmp='black' then Result:=Result+'30;'
+    else if Tmp='white' then Result:=Result+'37;'
+    else if Tmp='yellow' then Result:=Result+'33;'
+    else if Tmp='magenta' then Result:=Result+'35;'
+    else if Tmp='cyan' then Result:=Result+'34;'
+    else if Tmp='normal' then Result:=Result+'0;'
+    else if Tmp='off' then Result:=Result+'0;'
+    else if Tmp='bold' then Result:=Result+'1;'
+    else if Tmp='underline' then Result:=Result+'4;'
+    else if Tmp='blink' then Result:=Result+'5;'
+    else if Tmp='reverse' then Result:=Result+'7;'
+    else if Tmp='bg_bold' then Result:=Result+'9;'
+    else if Tmp='bg_red' then Result:=Result+'41;'
+    else if Tmp='bg_blue' then Result:=Result+'44;'
+    else if Tmp='bg_green' then Result:=Result+'42;'
+    else if Tmp='bg_black' then Result:=Result+'40;'
+    else if Tmp='bg_white' then Result:=Result+'47;'
+    else if Tmp='bg_yellow' then Result:=Result+'43;'
+    else if Tmp='bg_magenta' then Result:=Result+'45;'
+    else if Tmp='bg_cyan' then Result:=Result+'44;';
+  end;
+  if Result<>'' then
+  begin
+    Delete(Result,Length(Result),1);
+    Result:=#27'['+Result+'m';
+  end;
+end;
+
+function GetIeeuwLink(const S: string; P: Integer): TIeeuwLink;
+var
+  I, P1, P2: Integer;
+  Part1, Part2: string;
+begin
+  Result.Kind:=ilNone;
+  Result.Data:='';
+  Result.Start:=P;
+  if Copy(S,P+1,1)='[' then // do a better check
+    if Copy(S,P+2,1)='[' then // link-quote
+    begin
+      Result.Start:=P; Result.Stop:=P+3; Result.Kind:=ilQuote;
+    end
+    else if (Copy(S,P+1,3)='[/]') or (Copy(S,P+1,5)='[off]') then
+    begin
+      Result.Start:=P; Result.Stop:=P+3; Result.Kind:=ilEnd; Result.Data:=' ';
+    end
+    else if Copy(S,P+1,3)='[@]' then
+    begin
+      Result.Start:=P; Result.Stop:=P+3; Result.Kind:=ilStop; Result.Data:=' ';
+    end
+    else if Copy(S,P+2,1)='&' then // entity
+    begin
+      // find the ]
+      P2:=-1;
+      for I:=P+2 to Length(S) do
+        if S[I]=']' then begin P2:=I; Break; end;
+      if P2=-1 then Exit;
+      Part2:=Copy(S,P+3,P2-P-3);
+      if Part2='' then Exit;
+      if Part2[Length(Part2)]=';' then Delete(Part2,Length(Part2),1);
+      if Part2='' then Exit;
+      Result.Number:=-1;
+      if Part2[1]='#' then // numeric value
+      begin
+        Delete(Part2,1,1); if Part2='' then Exit;
+        if (Part2[1]='x') or (Part2[1]='X') then // hex-number
+          try
+            Result.Number:=HexToInt(Copy(Part2,2,Length(Part2)));
+          except
+          end
+        else // dec-number
+          try
+            Result.Number:=StrToInt(Copy(Part2,1,Length(Part2)));
+          except
+          end;
+      end
+      else // named value
+        for I:=Low(EntityList) to High(EntityList) do
+          if EntityList[I].N=Part2 then begin Result.Number:=EntityList[I].D; Break; end;
+      if (Result.Number<0) or (Result.Number>253) then Result.Number:=Ord('~');
+      Result.Start:=P; Result.Stop:=P2; Result.Kind:=ilChar;
+    end
+    else
+    begin // 'normal' link
+      // find the :
+      P1:=-1;
+      for I:=P+1 to Length(S) do
+        if S[I]=':' then begin P1:=I; Break; end;
+      if P1=-1 then P1:=P;
+
+      // find the ]
+      P2:=-1;
+      if Copy(S,P1+1,1)='"' then
+      begin
+        FindQuotedString(S,P1+2,I);
+        if I=0 then Exit;
+        if Copy(S,I+1,1)=']' then P2:=I+1;
+      end
+      else
+        for I:=P1+1 to Length(S) do
+          if S[I]=']' then begin P2:=I; Break; end;
+      if P2=-1 then Exit;
+
+      Part1:={Lowercase(}Copy(S,P+2,P1-P-2){)};
+      if Part1='link' then Result.Kind:=ilHttp
+      else if Part1='http' then Result.Kind:=ilHyperShort
+      else if Part1='ftp' then Result.Kind:=ilHyperShort
+      { TODO -oMartin -cLinkparser : moo:// maken }
+      //      else if Part1='moo' then Result.Kind:=ilHyperShort
+      else if Part1='gopher' then Result.Kind:=ilHyperShort
+      else if Part1='mailto' then Result.Kind:=ilHyperShort
+      else if Part1='help' then Result.Kind:=ilHelp
+      else if Part1='go' then Result.Kind:=ilGo
+      else if Part1='look' then Result.Kind:=ilLook
+      else if Part1='exit' then Result.Kind:=ilExit
+      else if Part1='clnt' then Result.Kind:=ilClnt
+      else if Part1='client' then Result.Kind:=ilClnt
+      else if Part1='moo' then Result.Kind:=ilHyperShort
+      else if Part1='ansi' then Result.Kind:=ilAnsi
+      else Result.Kind:=ilIgnore;
+
+      Part2:=Copy(S,P1+1,P2-P1-1);
+      if (Part2<>'') and (Part2[1]='"') then // remove surrounding "
+        if Part2[Length(Part2)]<>'"' then Exit
+        else begin Delete(Part2,1,1); Delete(Part2,Length(Part2),1); end;
+
+      if Result.Kind=ilHyperShort then Result.Data:=Part1+':'+Part2
+      else if Result.Kind in [ilGo,ilExit] then Result.Data:='@go '+Part2
+      else if Result.Kind=ilLook then Result.Data:='look '+Part2
+      else if Result.Kind=ilHelp then Result.Data:='help '+Part2
+      else if Result.Kind=ilJoin then Result.Data:='join '+Part2
+      else if Result.Kind=ilAnsi then Result.Data:=ParseAnsi(Part2)
+      else if (Result.Kind=ilHttp) and (Lowercase(Copy(Part2,1,7))<>'http://') then Result.Data:='http://'+Part2
+      else if Result.Kind=ilIgnore then Result.Data:=''
+      else Result.Data:=Part2;
+
+      Result.Stop:=P2;
+    end;
+end;
+
+function ReplaceLink(var S: string; const IL: TIeeuwLink): Integer;
+begin
+  if IL.Kind=ilChar then
+  begin
+    S:=Copy(S,1,IL.Start-1)+Chr(IL.Number and 255)+Copy(S,IL.Stop+1,Length(S));
+    Result:=IL.Start;
+  end
+  else if IL.Kind=ilAnsi then
+  begin
+    S:=Copy(S,1,IL.Start-1)+IL.Data+Copy(S,IL.Stop+1,Length(S));
+    Result:=IL.Start{+Length(IL.Data)}-1;
+  end
+  else if IL.Kind=ilQuote then
+  begin
+    Delete(S,IL.Start+1,1); Result:=IL.Start+1;
+  end
+  else
+  if IL.Kind=ilIgnore then
+  begin
+    S:=Copy(S,1,IL.Start-1)+Copy(S,IL.Stop+1,Length(S));
+    Result:=IL.Stop;
+  end
+  else
+  begin
+    S:=Copy(S,1,IL.Start-1)+#254+Chr(LinkTypeArr[Ord(IL.Kind)])+Chr(Length(IL.Data)+3)+IL.Data+Copy(S,IL.Stop+1,Length(S));
+    Result:=IL.Start+2+Length(IL.Data);
+  end;
+end;
+
+function ReplaceMail(var S: string; const IL: TIeeuwLink): Integer;
+begin
+  S:=Copy(S,1,IL.Start-1)+#254#1+Chr(Length(IL.Data)+3)+IL.Data+Copy(S,IL.Start,IL.Stop-IL.Start+1)+#254#0#3+Copy(S,IL.Stop+1,Length(S));
+  Result:=IL.Stop+6+Length(IL.Data);
+end;
+
+function ReplaceUrl(var S: string; const IL: TIeeuwLink): Integer;
+begin
+  S:=Copy(S,1,IL.Start-1)+#254#1+Chr(Length(IL.Data)+3)+IL.Data+Copy(S,IL.Start,IL.Stop-IL.Start+1)+#254#0#3+Copy(S,IL.Stop+1,Length(S));
+  Result:=IL.Stop+6+Length(IL.Data);
+end;
+
+function IsMail(var IL: TIeeuwLink; const S: string; P: Integer): Boolean;
+var
+  I, P1, P2: Integer;
+begin
+  Result:=(P>1) and (P<Length(S)) and (Copy(S,P+1,1)[1] in EmailSet) and (Copy(S,P-1,1)[1] in EmailSet);
+  if Result then
+  begin
+    P1:=1;
+    for I:=P-1 downto 1 do
+      if not (S[I] in EmailSet) then begin P1:=I+1; Break; end;
+    P2:=Length(S);
+    for I:=P+1 to Length(S) do
+      if not (S[I] in EmailSet) then begin P2:=I-1; Break; end;
+    while (P2>0) and (Copy(S,P2,1)[1] in ['-','.','!']) do Dec(P2); // get rid of 'bla@bla.com...'
+    IL.Data:='mailto:'+Copy(S,P1,P2-P1+1);
+    if Lowercase(Copy(S,P1-7,7))='mailto:' then Dec(P1,7);
+    IL.Start:=P1;
+    IL.Stop:=P2;
+  end;
+end;
+
+function IsUrl(var IL: TIeeuwLink; const S: string; P: Integer): Boolean;
+var
+  I, P1, P2: Integer;
+begin
+  Result:=False;
+  P1:=-1;
+  for I:=Low(KnownUrls) to High(KnownUrls) do
+    if LowerCase(Copy(S,P-Length(KnownUrls[I]),Length(KnownUrls[I])))=KnownUrls[I] then
+    begin P1:=P-Length(KnownUrls[I]); Break; end;
+  if P1=-1 then Exit;
+  P2:=Length(S);
+  for I:=P+1 to Length(S) do
+    if not (S[I] in UrlSet) then begin P2:=I-1; Break; end;
+  if (P1=P) or (P2=P) then Exit;
+  while (P2>0) and (Copy(S,P2,1)[1] in ['@', ':', '%', '&', '?', '!', '[', ']','=','.','-']) do Dec(P2);
+  if (P1=P) or (P2=P) then Exit;
+  IL.Start:=P1;
+  IL.Stop:=P2;
+  IL.Data:=Copy(S,P1,P2-P1+1);
+  Result:=True;
+end;
+
+function IsWwwUrl(var IL: TIeeuwLink; const S: string; P: Integer): Boolean;
+begin
+  Result:=False;
+end;
+
+function IsFtpUrl(var IL: TIeeuwLink; const S: string; P: Integer): Boolean;
+begin
+  Result:=False;
+end;
+
+end.

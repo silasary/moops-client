@@ -1,0 +1,25 @@
+en nou @[http://www.beryllium.net]bla@[/]-linkje
+en @[nix]geen link@[/sd]dfghkjh
+@[&#38]@[&#38;]@[&#x26]@[&#X26;]@[&amp]@[&Amp]
+bla#martin@beryllium.net@[&amp]bla
+bla#mailto:martin@beryllium.net@[&amp]bla
+@[link:file://bla.com]sdfjh@[/]
+@[link:http://C:\con\con]sdfjh@[/]
+@[[http://bla.com]sdfjh@[/]
+dskhdfg@[ansi:bold;red]mja@[ansi:normal]grrr
+@[link:http://bla.com]test[50m[1m[31mjep@[/]en nog wa tekst
+@[link:http://bla.com]test@[ansi:bold;red]jep@[/]en nog wa tekst
+[50m[1m[31mB [0mMichiel (#668)      49 minuten   6 seconden   <@[moo://moo.nowmoo.nl:2001]NowMOO@[[0m[0m
+
+[7men nou @[http://www.beryllium.net]bla@[/]-linkje
+[7men @[nix]geen link@[/sd]dfghkjh
+[7m@[&#38]@[&#38;]@[&#x26]@[&#X26;]@[&amp]@[&Amp]
+[7mbla#martin@beryllium.net@[&amp]bla
+[7mbla#mailto:martin@beryllium.net@[&amp]bla
+[7m@[link:file://bla.com]sdfjh@[/]
+[7m@[link:http://C:\con\con]sdfjh@[/]
+[7m@[[http://bla.com]sdfjh@[/]
+[7mdskhdfg@[ansi:bold;red]mja@[ansi:normal]grrr
+[7m@[link:http://bla.com]test[50m[1m[31mjep@[/]en nog wa tekst
+[7m@[link:http://bla.com]test@[ansi:bold;red]jep@[/]en nog wa tekst
+[7m[50m[1m[31mB [0mMichiel (#668)      49 minuten   6 seconden   <@[moo://moo.nowmoo.nl:2001]NowMOO@[[0m[0m

@@ -1,0 +1,154 @@
+{+-----------------------------------------------------------------------------+
+ | Unit:        mwLocalStr
+ | Created:     1999-08
+ | Version:     0.89
+ | Last change: 1999-11-11
+ | Description: put all strings that might need localisation into this unit
+ | Translation: Spanish
+ | Last change: 1999-11-19
+ +----------------------------------------------------------------------------+}
+
+unit mwLocalStr;
+
+{$I MWEDIT.INC}
+
+interface
+
+{begin}                                                                         //mh 1999-11-07
+// NOTE: this is design-time stuff, so no need to have it in stringtables
+const
+  MWS_ComponentsPage           =  'mwEdit';
+  MWS_HighlightersPage         =  'mwEdit Highlighters';
+{end}                                                                           //mh 1999-11-07
+
+{$IFDEF MWE_COMPILER_3_UP}
+resourcestring
+{$ELSE}
+const
+{$ENDIF}
+
+{begin}                                                                         //sva 1999-09-16, Changed first chars to uppercase
+  // names for highlighter attributes - general
+  MWS_AttrAssembler            =  'Ensamblador';
+  MWS_AttrAsm                  =  'Asm';
+  MWS_AttrComment              =  'Comentario';
+  MWS_AttrIdentifier           =  'Identificador';
+  MWS_AttrKey                  =  'Palabra clave';                              //mh 1999-09-22
+  MWS_AttrNumber               =  'Número';
+  MWS_AttrOperator             =  'Operador';
+  MWS_AttrPreprocessor         =  'Preprocesador';
+  MWS_AttrReservedWord         =  'Palabra reservada';
+  MWS_AttrSpace                =  'Espacio';
+  MWS_AttrSymbol               =  'Símbolo';
+  MWS_AttrString               =  'Cadena';
+  MWS_AttrText                 =  'Texto';
+
+  // names for highlighter attributes - special
+  MWS_AttrAsmComment           =  'Comentario de Asm';
+  MWS_AttrAsmKey               =  'Palabra clave de Asm';
+  MWS_AttrASP                  =  'Asp';
+  MWS_AttrCharacter            =  'Caracter';                                   //dm 1999-11-11
+  MWS_AttrDocumentation        =  'Documentación';
+  MWS_AttrEscapeAmpersand      =  'Caracter de escape';
+  MWS_AttrIllegalChar          =  'Caracter ilegal';
+  MWS_AttrInvalidSymbol        =  'Símbolo incorrecto';
+  MWS_AttrInternalFunction     =  'Función interna';
+  MWS_AttrMessage              =  'Mensaje';
+  MWS_AttrNull                 =  'Null';
+  MWS_AttrPragma               =  'Pragma';
+  MWS_AttrRpl                  =  'Rpl';
+  MWS_AttrRplKey               =  'Palabra clave de Rpl';
+  MWS_AttrRplComment           =  'Comentario de Rpl';
+  MWS_AttrSASM                 =  'SASM';                                       //mh 1999-10-27
+  MWS_AttrSASMComment          =  'Comentario de SASM';                         //mh 1999-10-27
+  MWS_AttrSASMKey              =  'Palabra clave de SASM';                      //mh 1999-10-27
+  MWS_AttrSecondReservedWord   =  'Segunda palabra reservada';
+  MWS_AttrSection              =  'Sección';                                    //iz 1999-11-07
+  MWS_AttrSystemValue          =  'Valor del sistema';
+  MWS_AttrUnknownWord          =  'Palabra desconocida';
+  MWS_AttrValue                =  'Valor';
+  MWS_AttrVariable             =  'Variable';
+  MWS_AttrIcon                 =  'Icon reference';                             //sva 1999-09-16
+  MWS_AttrBrackets             =  'Corchetes';                                  //sva 1999-09-24
+  MWS_AttrMiscellaneous        =  'Miscelánea';                                 //sva 1999-09-24
+  MWS_AttrSystem               =  'Funciones y variables del sistema';          //sva 1999-09-25
+  MWS_AttrUser                 =  'Funciones y variables de usuario';           //sva 1999-09-25
+{begin}                                                                         //mh 1999-10-15
+  MWS_AttrBlock                =  'Bloque';
+  MWS_AttrForm                 =  'Formulario';
+  MWS_AttrFunction             =  'Función';
+  MWS_AttrQualifier            =  'Calificador';
+  MWS_AttrSpecialVariable      =  'Variable especial';
+{end}                                                                           //mh 1999-10-15
+{end}                                                                           //sva 1999-09-16
+
+  // mwCustomEdit scroll hint window caption
+  MWS_ScrollInfoFmt            =  'Línea superior: %d';
+
+{begin}                                                                         //mh 1999-10-31
+  // strings for property editors etc
+  MWS_EDuplicateShortcut       =  'El atajo de teclado ya existe';
+  MWS_ShortcutNone             =  '<ninguno>';
+  MWS_DuplicateShortcutMsg     =  'La combinación de teclas "%s" ya está asig' +
+                                  'nada a otro comando del editor.';
+  MWS_DuplicateShortcutMsg2    =  'La combinación de teclas "%s" ya está asig' +
+                                  'nada a otro comando del editor.'#13#10'El ' +
+                                  'atajo para este elemento no ha sido cambiado.';
+{end}                                                                           //mh 1999-10-31
+
+{begin}                                                                         //ajb 1999-09-14
+  // Filters used for open/save dialog
+  MWS_FilterPascal             =  'Archivos Pascal (*.pas,*.dpr,*.dpk,*.inc)|*.pas;*.dpr;*.dpk;*.inc';
+  MWS_FilterHP48               =  'Archivos HP48 (*.s,*.sou,*.a,*.hp)|*.s;*.sou;*.a;*.hp';
+  MWS_FilterCAClipper          =  'Archivos CA-Clipper (*.prg, *.ch, *.inc)|*.prg;*.ch;*.inc';
+  MWS_FilterCPP                =  'Archivos C++ (*.cpp,*.h,*.hpp)|*.cpp;*.h;*.hpp';
+  MWS_FilterJava               =  'Archivos Java (*.java)|*.java';
+  MWS_FilterPerl               =  'Archivos Perl (*.pl,*.pm,*.cgi)|*.pl;*.pm;*.cgi';
+  MWS_FilterAWK                =  'Archivos AWK (*.awk)|*.awk';
+  MWS_FilterHTML               =  'Documentos HTML (*.htm,*.html)|*.htm;*.html';
+  MWS_FilterVBScript           =  'Archivos VBScript (*.vbs)|*.vbs';
+  MWS_FilterGalaxy             =  'Archivos Galaxy (*.gtv,*.galrep,*.txt)|*.gtv;*.galrep;*.txt';
+  MWS_FilterPython             =  'Archivos Python (*.py)|*.py';
+  MWS_FilterSQL                =  'Archivos SQL (*.sql)|*.sql';
+  MWS_FilterHP                 =  'Archivos HP48 (*.s,*.sou,*.a,*.hp)|*.S;*.SOU;*.A;*.HP';
+  MWS_FilterTclTk              =  'Archivos de Tcl/Tk (*.tcl)|*.tcl';
+  MWS_FilterRTF                =  'Formato RTF (*.rtf)|*.rtf';
+  MWS_FilterBatch              =  'Archivos por lotes MS-DOS (*.bat)|*.bat';    //mh 1999-09-22
+  MWS_FilterDFM                =  'Archivos de formulario de Delphi/C++ Builder (*.dfm)|*.dfm';//mh 1999-09-22
+  MWS_FilterX86Asm             =  'Archivos de ensamblador x86 (*.asm)|*.ASM';  //mh 1999-09-24
+  MWS_FilterGembase            =  'Archivos GEMBASE (*.dml,*.gem)|*.DML;*.GEM'; //mh 1999-10-15
+  MWS_FilterINI                =  'Archivos INI (*.ini)|*.ini';                 //iz 1999-11-07
+  MWS_FilterML                 =  'Archivos Standard ML (*.sml)|*.sml';         //dm 1999-11-11
+{end}                                                                           //ajb 1999-09-14
+
+{begin}                                                                         //mh 1999-09-24
+  // Language names. Maybe somebody wants them translated / more detailed...
+  MWS_LangHP48                 =  'HP48';
+  MWS_LangCAClipper            =  'CA-Clipper';
+  MWS_LangCPP                  =  'C++';
+  MWS_LangJava                 =  'Java';
+  MWS_LangPerl                 =  'Perl';
+  MWS_LangBatch                =  'Secuencia de comandos MS-DOS';
+  MWS_LangDfm                  =  'Definiciones de formularios de Delphi/C++ Builder';
+  MWS_LangAWK                  =  'AWK Script';
+  MWS_LangHTML                 =  'Documento HTML';
+  MWS_LangVBSScript            =  'MS VBScript';
+  MWS_LangGalaxy               =  'Galaxy';
+  MWS_LangGeneral              =  'General';
+  MWS_LangPascal               =  'ObjectPascal';
+  MWS_LangX86Asm               =  'Lenguaje ensamblador x86';
+  MWS_LangPython               =  'Python';
+  MWS_LangTclTk                =  'Tcl/Tk';
+  MWS_LangSQL                  =  'SQL';
+  MWS_Gembase                  =  'Gembase';                                    //mh 1999-10-15
+  MWS_LanguageINI              =  'Archivos INI';                               //iz 1999-11-07
+  MWS_LanguageML               =  'Standard ML';                                //dm 1999-11-11
+
+  // Exporter names.
+  MWS_ExportHTML               =  'HTML';
+  MWS_ExportRTF                =  'RTF';
+{end}                                                                           //mh 1999-09-24
+
+implementation
+
+end.
