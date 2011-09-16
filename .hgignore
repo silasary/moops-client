@@ -1,0 +1,4 @@
+glob:*.~*
+glob:*.mse
+glob:*.lnk
+glob:publish.bat
