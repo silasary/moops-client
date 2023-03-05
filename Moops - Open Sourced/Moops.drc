@@ -7,39 +7,39 @@
   produced executable.
 */
 
-#define ComConst_SVarNotObject 65248
-#define simphttp_S_HTTP_ERR_URL_CRACK 65264
-#define simphttp_S_HTTP_ERR_FILE_READ 65265
-#define simphttp_S_HTTP_ERR_HEADER_ADD 65266
-#define mwLocalStr_MWS_AttrNumber 65267
-#define mwLocalStr_MWS_AttrReservedWord 65268
-#define mwLocalStr_MWS_AttrSpace 65269
-#define mwLocalStr_MWS_AttrSymbol 65270
-#define mwLocalStr_MWS_AttrString 65271
-#define mwLocalStr_MWS_AttrVariable 65272
-#define mwLocalStr_MWS_ScrollInfoFmt 65273
-#define mwLocalStr_MWS_EDuplicateShortcut 65274
-#define jconsts_sChangeJPGSize 65275
-#define jconsts_sJPEGError 65276
-#define jconsts_sJPEGImageFile 65277
-#define ComConst_SOleError 65278
-#define ComConst_SNoMethod 65279
-#define WinInetControl_S_STATE_NOCONNECTION 65280
-#define WinInetControl_S_STATE_CONNECTING 65281
-#define WinInetControl_S_STATE_CONNECTED 65282
-#define WinInetControl_S_STATE_RESOLVING_NAME 65283
-#define WinInetControl_S_STATE_NAME_RESOLVED 65284
-#define WinInetControl_S_STATE_UNKNOWN 65285
-#define WinInetControl_S_ERROR_INTERNET_GENERAL_ERROR 65286
-#define WinInetControl_S_ERROR_INTERNET_INCORRECT_USER_NAME 65287
-#define WinInetControl_S_ERROR_INTERNET_INCORRECT_PASSWORD 65288
-#define WinInetControl_S_ERROR_INTERNET_CANNOT_CONNECT 65289
-#define WinInetControl_S_ERROR_INTERNET_NAME_NOT_RESOLVED 65290
-#define WinInetControl_S_ERROR_INTERNET_INTERNAL_ERROR 65291
-#define WinInetControl_S_ERROR_INTERNET_TIMEOUT 65292
-#define WinInetControl_S_ERROR_NO_ERROR_STRING 65293
-#define simphttp_S_HTTP_ERR_REQUEST_SEND 65294
-#define simphttp_S_HTTP_ERR_HEAD_QUERY 65295
+#define simphttp_S_HTTP_ERR_HEADER_ADD 65248
+#define WinInetControl_S_STATE_CONNECTED 65264
+#define WinInetControl_S_STATE_RESOLVING_NAME 65265
+#define WinInetControl_S_STATE_NAME_RESOLVED 65266
+#define WinInetControl_S_STATE_UNKNOWN 65267
+#define WinInetControl_S_ERROR_INTERNET_GENERAL_ERROR 65268
+#define WinInetControl_S_ERROR_INTERNET_INCORRECT_USER_NAME 65269
+#define WinInetControl_S_ERROR_INTERNET_INCORRECT_PASSWORD 65270
+#define WinInetControl_S_ERROR_INTERNET_CANNOT_CONNECT 65271
+#define WinInetControl_S_ERROR_INTERNET_NAME_NOT_RESOLVED 65272
+#define WinInetControl_S_ERROR_INTERNET_INTERNAL_ERROR 65273
+#define WinInetControl_S_ERROR_INTERNET_TIMEOUT 65274
+#define WinInetControl_S_ERROR_NO_ERROR_STRING 65275
+#define simphttp_S_HTTP_ERR_REQUEST_SEND 65276
+#define simphttp_S_HTTP_ERR_HEAD_QUERY 65277
+#define simphttp_S_HTTP_ERR_URL_CRACK 65278
+#define simphttp_S_HTTP_ERR_FILE_READ 65279
+#define mwLocalStr_MWS_AttrReservedWord 65280
+#define mwLocalStr_MWS_AttrSpace 65281
+#define mwLocalStr_MWS_AttrSymbol 65282
+#define mwLocalStr_MWS_AttrString 65283
+#define mwLocalStr_MWS_AttrVariable 65284
+#define mwLocalStr_MWS_ScrollInfoFmt 65285
+#define mwLocalStr_MWS_EDuplicateShortcut 65286
+#define jconsts_sChangeJPGSize 65287
+#define jconsts_sJPEGError 65288
+#define jconsts_sJPEGImageFile 65289
+#define ComConst_SOleError 65290
+#define ComConst_SNoMethod 65291
+#define ComConst_SVarNotObject 65292
+#define WinInetControl_S_STATE_DISCONNECTING 65293
+#define WinInetControl_S_STATE_NOCONNECTION 65294
+#define WinInetControl_S_STATE_CONNECTING 65295
 #define Consts_SDockTreeRemoveError 65296
 #define Consts_SDockZoneNotFound 65297
 #define Consts_SDockZoneHasNoCtl 65298
@@ -55,7 +55,7 @@
 #define ComStrs_sInsertError 65308
 #define ComStrs_sInvalidOwner 65309
 #define ComStrs_sPageIndexError 65310
-#define WinInetControl_S_STATE_DISCONNECTING 65311
+#define mwLocalStr_MWS_AttrNumber 65311
 #define Consts_SInvalidClipFmt 65312
 #define Consts_SIconToClipboard 65313
 #define Consts_SCannotOpenClipboard 65314
@@ -282,25 +282,7 @@
 #define SysConst_SInvalidInput 65535
 STRINGTABLE
 BEGIN
-	ComConst_SVarNotObject,	"Variant does not reference an automation object"
-	simphttp_S_HTTP_ERR_URL_CRACK,	"Error %d (%s) cracking URL %s"
-	simphttp_S_HTTP_ERR_FILE_READ,	"Error %d (%s) reading URL"
 	simphttp_S_HTTP_ERR_HEADER_ADD,	"Error %d (%s) adding post headers"
-	mwLocalStr_MWS_AttrNumber,	"Number"
-	mwLocalStr_MWS_AttrReservedWord,	"Reserved word"
-	mwLocalStr_MWS_AttrSpace,	"Space"
-	mwLocalStr_MWS_AttrSymbol,	"Symbol"
-	mwLocalStr_MWS_AttrString,	"String"
-	mwLocalStr_MWS_AttrVariable,	"Variable"
-	mwLocalStr_MWS_ScrollInfoFmt,	"TopLine: %d"
-	mwLocalStr_MWS_EDuplicateShortcut,	"Shortcut already exists"
-	jconsts_sChangeJPGSize,	"Cannot change the size of a JPEG image"
-	jconsts_sJPEGError,	"JPEG error #%d"
-	jconsts_sJPEGImageFile,	"JPEG Image File"
-	ComConst_SOleError,	"OLE error %.8x"
-	ComConst_SNoMethod,	"Method '%s' not supported by automation object"
-	WinInetControl_S_STATE_NOCONNECTION,	"No connection"
-	WinInetControl_S_STATE_CONNECTING,	"Connecting to %s"
 	WinInetControl_S_STATE_CONNECTED,	"Connected to %s"
 	WinInetControl_S_STATE_RESOLVING_NAME,	"Resolving name %s"
 	WinInetControl_S_STATE_NAME_RESOLVED,	"Resolved name %s"
@@ -315,6 +297,24 @@ BEGIN
 	WinInetControl_S_ERROR_NO_ERROR_STRING,	"No error description available"
 	simphttp_S_HTTP_ERR_REQUEST_SEND,	"Unable to send request to %s (%s)"
 	simphttp_S_HTTP_ERR_HEAD_QUERY,	"Error %d (%s) querying HTTP response header"
+	simphttp_S_HTTP_ERR_URL_CRACK,	"Error %d (%s) cracking URL %s"
+	simphttp_S_HTTP_ERR_FILE_READ,	"Error %d (%s) reading URL"
+	mwLocalStr_MWS_AttrReservedWord,	"Reserved word"
+	mwLocalStr_MWS_AttrSpace,	"Space"
+	mwLocalStr_MWS_AttrSymbol,	"Symbol"
+	mwLocalStr_MWS_AttrString,	"String"
+	mwLocalStr_MWS_AttrVariable,	"Variable"
+	mwLocalStr_MWS_ScrollInfoFmt,	"TopLine: %d"
+	mwLocalStr_MWS_EDuplicateShortcut,	"Shortcut already exists"
+	jconsts_sChangeJPGSize,	"Cannot change the size of a JPEG image"
+	jconsts_sJPEGError,	"JPEG error #%d"
+	jconsts_sJPEGImageFile,	"JPEG Image File"
+	ComConst_SOleError,	"OLE error %.8x"
+	ComConst_SNoMethod,	"Method '%s' not supported by automation object"
+	ComConst_SVarNotObject,	"Variant does not reference an automation object"
+	WinInetControl_S_STATE_DISCONNECTING,	"Disconnecting from %s"
+	WinInetControl_S_STATE_NOCONNECTION,	"No connection"
+	WinInetControl_S_STATE_CONNECTING,	"Connecting to %s"
 	Consts_SDockTreeRemoveError,	"Error removing control from dock tree"
 	Consts_SDockZoneNotFound,	" - Dock zone not found"
 	Consts_SDockZoneHasNoCtl,	" - Dock zone has no control"
@@ -330,7 +330,7 @@ BEGIN
 	ComStrs_sInsertError,	"Unable to insert an item"
 	ComStrs_sInvalidOwner,	"Invalid owner"
 	ComStrs_sPageIndexError,	"%d is an invalid PageIndex value.  PageIndex must be between 0 and %d"
-	WinInetControl_S_STATE_DISCONNECTING,	"Disconnecting from %s"
+	mwLocalStr_MWS_AttrNumber,	"Number"
 	Consts_SInvalidClipFmt,	"Invalid clipboard format"
 	Consts_SIconToClipboard,	"Clipboard does not support Icons"
 	Consts_SCannotOpenClipboard,	"Cannot open clipboard"

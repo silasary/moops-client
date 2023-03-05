@@ -5,3 +5,6 @@
 /RX/Units/*.dcu
 /winshoes/Winshoes/*.dcu
 *.~pas
+/Moops - Open Sourced/Commander/*.dcu
+*.~dpr
+*.~bpg

@@ -9,18 +9,12 @@ MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
 DCC = $(ROOT)\bin\dcc32.exe $**
 BRCC = $(ROOT)\bin\brcc32.exe $**
 #------------------------------------------------------------------------------
-PROJECTS = Moops.exe Moops.enu Moops.nld
+PROJECTS = Moops.exe
 #------------------------------------------------------------------------------
 default: $(PROJECTS)
 #------------------------------------------------------------------------------
 
 Moops.exe: Moops.dpr
-  $(DCC)
-
-Moops.enu: enu\Moops.dpr
-  $(DCC)
-
-Moops.nld: nld\Moops.dpr
   $(DCC)
 
 

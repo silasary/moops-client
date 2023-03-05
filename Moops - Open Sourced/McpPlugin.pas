@@ -1929,12 +1929,12 @@ begin
   with TEditClientPage(CEPage) do
   begin
     SetStatus('Saving...');
-    if Supported then // Send through multilines
+    if (Supported and (SimpleEditReference <> '')) then // Send through multilines
     begin
       MLTag:=Mcp.NewMultiLine;
-      Mcp.SendMcp('dns-org-mud-moo-simpleedit-set','reference: ' + SimpleEditReference + 'name: "'+FileName+'" type: "'+TextType+'" contents*: "" _data-tag: "'+MLTag+'"');
+      Mcp.SendMcp('dns-org-mud-moo-simpleedit-set','reference: "' + SimpleEditReference + '" name: "'+FileName+'" type: "'+TextType+'" content*: "" _data-tag: "'+MLTag+'"');
       for I:=0 to EditWin.Lines.Count-1 do
-        Mcp.SendMcpML(MLTag,'contents: '+EditWin.Lines[I]);
+        Mcp.SendMcpML(MLTag,'content: '+EditWin.Lines[I]);
       Mcp.SendMcpMLEnd(MLTag);
     end
     else
@@ -1957,7 +1957,7 @@ end;
 function TMcpSimpleEdit.NotifyML(ML: PMcpMultiLine; const Key, Value: string): Boolean;
 begin
   Result:=True;
-  if Key='contents' then
+  if Key='content' then
     if Assigned(ML.MsgData) then
       if not FirstLine then
         TEditClientPage(ML.MsgData).EditWin.Lines.Add(Value)
@@ -1972,9 +1972,9 @@ procedure TMcpSimpleEdit.NotifyMLMessage(ML: PMcpMultiLine);
 begin
   if Mcp.MsgVerb='content' then
   begin
-    if not Mcp.ReqParams(['name','type']) then Exit;
+    if not Mcp.ReqParams(['name','type', 'reference']) then Exit;
     if LowerCase(Mcp.MsgParams.Values['type'])='error' then Exit;
-    if ML.MultiParams.IndexOf('contents')=-1 then Exit;
+    if ML.MultiParams.IndexOf('content')=-1 then Exit;
     ML.MsgData:=TNetClientPage(Mcp.CPage).OpenEditor(Mcp.MsgParams.Values['name']);
     FirstLine:=True;
     with TEditClientPage(ML.MsgData) do
@@ -1983,6 +1983,7 @@ begin
       InitLoading(Mcp.MsgParams.Values['name']);
       if TextType='verb' then
         EditWin.HighLighter:=mwMooHighLighter;
+      SimpleEditReference:=Mcp.MsgParams.Values['reference'];
     end;
   end;
 end;
@@ -2002,6 +2003,6 @@ function TMcpSimpleEdit.MyVerb(Verb: string): Boolean;
 begin
   Result:=Verb='content';
 end;
-    
+
 
 end.

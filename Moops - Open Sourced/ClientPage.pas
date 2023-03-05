@@ -438,6 +438,8 @@ begin
 end;
 
 procedure TEditClientPage.Save;
+var
+  EditPlugin: TMcpEditPkg;
 begin
   if TextType='file' then
     if FileName='' then
@@ -451,7 +453,11 @@ begin
       end
   else
   begin
-    TMcpEditPkg(NCPage.McpPlugin.FindPackage('dns-net-beryllium-edit')).SaveLines(Self);
+    EditPlugin := TMcpEditPkg(NCPage.McpPlugin.FindPackage('dns-net-beryllium-edit'));
+    if EditPlugin.Supported then
+      EditPlugin.SaveLines(Self)
+    else
+      TMcpSimpleEdit(NCPage.McpPlugin.FindPackage('dns-org-mud-moo-simpleedit')).Send(Self);
     SwitchToWorld;
   end;
 end;

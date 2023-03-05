@@ -20,7 +20,7 @@ begin
     CP.AddToChat(DoColor(cvYellow,cvRed));
     CP.AddToChat('Beryllium Engineering Moops! '+UpdChecker.ThisVersion);
     CP.AddToChat('Copyright (C) '+DoColor(cvWhite,cvRed)+'@[mailto:martin@beryllium.net]Martin Poelstra@[/]'+DoColor(cvYellow,cvRed)+' 2000-2002');
-    CP.AddToChat('Maintained by '+DoColor(cvWhite,cvRed)+'@[mailto:yeoldesteve@gmail.com]Stephen Gigante@[/]'+DoColor(cvYellow,cvRed)+' 2011.');
+    CP.AddToChat('Maintained by '+DoColor(cvWhite,cvRed)+'@[mailto:clockwork.singularity@gmail.com]Katelyn Gigante@[/]'+DoColor(cvYellow,cvRed)+' 2011-2023');
 	//CP.AddToChat('Moops schopt kont!');
     CP.AddToChat(DoColor(cvYellow,cvMaroon));
     CP.AddToChat('You can visit the website for online help:');
@@ -38,7 +38,7 @@ begin
     CP.AddToChat('Simon Gijsen');
     CP.AddToChat('@[http://upx.sourceforge.net]Ultimate Packer for eXecutables@[/]');
     CP.AddToChat('mwEdit component');
-	CP.AddToChat('Peter ''R-four'' Corcoran');
+    CP.AddToChat('Peter ''R-four'' Corcoran');
     CP.AddToChat('');
     CP.AddToChat(DoColor(cvYellow,cvRed)+'And VERY special thanks go to:');
     CP.AddToChat(DoColor(cvWhite,cvMaroon)+'@[mailto:eligia@beryllium.net]Alice Bakker@[/]');
